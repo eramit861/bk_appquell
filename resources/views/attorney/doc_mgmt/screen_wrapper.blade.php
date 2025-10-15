@@ -96,7 +96,7 @@
                                 <div id="progress-bar"></div>
                                 <span id="zip-download-main-text">
                                     <span style="display: inline-block">Click here to Download</span>
-                                    <span style="display: inline-block">Client Doc(s)</span>
+                                    <span style="display: inline-block">Client Doc(s)</span> 
                                 </span>
                                 <span id="zip-download-progress-text">
 
