@@ -114,5 +114,5 @@
     }
   };
 </script>
-<script src="{{ asset('js/yes-no-questions.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/yes-no-questions.js') }}"></script>
 @endpush

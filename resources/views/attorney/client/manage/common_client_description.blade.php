@@ -141,5 +141,5 @@
         formSubmissionViewRoute: "{{ route('attorney_form_submission_view', ['id' => $val['id']]) }}"
     };
 </script>
-<script src="{{ asset('js/common-client-description.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/common-client-description.js') }}"></script>
 @endpush

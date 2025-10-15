@@ -1,7 +1,7 @@
 @extends('layouts.attorney',["video" => $video])
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/attorney-profile.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/attorney/attorney-profile.css') }}">
 @endpush
 
 @section('content')

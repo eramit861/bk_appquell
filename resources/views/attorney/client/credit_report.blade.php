@@ -348,7 +348,7 @@
 </style>
 
 <!-- Include optimized JavaScript -->
-<script src="{{ asset('js/credit-report.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/credit-report.js') }}"></script>
 <script>
 	// Initialize Credit Report Manager
 	document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,153 @@
+    .font-color-sucess {
+        color: #28a745;
+    }
+
+    .font-color-fail {
+        color: #dc3545;
+    }
+
+    .font-color-accept {
+        color: #28a745;
+    }
+
+    .font-color-decline {
+        color: #ffa600;
+    }
+
+    .d-status i {
+        padding: 0px !important;
+        display: inline-block;
+        width: 24px;
+        font-size: unset !important;
+    }
+
+    a.font-color-sucess,
+    a.font-color-fail {
+        padding: 0px !important;
+    }
+
+    .list_con_doc {
+        list-style: none;
+        padding: 0px;
+    }
+
+    #facebox .content.fbminwidth {
+        /* min-width: 900px; */
+        max-width: 900px;
+        min-height: 350px;
+        padding: 0px;
+    }
+
+    .notesTable th {
+        border-top: 1px solid #eaeaea;
+        border-bottom: 1px solid #eaeaea;
+        color: #414141;
+    }
+
+    .notesTable table thead {
+        background-color: #EDEEF0;
+    }
+
+    .notesTable table thead th {
+        padding: 5px 10px 5px 10px;
+    }
+
+    .notesTable table tbody td {
+        padding: 5px 10px 5px 10px;
+    }
+
+    .notesTable table tbody td {
+        border-top: 1px solid #eaeaea;
+    }
+
+    .add-new-btn {
+        background: #0e42df;
+        color: #ffffff;
+        border: none;
+        border-radius: 0.3rem;
+        padding: 6px 12px;
+        font-weight: 400;
+        font-size: 14px;
+        text-decoration: none;
+        transition: 0.3s all ease-in-out;
+    }
+
+    #video_modal {
+        z-index: 9999;
+    }
+
+    .add-new-btn:hover {
+        background: #0e42df;
+        color: #ffffff;
+        box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.17);
+        transition: 0.3s all ease-in-out;
+    }
+
+    label.error {
+        color: red !important;
+        font-style: italic;
+    }
+
+    .error {
+        border-color: red !important;
+    }
+
+    .error:focus {
+        box-shadow: 0 0 0 0.25rem rgb(253 13 13 / 25%);
+    }
+
+    .requestPopup .head {
+        background: rgb(0, 22, 87);
+        background: linear-gradient(90deg, #00b0f0 11%, rgba(14, 66, 223, 1) 100%);
+        padding: 0rem 1.5rem;
+        border-radius: 0.25rem 0.25rem 0rem 0rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .requestPopup .head h4 {
+        color: #ffffff;
+    }
+
+    .requestPopup .head a {
+        padding: 5px 10px;
+    }
+
+    .requestPopup .body {
+        background: #ebf2fc;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+    }
+
+    .requestPopup .body-middle {
+        background: #ebf2fc;
+        padding: 0rem 1.5rem 0rem 1.5rem;
+    }
+
+    .requestPopup .card {
+        border-radius: 0.25rem;
+    }
+
+    .requestPopup .submitButton {
+        background: #0e42df;
+        color: #ffffff;
+        border: none;
+        border-radius: 0.25rem;
+        float: right;
+        padding: 7px 12px !important;
+        font-weight: 600;
+        height: 36px;
+        width: 60px;
+
+    }
+
+    .h-38px {
+        height: 38px !important;
+    }
+
+    .h-44px {
+        height: 44px !important;
+    }
+
+    .h-90px {
+        height: 90px !important;
+    }

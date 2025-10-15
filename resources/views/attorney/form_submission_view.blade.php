@@ -141,7 +141,7 @@
         }
     };
 </script>
-<script src="{{ asset('js/form-submission-view.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/form-submission-view.js') }}"></script>
 @endpush
 
 @if($detailed_property == 1)

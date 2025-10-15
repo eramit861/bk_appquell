@@ -1,0 +1,233 @@
+/**
+ * Paystub Page Styles
+ * Styles for attorney client paystub management page
+ */
+
+/* Font Weight Utilities */
+.font-weight-bold-imp:before {
+    font-weight: bold !important;
+}
+
+/* Paystub Row Styles */
+.paystub-row {
+    position: relative;
+}
+
+.paystub-row .ai-icon {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+/* Document Select Styles */
+.document-select {
+    max-width: 200px;
+}
+
+/* Employer Header Styles */
+.employer-name-header.bb-0-i, 
+.employer-name-header .bb-0-i {
+    border-bottom: 0px !important;
+}
+
+.employer-name-header.bt-0-i, 
+.employer-name-header .bt-0-i {
+    border-top: 0px !important;
+}
+
+.employer-name-header {
+    border-top: 2px solid rgb(0, 0, 0, 0.1) !important;
+    border-bottom: 2px solid rgb(0, 0, 0, 0.1) !important;
+}
+
+/* Section Heading Styles */
+.sec-heading-font.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Employer Color Classes */
+.employer-color-1 {
+    color: green;
+    font-weight: bold;
+}
+
+.employer-color-2 {
+    color: green;
+    font-weight: bold;
+}
+
+.employer-color-3,
+.employer-color-4,
+.employer-color-5,
+.employer-color-6 {
+    color: #012cae;
+    font-weight: bold;
+}
+
+.employer-color-99 {
+    font-weight: bold;
+}
+
+/* Employer Row Styles */
+tr.employer-row td {
+    padding: 0.5rem;
+}
+
+/* Income Transfer Button Styles */
+.income-transfer-button {
+    background-color: #00b0f0;
+    border: 2px solid #00b0f0;
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+.income-transfer-button:hover {
+    color: #ffffff;
+}
+
+/* Utility Classes */
+.h-fit-content {
+    height: fit-content;
+}
+
+.ab_right {
+    position: absolute;
+    right: 0px;
+}
+
+.card {
+    margin-bottom: 0px;
+}
+
+.negative-record {
+    background-color: rgb(241, 224, 224) !important;
+}
+
+/* Option Button Styles */
+.option-btn {
+    background-color: unset;
+    color: #012cae !important;
+    padding: 4px 9px;
+}
+
+.option-btn:hover {
+    transition: 0.2s ease-in-out;
+    background-color: #012cae;
+    color: #fff !important;
+    padding: 4px 9px;
+}
+
+.option-btn::after, 
+.new-paychecks-btn::after {
+    display: none;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    padding: 0px 0px 10px;
+    min-width: -webkit-max-content !important;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 6px !important;
+    font-size: 12px;
+    display: -webkit-flex;
+}
+
+.dropdown-menu.show::before {
+    left: 50%;
+}
+
+/* Width Utilities */
+.width_max_content {
+    width: max-content;
+}
+
+/* Border Utilities */
+.border-top-total {
+    border-top: 1px solid #eaeaea;
+}
+
+/* Modal Width Utilities */
+.mid-width {
+    width: 70% !important;
+}
+
+/* Head Image Styles */
+.head_in {
+    display: block;
+    float: left;
+}
+
+.head_img {
+    display: block;
+    float: left;
+    width: 30px;
+    margin-right: 5px;
+}
+
+/* Table Styles */
+.table-responsive .table td a, 
+.table-responsive .table td {
+    font-size: 12px !important;
+}
+
+td span ul {
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+/* Button Styles */
+.btn-new-ui-default,
+.view_client_btn {
+    white-space: nowrap !important;
+    min-width: 120px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+/* Line Height Utilities */
+.lh_point_1 {
+    line-height: .1;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 1024px) {
+    #facebox .content.fbminwidth {
+        min-width: 100% !important;
+    }
+
+    #facebox {
+        left: unset !important;
+        max-width: 100% !important;
+    }
+
+    #facebox .popup {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .button-set-4 .btn {
+        white-space: normal !important;
+        font-size: 13px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .btn-new-ui-default,
+    .view_client_btn {
+        min-width: 100px !important;
+        font-size: 13px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+/* Questions Popup Styles */
+.questions_popup_div {
+    max-height: 95vh !important;
+}

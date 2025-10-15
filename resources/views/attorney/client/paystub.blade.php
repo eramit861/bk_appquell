@@ -668,7 +668,7 @@ $messages[] = "<a href='javascript:void(0)' class='border border-danger lh_point
 
 
 	@push('styles')
-	<link rel="stylesheet" href="{{ asset('css/paystub.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/attorney/paystub.css') }}">
 	@endpush
 
 	@push('scripts')
@@ -697,6 +697,6 @@ $messages[] = "<a href='javascript:void(0)' class='border border-danger lh_point
 			}
 		};
 	</script>
-	<script src="{{ asset('js/paystub-management.js') }}"></script>
+	<script src="{{ asset('assets/js/attorney/paystub-management.js') }}"></script>
 	@endpush
 	@endsection

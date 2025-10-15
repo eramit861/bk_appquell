@@ -188,7 +188,7 @@ if ($isIntakeClient) {
 </div>
 
 {{-- Include optimized CSS file --}}
-<link href="{{ asset('css/notes-popup.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/attorney/notes-popup.css') }}" rel="stylesheet">
 
 <script>
     markShownNotes = function(client_id){

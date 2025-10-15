@@ -1,0 +1,59 @@
+#download-docs-container {
+    margin: 0 auto;
+}
+
+#generate-zip {
+    position: relative;
+    display: grid;
+
+    background-color: #012cae;
+    color: white;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+    padding: 0;
+    width: 100%;
+    height: 94px;
+}
+
+#generate-zip:hover {
+    background-color: #012cae;
+    filter: brightness(0.9);
+}
+
+#zip-download-main-text,
+#zip-download-progress-text {
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#progress-bar {
+    grid-column: 1;
+    grid-row: 1;
+    border: 0;
+    border-radius: 8px;
+
+    width: 0%;
+    height: 100%;
+    background-color: #76c7c0;
+    transition: width 0.5s ease-in-out;
+}
+
+a.green {
+    color: green;
+    font-weight: bold;
+    background-color: #f9fff9;
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+a.loginas {
+    padding: 36px;
+    text-align: center;
+}

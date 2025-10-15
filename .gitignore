@@ -47,6 +47,9 @@ database/database.sqlite
 .settings/
 .buildpath
 
+# Cursor AI
+/.cursor/
+
 # OS
 .DS_Store
 .DS_Store?

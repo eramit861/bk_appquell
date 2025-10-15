@@ -408,5 +408,5 @@
         showModalOnError: {{ $errors->any() ? 'true' : 'false' }}
     };
 </script>
-<script src="{{ asset('js/invite-client-popup.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/invite-client-popup.js') }}"></script>
 @endpush

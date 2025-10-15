@@ -166,7 +166,7 @@
    
 @push('styles')
 <!-- Include optimized CSS using Laravel standard stack -->
-<link href="{{ asset('css/signed-document.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/attorney/signed-document.css') }}" rel="stylesheet">
 @endpush
     <script src="{{ asset('assets/js/upload-document.js') }}?v=10.0"></script>
     <script>

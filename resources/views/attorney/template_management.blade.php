@@ -111,7 +111,7 @@
 <script>
 	window.TemplateManagementConfig = {};
 </script>
-<script src="{{ asset('js/template-management.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/template-management.js') }}"></script>
 @endpush
 
 @endsection

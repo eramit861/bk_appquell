@@ -1,0 +1,263 @@
+/* Error labels */
+#update_password_frm label.error,
+#company_profile_frm label.error,
+#payment_frm label.error {
+	color: red;
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
+/* Image preview visibility */
+.hide_img_preview { display: none; }
+
+/* Layout and UI styles */
+.border_area { border: 1px solid #dfdfdf; padding-top: 10px; }
+.questionnaire-logo img { max-width: 100%; }
+
+.welcome-box {
+	box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+	text-align: center;
+	padding: 40px 15px;
+}
+.welcome-box .img {
+	border: 5px solid #cbcbcb;
+	display: inline-block;
+	padding: 30px;
+	border-radius: 50%;
+}
+.welcome-box .content-box { padding-top: 20px; }
+
+/* Nav pills */
+.nav-pills .nav-link {
+	border: 2px solid #000;
+	margin-right: 10px;
+}
+.nav-pills .nav-link.active {
+	border: 2px solid #012cae;
+}
+.nav-pills .nav-link a i.feather {
+	font-weight: bold;
+	font-size: 14px;
+}
+.nav-pills .nav-link a {
+	font-weight: bold;
+	color: #012cae;
+	font-size: 14px;
+}
+.nav-pills > li.nav-link > a { padding: 6px 5px; }
+.nav-pills > li.nav-link.active > a { color: #fff; }
+.nav-pills { padding-left: 0; padding-right: 0; }
+
+/* Form/table spacing */
+.attorney-setting-table .card-block .col-md-6 { margin: 0 0 30px 0; }
+
+/* Croppie preview box (if used) */
+.preview {
+	overflow: hidden;
+	width: 160px;
+	height: 160px;
+	margin: 10px;
+	border: 1px solid red;
+}
+
+/* Modal */
+.modal-dialog { max-width: 950px; }
+.mob_mr { margin: auto; }
+
+/* Subform styles */
+.subform label { font-family: "bradley"; }
+.subform .plan input:checked + label.petition_112 { background-color: #aaa; }
+.subform .plan input:checked + label.paralegal_110 { background-color: #aaa; }
+
+/* Toggles and helpers */
+#joint_payroll_yes, #joint_payroll_no { display: block; }
+.smp { font-size: 14px !important; }
+.bg-none { background: none !important; }
+
+
+/* subscription_addon_popup */
+    body {
+        color: #414141;
+    }
+    td{
+        padding : 0.25rem 1rem;
+    }
+
+    .hide-data{
+        display : none;
+    }
+
+    .no-select {
+        padding: 5px 12px;
+    }
+
+    .pr-custom{padding-right: 1.8rem !important;}
+
+    .radio_btn{
+        padding: 9px 12px !important;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        /* border: 1px solid #ced4da; */
+        border-radius: 0.25rem;
+        height: auto;
+        box-shadow: 0 0 20px #c3c3c367;
+    }
+
+    .float-end{float:right !important;}
+
+    .modal-dialog {
+        max-width: 1220px !important;
+    }
+
+    .radio-buttons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .custom-card input {
+        display: none;
+    }
+
+    .radio-btn {
+        margin: 10px 10px;
+        width: 170px;
+        height: 148px;
+        border: 3px solid transparent;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367;
+        cursor: pointer;
+    }
+
+    .radio-btn.sub-package {
+        margin: 10px 24px;
+        width: 175px;
+        height: 100px;
+        border: 3px solid transparent;
+        display: inline-block;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c367;
+        cursor: pointer;
+    }
+
+    .radio-btn > i {
+        color: #ffffff;
+        background-color: #012cae;
+        font-size: 20px;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) scale(2);
+        border-radius: 50px;
+        padding: 3px;
+        transition: 0.5s;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .radio-btn .package-desc {
+        padding-top: 25px;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%
+    }
+
+    .radio-btn .package-desc img {
+        display:block;
+        width:100%;
+        margin-bottom:20px;
+    }
+
+    .radio-btn .package-desc i {
+        color: #012cae;
+        line-height: 80px;
+        font-size: 60px;
+    }
+
+    .radio-btn .package-desc h3 {
+        color: #555;
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing:1px;
+    }
+
+    .custom-card.package input:checked + .radio-btn {
+        border: 2px solid #012cae;
+        color: #ffffff;
+    }
+
+    .custom-card.package input:checked + .radio-btn > i {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    .custom-card.addon input:checked + .radio-btn {
+        border: 2px solid #012cae;
+        color: #000000;
+    }
+
+    .custom-card.addon input:checked + .radio-btn > i {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+
+    .radio-btn p{ margin:auto;}
+
+    .custom-card.package-100 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#cecece;
+    }
+    .custom-card.package-101 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#00bdd1;
+    }
+    .custom-card.package-121 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#0c00aa;
+    }
+    .custom-card.package-102 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#000000;
+    }
+    .custom-card.package-135 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#008000;
+    }
+    .custom-card.package-103 input:checked + .radio-btn {
+        border: 3px solid white;
+        background:#00bdd1;
+    }
+    .custom-card.package-100 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#cecece;
+    }
+    .custom-card.package-101 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#00bdd1;
+    }
+    .custom-card.package-121 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#0c00aa;
+    }
+    .custom-card.package-102 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#000000;
+    }
+    .custom-card.package-135 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#008000;
+    }
+    .custom-card.package-103 input:checked + .radio-btn > i {
+        border: 3px solid white;
+        background:#00bdd1;
+    }

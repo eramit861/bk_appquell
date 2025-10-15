@@ -260,7 +260,7 @@ if ($edit) {
 
 @push('styles')
 <!-- Include optimized CSS using Laravel standard stack -->
-<link href="{{ asset('css/employer-management.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/attorney/employer-management.css') }}" rel="stylesheet">
 @endpush
 
 <script>

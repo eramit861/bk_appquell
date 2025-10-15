@@ -232,7 +232,7 @@
 @endif
 @push('scripts')
 <!-- Include optimized JavaScript using Laravel standard stack -->
-<script src="{{ asset('js/client-management.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/client-management.js') }}"></script>
 <script>
 	// Initialize Client Management Manager
 	document.addEventListener('DOMContentLoaded', function() {

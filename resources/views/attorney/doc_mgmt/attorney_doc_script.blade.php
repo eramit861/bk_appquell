@@ -116,5 +116,5 @@ $payDates = getPayDatesByEmployerId($payCheckData);
         }
     };
 </script>
-<script src="{{ asset('js/attorney-doc-script.js') }}?v=1.0"></script>
+<script src="{{ asset('assets/js/attorney/attorney-doc-script.js') }}?v=1.0"></script>
 @endpush

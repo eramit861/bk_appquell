@@ -112,7 +112,7 @@
 
 @push('scripts')
 <!-- Include optimized JavaScript using Laravel standard stack -->
-<script src="{{ asset('js/document-management.js') }}" defer></script>
+<script src="{{ asset('assets/js/attorney/document-management.js') }}" defer></script>
 <script>
     // Initialize Document Management Manager
     document.addEventListener('DOMContentLoaded', function() {
@@ -126,5 +126,5 @@
 
 @push('styles')
 <!-- Include optimized CSS using Laravel standard stack -->
-<link href="{{ asset('css/document-management.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/attorney/document-management.css') }}" rel="stylesheet">
 @endpush

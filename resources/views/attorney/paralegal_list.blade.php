@@ -201,7 +201,7 @@
         editRoute: "{{ session('edit_id') ? route('attorney_paralegal_edit', ['id' => session('edit_id')]) : '' }}"
     };
 </script>
-<script src="{{ asset('js/paralegal-management.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/paralegal-management.js') }}"></script>
 @endpush
 
 @endsection

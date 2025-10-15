@@ -377,7 +377,7 @@
 			}
 		};
 	</script>
-	<script src="{{ asset('js/questionnaire-intake.js') }}?v=1.04"></script>
+	<script src="{{ asset('assets/js/attorney/questionnaire-intake.js') }}?v=1.04"></script>
 	@endpush
 
 @endsection

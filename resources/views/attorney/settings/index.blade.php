@@ -127,7 +127,7 @@ $associate_name = $associate_name ?? 'Associate';
     };
     // The external script relies on jQuery, jQuery Validate, and laws.* helpers already loaded on the page
 </script>
-<script src="{{ asset('js/attorney-settings.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/attorney-settings.js') }}"></script>
 @endpush
 <style>
     label.error {

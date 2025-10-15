@@ -1,0 +1,342 @@
+/**
+ * Notes Popup Styles
+ * Extracted from notes_popup.blade.php
+ */
+
+/* Modal Styles */
+#facebox .content.fbminwidth.questions_popup_div.short_form_notes{
+	max-height: 93vh !important;
+}
+
+#facebox .content.fbminwidth{
+    min-width: 80vw; 
+}
+
+#facebox .content {
+    max-width: 1024px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 6px;
+    overflow-y: scroll !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE 11 */
+}
+
+#facebox .content::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Edge */
+}
+
+/* Table Styles */
+label.error {
+    color: red;
+    font-style: italic;
+}
+
+th {
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    color: #414141;
+}
+
+table thead {
+    background-color: #EDEEF0;
+}
+
+table thead th {
+    padding: 5px 10px 5px 10px;
+}
+
+table tbody td {
+    padding: 5px 10px 5px 10px;
+    border-top: 1px solid #eaeaea;
+}
+
+/* Message Styles */
+.admin-msg {
+    background-color: #fafafa;
+}
+
+.my-msg {
+    text-align: right;
+}
+
+.id-control {
+    padding: 3px 12px;
+}
+
+.card .card-block, .card .card-body {
+    padding: 30px 15px;
+}
+
+.update {
+    color: #012cae;
+    cursor: pointer;
+}
+
+/* Message Body Animation */
+.messageBody {
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    display: none;
+}
+
+.visible {
+    opacity: 1;
+    max-height: 500px;
+    display: block;
+}
+
+/* Message Popup Styles */
+.messagePopup {
+    /* padding: 0rem 1rem; */
+}
+
+.messagePopup .head {
+    background: rgb(0,22,87);
+    background: linear-gradient(90deg, #00b0f0 11%, rgba(14,66,223,1) 100%);
+    border-radius: 0.25rem 0.25rem 0rem 0rem;
+    display: flex;
+    align-items: center;
+}
+
+.messagePopup .head h4 {
+    color: #ffffff;
+}
+
+.messagePopup .head a {
+    padding: 5px 10px;
+}
+
+.messagePopup .body {
+    /* background: #ffffff; */
+    padding: 1rem 1.5rem;
+}
+
+/* Profile Bubble Styles */
+.messagePopup .body .profileBubble {
+    text-align: center;
+    background: #e3e3e3;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sendSectionIcon .profileBubble {
+    border: 2px solid #012cae;
+    text-align: center;
+    background: #012cae;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.sendSectionIcon .profileBubble.admin-profile-icon {
+    border: 2px solid #012cae;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.sendSectionIcon .profileBubble.admin-profile-icon img {
+    padding: 5px;
+}
+
+/* Message Bubble Styles */
+.messagePopup .body .messageBubble {
+    padding: 0.75rem 1rem;
+    width: auto;
+    display: inline-block;
+    position: relative;
+}
+
+.messagePopup .body .messageBubble .messageSubject {
+    cursor: pointer;
+}
+
+.messagePopup .body .adminMessage {
+    margin-top: 0.75rem;
+}
+
+.messagePopup .body .clientMessage {
+    margin-top: 0.75rem;
+}
+
+.messagePopup .body .adminMessage .messageBubble {
+    background: #f4f5f7;
+    float: right;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 10px 0px 10px 10px;
+    word-wrap: anywhere;
+}
+
+.messagePopup .body .clientMessage .messageBubble {
+    background: #ebf2fc;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0px 10px 10px 10px;
+}
+
+/* Message Tail Styles */
+.messagePopup .body .tail {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.messagePopup .body .tail:before {
+    height: 9px;
+    width: 9px;
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.messagePopup .body .adminMessage .tail {
+    background: #f4f5f7;
+    right: 7px;
+    top: 12px;
+}
+
+.messagePopup .body .adminMessage .tail:before {
+    height: 9px;
+    background: #f4f5f7;
+    right: -10px;
+    top: 0px;
+}
+
+.messagePopup .body .clientMessage .tail {
+    background: #ebf2fc;
+    left: 7px;
+    top: 12px;
+}
+
+.messagePopup .body .clientMessage .tail:before {
+    height: 9px;
+    background: #ebf2fc;
+    left: -10px;
+    top: 0px;
+}
+
+/* No Message Styles */
+.messagePopup .body .noMessage {
+    text-align: center;
+    width: 100%;
+}
+
+.messagePopup .body .noMessage img {
+    opacity: 0.1;
+    height: 100px;
+    width: 100px;
+}
+
+.messagePopup .body .noMessage label {
+    width: 100%;
+    font-weight: 600;
+    color: #6a6969;
+}
+
+/* Timestamp Styles */
+.messagePopup .body .addedOn {
+    color: #6a6969;
+    font-size: 12px;
+}
+
+.messagePopup .body .addedOn.addedOnLeft {
+    position: absolute;
+    bottom: -6px;
+    left: 15px;
+}
+
+.messagePopup .body .addedOn.addedOnRight {
+    position: absolute;
+    bottom: -6px;
+    right: 15px;
+}
+
+/* Footer Styles */
+.messagePopup .foot {
+    background: #eaf1fb;
+    padding: 0rem 1.5rem;
+    border-radius: 0rem 0rem 0.25rem 0.25rem;
+}
+
+.messagePopup .foot .attach-file {
+    /* Styles for attachment input */
+}
+
+.messagePopup .foot .submitButton {
+    background: #0e42df;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    float: right;
+    font-weight: 600;
+    height: 36px;
+    width: 60px;
+}
+
+/* Sticky Headers and Footers */
+.head, .foot {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+    z-index: 1000;
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem;
+}
+
+.head {
+    top: 0;
+}
+
+.foot {
+    bottom: 0;
+}
+
+/* Additional Styles */
+.messagePopup .body .profileBubble.bg-none {
+    background-color: #ffffff;
+    border: 2px solid #012cae;
+}
+
+.messagePopup .body .profileBubble img {
+    padding: 5px;
+}
+
+.notes-popup-att-video {
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+}
+
+#video_modal {
+    z-index: 9999;
+}

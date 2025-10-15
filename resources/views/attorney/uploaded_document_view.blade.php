@@ -251,6 +251,6 @@ $mortloankeys = array_keys(\App\Models\ClientDocumentUploaded::getResidenceKeyVa
 @include('modal.attorney.document_management.choose_from_existing_docs')
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/uploaded-document-view.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/attorney/uploaded-document-view.css') }}">
 @endpush
 @endsection

@@ -97,5 +97,5 @@
 </div>
 
 @push('scripts')
-<script src="{{ asset('js/choose-post-submission-modal.js') }}"></script>
+<script src="{{ asset('assets/js/attorney/choose-post-submission-modal.js') }}"></script>
 @endpush
