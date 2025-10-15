@@ -1,0 +1,28 @@
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+.listingcheck li {
+    list-style: none;
+}
+
+.listingcheck li label {
+    padding: 0px 10px;
+}
+
+ul.listingcheck {
+    padding: 0px 10px;
+}
+
+.error {
+    color: red;
+}
+
+#rowWithError {
+    align-items: flex-start;
+}
+
+

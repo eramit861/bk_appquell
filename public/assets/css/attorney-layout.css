@@ -1,0 +1,51 @@
+.att-video.mx-auto {
+    margin-left: inherit !important;
+}
+
+/* Default zoom for screens wider than 1024px */
+@media screen and (min-width: 1024px) {
+    body {
+        zoom: 0.70;
+        /* 70% zoom */
+    }
+}
+
+/* Adjust zoom for screens wider than 1280px */
+@media screen and (min-width: 1280px) {
+    body {
+        zoom: 0.80;
+        /* 65% zoom */
+    }
+}
+
+/* Adjust zoom for screens wider than 1440px */
+@media screen and (min-width: 1440px) {
+    body {
+        zoom: .90;
+        /* 60% zoom */
+    }
+}
+
+/* Adjust zoom for screens wider than 1920px */
+@media screen and (min-width: 1920px) {
+    body {
+        zoom: 0.95;
+        /* 55% zoom */
+    }
+}
+
+/* Adjust zoom for screens wider than 2560px */
+@media screen and (min-width: 2560px) {
+    body {
+        zoom: 1;
+        /* 50% zoom */
+    }
+}
+
+/* Adjust zoom for screens wider than 3840px (4K) */
+@media screen and (min-width: 3840px) {
+    body {
+        zoom: 1;
+        /* 40% zoom */
+    }
+}

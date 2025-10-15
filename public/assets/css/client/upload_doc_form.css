@@ -1,0 +1,1142 @@
+#ui-datepicker-div {
+    z-index: 9999 !important;
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    /* Set your desired height */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+    padding: 10px 0;
+}
+
+.dropdown-item.selected {
+    background-color: #c5ffc9;
+}
+
+.pay-date-select-input {
+    min-width: 130px;
+}
+
+.pay-date-select-button {
+    min-width: 205px;
+    text-align: start;
+}
+
+.pay-date-select-button.dropdown-toggle::after {
+    float: right !important;
+    margin-top: 0.25rem;
+}
+
+.bg-gray-important {
+    background-color: #eaeaea !important;
+}
+
+.view_client_btn {
+    border-radius: 4px;
+    background: #00b0f0;
+    padding: 10px;
+    opacity: 0.9;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.view_client_btn:hover {
+    color: #fff;
+}
+
+.text-custom-added {
+    text-decoration: underline;
+}
+
+.paystub-accept-decline-section .view_client_btn {
+    display: none;
+}
+
+.paystub-accept-decline-section i {
+    font-size: 20px !important;
+}
+
+.select-custom-padding-paystub {
+    padding: 1px 6px !important;
+    max-width: 180px;
+}
+
+.employer-date-uploaded-doc {
+    padding: 1px 6px !important;
+    max-width: 130px;
+}
+
+.p-point75 {
+    background: #efefef;
+    padding: 10px 10px 10px 10px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.fs-14px {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Titillium Web", sans-serif;
+}
+
+.border-bottom-light-blue {
+    border-bottom: 2px solid #00b0f0 !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.view_client_btn {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    background: #00b0f0;
+    padding: 10px;
+    opacity: 0.9;
+    color: #fff;
+    line-height: 130%;
+}
+
+.light-gray-div .statement-month-div.label-div,
+.light-gray-div .debtor-select-div.label-div {
+    margin-bottom: 0px;
+}
+
+.recent-pay-date {
+    margin-left: 0.5rem;
+}
+
+.employer-custom-pay-date {
+    float: right;
+}
+
+.employer-custom-upload-btn {
+    margin-left: 0.5rem;
+    padding: 0.38rem !important;
+}
+
+.pay-date-span {
+    text-align: left;
+}
+
+.employer-upload-btn {
+    margin-left: 0.5rem !important;
+}
+
+@media (max-width: 768px) {
+    .recent-pay-date {
+        margin-left: 0rem;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    .employer-custom-upload-btn {
+        /* display: block !important; */
+        margin-top: 0.25rem;
+        margin-left: 0rem;
+    }
+
+    .index-span {
+        width: 15% !important;
+    }
+
+    .pay-date-span {
+        text-align: left;
+        width: 85% !important;
+    }
+
+    /* .paystub-status-span{
+        float: right;
+    }  */
+}
+
+@media (max-width: 490px) {
+    .employer-custom-upload-btn {
+        display: block !important;
+    }
+}
+
+@media (max-width: 414px) {
+    .index-span {
+        width: 20% !important;
+    }
+
+    .pay-date-span {
+        text-align: left;
+        width: 80% !important;
+    }
+
+    .employer-upload-btn {
+        margin-left: 0rem !important;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .employer-upload-btn {
+        text-align: center;
+    }
+
+
+}
+
+.upload-area {
+    padding: 22px 22px;
+}
+
+.background_img {
+    position: relative;
+    background-image: url("../../img/big_doc_link.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 5px;
+}
+
+.upload-area__drop-zoons {
+    min-height: 300px;
+}
+
+.fix-boxp {
+    margin: auto;
+}
+
+.uploaddivarea {
+    max-height: 300px !important;
+    overflow-y: scroll;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.doc-name-sec .sec-border {
+    border: 1px solid #dddddd;
+    border-radius: 0.5rem;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.no_data {
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.upload-area__header {
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    left: 15%;
+}
+
+.upload-area__footer {
+    position: absolute;
+    text-align: center;
+    bottom: 1%;
+    left: 20%;
+}
+
+.no_data p {
+    width: 100%;
+    font-size: 40px;
+}
+
+.upload-area {
+    border: none;
+    padding-bottom: 0px;
+    box-shadow: none;
+}
+
+.upload-area__drop-zoon {
+    background-color: #EDEEF0;
+    border: none;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.doc-card-main {
+    display: block;
+    width: 100%;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 5%);
+    padding: 17px 20px;
+    max-width: 680px;
+    margin: 0 auto 30px;
+    border-radius: 9px;
+    position: relative;
+}
+
+
+.input-with-image {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-object-div {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #e5e6eb;
+    margin: 10px 0px
+}
+
+.upload-area__title {
+    text-shadow: 1px 1px 2px #090909;
+}
+
+.input-with-image input[type='text'] {
+    padding: 5px 30px;
+}
+
+.input-with-image input[type='text'].paystub-date-input {
+    padding: 5px 10px;
+}
+
+.input-with-image .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: auto;
+}
+
+label.error {
+    color: red;
+}
+
+.input-with-image .doc-icon {
+    top: 18px !important;
+    left: 10px;
+    z-index: 9;
+}
+
+.upload-area__paragraph {
+    text-shadow: 1px 1px 2px #090909;
+}
+
+.input-with-image .cancel-icon {
+    top: 18px !important;
+    right: 5px;
+    color: #f44236;
+}
+
+.border-red {
+    border: 1px solid #f44236 !important;
+}
+
+.border-red:focus {
+    box-shadow: 0 0 0 0.25rem #ffd5d3 !important;
+}
+
+.text-card {
+    padding: 12px 5px 5px 10px;
+    margin-right: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.upload-area__header.mobile {
+    display: none;
+}
+
+.upload-area__header.desktop {
+    display: 2px solid #f44236
+}
+
+.input-with-image .rename-field-div {
+    width: 40%;
+    padding-right: 12px;
+}
+
+.input-with-image .rename-field-div.for-statement {
+    width: 70%;
+    padding-right: 12px;
+}
+
+.input-with-image .rename-field-div .rename-field {
+    padding-right: 12px;
+    padding-left: 33px;
+}
+
+.input-with-image .paystub-label-div {
+    width: 40%;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-right: 12px;
+}
+
+.input-with-image .paystub-label-div label {
+    float: right;
+}
+
+.input-with-image .statement-month-div,
+.input-with-image .debtor-select-div {
+    width: 30%;
+}
+
+.input-with-image .paystub-date-div {
+    width: 20%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .upload-area__header {
+        position: absolute;
+        text-align: center;
+        top: 10%;
+        left: unset;
+        padding: 0 10px;
+    }
+
+    /* .input-with-image .form-control{width:90%;} */
+    .upload-area__header h4 {
+        font-size: 14px !important;
+    }
+
+    .upload-area__paragraph {
+        padding: 0 15px;
+    }
+
+    .upload-area__paragraph span {
+        font-size: 12px !important;
+    }
+
+    .upload-area__footer {
+        position: absolute;
+        text-align: center;
+        bottom: 1%;
+        left: 8%;
+    }
+
+    .input-with-image .statement-month-select,
+    .input-with-image .debtor-select,
+    .input-with-image .paystub-date-input {
+        margin-left: 16 !important;
+        margin-right: 29px !important;
+    }
+
+    .input-with-image .rename-field.input-with-select {
+        padding-right: 12px !important;
+    }
+
+    /* .input-with-image .cancel-icon {
+        top: 33px !important;
+        right: 0px;
+        color: #f44236;
+    } */
+    .input-with-image .statement-month-select.d-none+.cancel-icon,
+    .input-with-image .debtor-select.d-none+.cancel-icon .input-with-image .paystub-date-input.d-none+.cancel-icon {
+        top: 33px !important;
+        right: 10px;
+        color: #f44236;
+    }
+
+    .upload-area__header.mobile {
+        display: block;
+    }
+
+    .upload-area__header.desktop {
+        display: none !important;
+    }
+
+    .heading-top {
+        text-align: left;
+        font-size: 16px !important;
+        margin-top: 0 !important;
+    }
+
+    #form-both {
+        margin-bottom: 0 !important;
+    }
+
+    .button-section {
+        display: flex;
+        padding: 0 22px;
+        justify-content: center;
+    }
+
+    .button-section .btn-primary {
+        margin-right: 0;
+    }
+
+    .button-section button {
+        font-size: 12px;
+    }
+
+    .input-with-image {
+        position: relative;
+        display: block;
+        align-items: center;
+    }
+
+    .input-with-image .doc-icon {
+        top: 13px !important;
+        left: 10px;
+    }
+
+
+    /* .input-with-image .cancel-icon.default-cancel-icon {
+        top: 14px !important;
+    } */
+
+    .input-with-image .cancel-icon.statement-cancel-icon {
+        top: 26px !important;
+    }
+
+    .pay-date-select-button {
+        min-width: 300px;
+    }
+
+    .input-with-image .rename-field-div {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .input-with-image .rename-field-div.for-statement {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .input-with-image .rename-field-div .rename-field {
+        padding-right: 12px;
+    }
+
+    .input-with-image .paystub-label-div {
+        width: 100%;
+        font-size: 14px;
+        padding-top: 14px;
+        padding-right: 12px;
+    }
+
+    .input-with-image .paystub-label-div label {
+        float: unset;
+    }
+
+    .input-with-image .statement-month-div,
+    .input-with-image .debtor-select-div {
+        width: 100%;
+    }
+
+    .input-with-image .statement-month-div select,
+    .input-with-image .debtor-select-div select {
+        margin-top: 1rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .input-with-image .paystub-date-div,
+    .input-with-image .statement-month-div,
+    .input-with-image .debtor-select-div {
+        width: 100%;
+
+    }
+
+    .input-with-image .paystub-date-div .paystub-date-input {
+        margin-top: 0.25rem !important;
+        width: 100%;
+    }
+
+    .pay-date-select-input {
+        margin-left: 0px !important;
+        margin-top: 0.5rem;
+        width: 50%;
+    }
+
+    .date-div {
+        /* border-bottom: 2px solid rgb(45, 45, 45); */
+        padding-bottom: 1rem;
+        width: 100%;
+    }
+
+    .date-div .btn-group {
+        margin-top: 0.5rem !important;
+    }
+
+    .date-div .btn-group button {
+        margin-top: 0.25rem !important;
+    }
+
+    .date-div.d-inline-flex.d-div {
+        display: block !important;
+        padding-bottom: 0rem !important;
+    }
+
+    .date-div.d-inline-flex.d-div .btn-group {
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        width: 100% !important;
+    }
+
+    .date-div.d-inline-flex.d-div .l-div {
+        margin-bottom: 0 !important;
+    }
+
+    .date-div.d-inline-flex.d-div label {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+
+    .date-div.d-inline-flex.d-div .pay-date-select-input,
+    .input-with-image .rename-field-div,
+    .statement-month-div .form-control.statement-month-select {
+        width: 100% !important;
+    }
+
+    .date-div.d-inline-flex.d-div .pay-date-select-input input {
+        margin-right: 0px !important;
+    }
+
+    /* .input-with-image {
+        margin-bottom: 1rem;
+    } */
+}
+
+@media (max-width: 576px) {
+
+    .light-gray-div .label-div .form-control.pay-date-select-button.emp-btn,
+    .light-gray-div .label-div .form-control.rename-field {
+        height: 26px;
+        padding: 4px 24px !important;
+    }
+
+    .input-with-image img.doc-icon {
+        top: 21px !important;
+        left: 10px !important;
+    }
+
+    .input-with-image i.cancel-icon.statement-cancel-icon {
+        top: 21px !important;
+        right: 10px !important;
+    }
+
+    .input-with-image i.cancel-icon {
+        top: 21px !important;
+        right: 10px !important;
+    }
+
+}
+
+
+.document_name {
+    text-align: left;
+}
+
+.modal .modal-dialog {
+    max-width: 900px !important;
+}
+
+label.error {
+    color: red;
+    font-style: italic;
+}
+
+th {
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    color: #414141;
+}
+
+table thead {
+    background-color: #EDEEF0;
+}
+
+table thead th {
+    padding: 5px 10px 5px 10px;
+}
+
+table tbody td {
+    padding: 5px 10px 5px 10px;
+}
+
+table tbody td {
+    border-top: 1px solid #eaeaea;
+}
+
+.admin-msg {
+    background-color: #fafafa;
+}
+
+.my-msg {
+    text-align: right;
+}
+
+.id-control {
+    padding: 3px 12px;
+}
+
+.card .card-block,
+.card .card-body {
+    padding: 30px 15px;
+}
+
+.document-upload-popup .card {
+    border-radius: 0.25rem;
+}
+
+.update {
+    color: #012cae;
+    cursor: pointer;
+}
+
+/* Base style for message paragraphs */
+.messageBody {
+    opacity: 1;
+    max-height: 500px;
+    /* Adjust according to the content height */
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Hidden state */
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    display: none;
+    /* Hide the element */
+}
+
+/* Visible state */
+.visible {
+    opacity: 1;
+    max-height: 500px;
+    /* Adjust according to the content height */
+    display: block;
+    /* Ensure the element is displayed */
+}
+
+#facebox .content {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 6px;
+    overflow-y: scroll !important;
+    scrollbar-width: none !important;
+    /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE 11 */
+}
+
+#facebox .content::-webkit-scrollbar {
+    display: none !important;
+    /* Chrome, Safari, Edge */
+}
+
+.document-upload-popup .head {
+    background: rgb(0, 22, 87);
+    background: linear-gradient(90deg, #00b0f0 11%, rgba(14, 66, 223, 1) 100%);
+    padding: 0rem 2.5rem;
+    border-radius: 0.25rem 0.25rem 0rem 0rem;
+    display: flex;
+    align-items: center;
+}
+
+.document-upload-popup .head h4 {
+    color: #ffffff;
+}
+
+.document-upload-popup .head a {
+    padding: 5px 10px;
+}
+
+.document-upload-popup .body {
+    background: #ebf2fc;
+    padding: 1rem 1.5rem;
+}
+
+.document-upload-popup .foot {
+    background: #ffffff;
+    padding: 0rem 1.5rem;
+    border-radius: 0rem 0rem 0.25rem 0.25rem;
+    box-shadow: 0 -5px 20px 0 rgba(69, 90, 100, 0.08);
+}
+
+.document-upload-popup .foot .submitButton {
+    background: #0e42df;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+.document-upload-popup .foot .closeButton {
+    background: #748892;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+.head,
+.foot {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+    z-index: 99;
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem;
+}
+
+.head {
+    top: 0;
+}
+
+.foot {
+    bottom: 0;
+
+}
+
+#video_modal {
+    z-index: 9999;
+}
+
+.head .status-div {
+    margin-top: 0.5rem;
+    width: auto !important;
+    display: inline;
+}
+
+.head .status-div small {
+    float: right;
+}
+
+.head .doc-status {
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 10.5px;
+    margin-top: 0.25rem;
+}
+
+/* .documents-modal .modal-content{
+    background: unset;
+} */
+
+.sec-heading-font {
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: 2px solid #00b0f0 !important;
+}
+
+.collection_agent_label .sec-heading-font {
+    color: #012cae !important;
+}
+
+/* File Upload Progress Bar Styles */
+.file-progress-container {
+    width: 100%;
+    margin: 0;
+    margin-top: 0.25rem;
+    flex-direction: column;
+    align-self: stretch;
+    order: 999;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.progress-bar-wrapper .progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b0f0 0%, #0e42df 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.2) 75%,
+            transparent 75%,
+            transparent);
+    background-size: 20px 20px;
+    animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+.progress-text {
+    min-width: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #495057;
+    text-align: center;
+}
+
+/* Current uploading file styles */
+.input-with-image.uploading-current {
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #fff8e1;
+}
+
+.input-with-image.uploading-current .progress-text {
+    color: #00b0f0;
+    font-weight: bold;
+}
+
+.input-with-image .doc-icon {
+    top: 26px !important;
+    left: 18px;
+    z-index: 9;
+}
+
+.input-with-image .cancel-icon {
+    top: 26px !important;
+    right: 18px;
+    color: #f44236;
+}
+
+/* Success and error states */
+.progress-fill.success {
+    background: #28a745 !important;
+}
+
+.progress-fill.error {
+    background: #dc3545 !important;
+}
+
+/* Completed file styles */
+.progress-fill.completed {
+    background: #44E044 !important;
+}
+
+.progress-fill.completed::after {
+    animation: none !important;
+    background-image: none !important;
+}
+
+/* Check icon for completed files */
+.cancel-icon.fa-check-circle {
+    color: #28a745 !important;
+}
+
+/* Upload button disabled state */
+.btn-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+.btn-disabled:hover {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+
+/* Progress status span styles */
+.progress-status-span {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* Disabled form elements during upload */
+.input-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f8f9fa !important;
+    color: #6c757d !important;
+}
+
+.input-disabled:focus {
+    box-shadow: none !important;
+    border-color: #dee2e6 !important;
+}
+
+.icon-disabled {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+}
+
+.icon-disabled:hover {
+    color: inherit !important;
+}
+
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .file-progress-container {
+        padding: 0 10px;
+        margin: 8px 0;
+    }
+
+    .progress-bar-wrapper {
+        flex-direction: column;
+        gap: 5px;
+        align-items: stretch;
+    }
+
+    .progress-text {
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .input-with-image.uploading-current {
+        padding: 6px;
+        border-width: 1px;
+    }
+}
+
+.file-progress-container,
+.progress-bar-wrapper,
+.progress-bar {
+    min-width: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.progress-bar-wrapper.progress-bar {
+    min-height: 8px !important;
+    height: 8px !important;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.progress-fill {
+    min-width: 0 !important;
+    min-height: 8px !important;
+    height: 100% !important;
+    display: block;
+}
+
+.progress-bar-wrapper {
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    align-items: center;
+    width: 100%;
+}
+
+.input-with-image {
+    flex-wrap: wrap !important;
+}
+
+@media (max-width: 600px) {
+    .modal-dialog {
+        max-width: 98vw !important;
+        margin: 0.5rem auto !important;
+    }
+
+    .modal-content {
+        padding: 0.5rem !important;
+    }
+
+    .file-progress-container,
+    .progress-bar-wrapper,
+    .progress-bar {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .input-with-image.input-object-div {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 8px 4px !important;
+        gap: 6px !important;
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    .input-with-image .rename-field-div,
+    .input-with-image .paystub-date-div,
+    .input-with-image .statement-month-div,
+    .input-with-image .debtor-select-div {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 4px !important;
+        padding-right: 0 !important;
+    }
+
+    .file-progress-container {
+        padding: 0 !important;
+        margin: 4px 0 !important;
+        width: 100% !important;
+    }
+
+    .progress-bar-wrapper {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 4px !important;
+        width: 100% !important;
+    }
+
+    .progress-bar {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .progress-text {
+        text-align: right !important;
+        font-size: 12px !important;
+        margin-top: 2px !important;
+    }
+}

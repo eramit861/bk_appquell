@@ -1,0 +1,1 @@
+@include("attorney.client.notes_popup", ['isAdmin' => true])

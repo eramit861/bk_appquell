@@ -1,0 +1,414 @@
+/* Client Dashboard Styles */
+
+/* Sortable Elements */
+#client_sortable {
+    display: block;
+    padding: 0;
+}
+
+#client_sortable li {
+    width: 50%;
+    float: left;
+    padding: 5px;
+}
+
+.border-red {
+    border: 1px solid red;
+}
+
+/* Heading Menu */
+.heading-menu {
+    padding: 4px 0px !important;
+    margin: 0px 0 !important;
+    margin-bottom: 0px !important;
+}
+
+/* Modal Styles */
+#signed_doc_modal .modal-dialog {
+    max-width: 800px !important;
+}
+
+.signed-doc-div {
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 0.35rem;
+}
+
+.text-gray {
+    border: 1px solid #012cae;
+    color: #012cae;
+}
+
+.signed-doc-anchor .li-main-card {
+    padding: 6px 10px;
+    border-radius: 0.35rem;
+    border: 1px solid #efefef;
+    background: #efefef;
+}
+
+.signed-doc-anchor .li-main-card span {
+    color: #000;
+}
+
+.signed-doc-anchor img {
+    height: 20px;
+    width: 20px;
+}
+
+.bg-gray {
+    background-color: gray !important;
+    border-color: gray !important;
+}
+
+/* Input Groups */
+.input-group {
+    background: none;
+}
+
+/* Progress Bar */
+.progress {
+    margin-top: 12px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    width: 300px;
+}
+
+/* Video Modal */
+#video_modal .modal-content {
+    width: 98% !important;
+}
+
+#video_modal .modal-dialog {
+    width: 100% !important;
+}
+
+.text-center.btn-cstm-toggle iframe {
+    width: 100% !important;
+    height: 190px !important;
+}
+
+/* Document Upload Styles */
+body .upload-documents-wrapper a.btn.shadow-2.mb-4.download-form {
+    width: 22%;
+    font-size: 13px;
+    padding: 10px 0;
+}
+
+.optional-document a.btn.btn-primary.shadow-2.mb-4 {
+    width: 100% !important;
+}
+
+body .upload-documents-wrapper a.doc-card-main {
+    width: 73%;
+    float: left;
+    white-space: normal;
+    word-break: break-word;
+}
+
+body .upload-documents-wrapper span.doc-type.d-block h4 {
+    word-break: break-word;
+    width: 74%;
+}
+
+/* Text Positioning */
+span.text-gray {
+    right: 10px;
+}
+
+span.text-primary {
+    left: 10px;
+}
+
+span.text-gray,
+span.text-primary {
+    position: relative;
+    bottom: 22px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.text-center.btn-cstm-toggle {
+    position: absolute;
+    top: 11px;
+    z-index: 9;
+    width: 100%;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+/* Video Modal Responsive */
+#video_modal .modal-dialog {
+    height: 90%;
+    width: 900px;
+}
+
+#video_modal .modal-content {
+    width: 900px;
+}
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    #video_modal.modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+#video_modal .modal-dialog {
+    max-width: 100%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* File Upload Styles */
+.box {
+    margin-top: 2.5rem;
+}
+
+.inputfile-1 + label {
+    color: #f1e5e6;
+    background-color: #012cae;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    background-color: #722040;
+}
+
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    /* pointer-events: none; */
+    /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Document Modal */
+.documents-modal .modal-dialog {
+    max-width: 630px;
+}
+
+.documents-modal .modal-body {
+    padding: 30px 25px;
+}
+
+.documents-modal .modal-footer {
+    padding: 0.4rem 1rem;
+}
+
+.subtitle-modal-head {
+    font-size: 16px;
+    padding-top: 6px;
+}
+
+/* Video Card */
+#video_modal .card.popup-video .card-body {
+    padding-top: 56.14% !important;
+    position: relative;
+}
+
+#video_modal .card.popup-video .card-body iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Spanish Video Responsive */
+.spanish-mobile-video {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .spanish-mobile-video {
+        display: block;
+    }
+    
+    .spanish-desktop-video {
+        display: none;
+    }
+}
+
+/* Facebox Responsive */
+@media only screen and (max-width: 767px) {
+    #facebox .content.productQuickView {
+        width: auto;
+    }
+}
+
+/* Utility Classes */
+.fs-11 {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.hidestep {
+    display: none !important;
+}
+
+.client_logout {
+    float: right;
+    display: block;
+    border: 2px solid #012cae;
+    border-radius: 12px;
+    font-weight: 900;
+}
+
+/* Responsive Design */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    #video_modal .modal-content {
+        width: 98% !important;
+    }
+    
+    #video_modal .modal-dialog {
+        width: 100% !important;
+    }
+    
+    .text-center.btn-cstm-toggle iframe {
+        width: 100% !important;
+        height: 190px !important;
+    }
+    
+    body .upload-documents-wrapper a.btn.shadow-2.mb-4.download-form {
+        width: 22%;
+        font-size: 13px;
+        padding: 10px 0;
+    }
+    
+    .optional-document a.btn.btn-primary.shadow-2.mb-4 {
+        width: 100% !important;
+    }
+    
+    body .upload-documents-wrapper a.doc-card-main {
+        width: 73%;
+        float: left;
+        white-space: normal;
+        word-break: break-word;
+    }
+    
+    body .upload-documents-wrapper span.doc-type.d-block h4 {
+        word-break: break-word;
+        width: 74%;
+    }
+} 

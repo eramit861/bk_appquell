@@ -1,0 +1,1 @@
+<textarea name="{{ base64_encode($name) }}" class="form-control {{ $class }}" rows="{{ $row }}" {!! $extra ?? '' !!}>{{ $value }}</textarea>

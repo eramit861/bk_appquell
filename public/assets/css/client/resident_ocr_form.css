@@ -1,0 +1,9 @@
+/* Resident OCR Form Styles */
+
+.ui-widget-content {
+    z-index: 9999;
+}
+
+#facebox .content.large-fb-width {
+    max-width: 950px;
+}

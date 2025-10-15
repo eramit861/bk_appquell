@@ -1,0 +1,181 @@
+@font-face {
+    font-family: 'BradleyHTC';
+    src: url("/assets/css/fonts/bhitc.ttf") format("truetype");
+}
+
+.bradly-heading {
+    font-family: 'BradleyHTC';
+}
+
+.color-red a {
+    color: #f44236;
+}
+
+.color-dark-gray {
+    color: #a9a9a9;
+}
+
+.color-dark-gray a {
+    color: #a9a9a9;
+}
+
+span.color-red {
+    color: #f44236;
+}
+
+span.color-green {
+    color: rgb(16, 138, 0);
+    border: none;
+}
+
+span.color-yellow {
+    color: #012cae;
+}
+
+.color-yellow a {
+    color: #012cae;
+}
+
+.color-yellow-decline a {
+    color: #FFA600;
+}
+
+.color-green {
+    border: 1px solid rgb(16, 138, 0);
+}
+
+.color-green a {
+    color: rgb(16, 138, 0);
+}
+
+.color-green {
+    border: 1px solid rgb(16, 138, 0);
+}
+
+.text-gray a,
+.text-gray .status-message {
+    color: #00b0f0;
+}
+
+@keyframes blink-border {
+    0% {
+        border-color: #f44236;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: #f44236;
+    }
+}
+
+.text-gray {
+    border: 2px solid #f44236;
+    animation: blink-border 1s infinite;
+}
+
+.text-red a,
+.text-red .status-message {
+    color: #f44236;
+}
+
+.text-red {
+    border: 2px solid #f44236;
+}
+
+.text-yellow {
+    border: 1px solid #012cae;
+}
+
+.text-yellow a,
+.text-yellow .status-message {
+    color: #012cae;
+}
+
+.text-yellow-decline a {
+    color: #000;
+}
+
+.text-yellow-decline {
+    border: 1px solid #000;
+}
+
+.text-green {
+    border: 1px solid rgb(16, 138, 0);
+}
+
+.text-green a,
+.text-green .status-message {
+    color: rgb(16, 138, 0);
+}
+
+.btn_border {
+    border: 2px solid #000;
+    font-weight: bold;
+}
+
+.doc-card {
+    align-items: center;
+}
+
+.card-header {
+    background-color: #fff !important;
+    border: 2px solid #000 !important;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.debtor-docs,
+.codebtor-docs,
+.attorney-docs {
+    margin-bottom: 0;
+}
+
+.debtor-docs li,
+.codebtor-docs li,
+.attorney-docs li {
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-size: 14px;
+    border-radius: 0.35rem;
+}
+
+.debtor-docs li .doc-card,
+.codebtor-docs li .doc-card,
+.attorney-docs li .doc-card {
+    margin-left: 0.75rem;
+    position: relative;
+    width: 100%;
+}
+
+.nav-linkf .doc-card .font-weight-bold {
+    font-size: 9px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    min-width: 100%;
+    text-align: right;
+}
+
+/* .debtor-docs li .d-status img, .codebtor-docs li .d-status img, .attorney-docs li .d-status img{
+ 
+} */
+.status-message {
+    padding-top: 2px;
+}
+
+.doc-icon {
+    width: 35px;
+    fill: blue;
+    text-align: center;
+}
+
+.navbar-toggler {
+    display: none;
+}

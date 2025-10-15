@@ -1,0 +1,1 @@
+@include("attorney.official_form.form_expenses",['BasicInfoPartA'=>$BasicInfoPartA,'BasicInfoPartB'=>$BasicInfoPartB,'expenses_info'=>$expenses_info,'totalExpenses' => $totalExpenses])

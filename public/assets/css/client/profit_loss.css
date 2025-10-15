@@ -1,0 +1,14 @@
+.custom-select,
+.form-control {
+    padding: 10px 5px;
+}
+
+.l-h-0 {
+    line-height: 1
+}
+
+@media (max-width: 768px) {
+    .mobile-fs-12 {
+        font-size: 12px !important;
+    }
+}

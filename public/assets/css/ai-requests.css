@@ -1,0 +1,211 @@
+    .modal .modal-dialog {
+        max-width: 1200px !important;
+        margin: 1.75rem auto;
+    }
+
+    #ai-modal-content .modal-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    #ai-modal-content .modal-title {
+        color: #495057;
+        font-weight: 600;
+    }
+
+    #ai-modal-content .table-container {
+        max-height: 700px;
+        overflow-y: auto;
+    }
+
+    #ai-modal-content .table {
+        margin-bottom: 0;
+    }
+
+    #ai-modal-content .table thead th {
+        background-color: #6c757d;
+        color: white;
+        border: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 12px 8px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #ai-modal-content .table tbody td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+        vertical-align: middle;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    #ai-modal-content .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    #ai-modal-content .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    #ai-modal-content .status-in-progress {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeaa7;
+    }
+
+    #ai-modal-content .reference-id {
+        font-family: 'Courier New', monospace;
+        font-size: 0.7rem;
+        color: #6c757d;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #ai-modal-content .report-type {
+        font-weight: 500;
+        color: #495057;
+    }
+
+    #ai-modal-content .datetime {
+        font-size: 0.75rem;
+        color: #6c757d;
+    }
+
+    #ai-modal-content .modal-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+    }
+
+    #ai-modal-content .btn-close {
+        background-size: 1.2em;
+    }
+
+    #ai-modal-content .ai-action-btn {
+        padding: 2px 6px;
+        font-size: 0.7rem;
+        border-radius: 4px;
+    }
+
+    #ai-modal-content .status-not-started {
+        background-color: #e3e4e4;
+        color: #6c757d;
+        border: 1px solid #6c757d;
+    }
+
+    #ai-modal-content .status-completed {
+        background-color: #d4ffde;
+        color: #155724;
+        border: 1px solid #155724;
+    }
+
+    #ai-modal-content .status-in-progress {
+        background-color: #ffeaa8;
+        color: #856404;
+        border: 1px solid #856404;
+    }
+
+    #ai-modal-content .status-failed {
+        background-color: #ffc0c6;
+        color: #721c24;
+        border: 1px solid #721c24;
+    }
+
+    #ai-modal-content .drop-green td {
+        background-color: #d4edda !important;
+        /* light green */
+    }
+
+    #ai-modal-content .drop-yellow td {
+        background-color: #fff3cd !important;
+        /* light yellow */
+    }
+
+    #ai-modal-content .drop-red td {
+        background-color: #f8d7da !important;
+        /* light red */
+    }
+
+    #ai-modal-content .drop-gray td {
+        background-color: #e9ecef !important;
+        /* light gray */
+    }
+
+    #ai-modal-content .retry-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin: 0 !important;
+        text-decoration: none !important;
+        line-height: 1.2;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    #ai-modal-content .retry-btn:hover {
+        background-color: #dc3545;
+        /* Bootstrap danger red */
+        color: #fff;
+    }
+
+    #ai-modal-content .ai-action-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        line-height: 1.2;
+        border-radius: 4px;
+        font-weight: 500;
+        text-decoration: none !important;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        cursor: pointer;
+    }
+
+    #ai-modal-content .btn-outline-danger.ai-action-btn {
+        border-radius: 20px;
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    #ai-modal-content .btn-outline-danger.ai-action-btn:hover {
+        background-color: #ba2735;
+    }
+
+    #ai-modal-content .btn-outline-secondary.ai-action-btn {
+        border-radius: 20px;
+        background-color: #6c757d;
+        color: #fff;
+    }
+
+    #ai-modal-content .btn-outline-secondary.ai-action-btn:hover {
+        background-color: #5f666c;
+    }
+
+
+
+    @media (max-width: 768px) {
+        #ai-modal-content .modal-dialog {
+            margin: 10px;
+            max-width: calc(100% - 20px);
+        }
+
+        #ai-modal-content .table thead th,
+        #ai-modal-content .table tbody td {
+            padding: 8px 4px;
+            font-size: 0.75rem;
+        }
+
+        #ai-modal-content .reference-id {
+            max-width: 80px;
+        }
+    }

@@ -1,0 +1,273 @@
+/* Track Progress Styles */
+
+#client_sortable {
+    display: block;
+    padding: 0;
+}
+
+#client_sortable li {
+    width: 33.333333%;
+    float: left;
+    padding: 5px;
+}
+
+.hidestep {
+    display: none !important;
+}
+
+.client_logout {
+    float: right;
+    display: block;
+    border: 2px solid #012cae;
+    border-radius: 12px;
+    font-weight: 900;
+}
+
+.progress-head {
+    color: #000000 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border: none !important;
+    border-bottom: 2px solid #00b0f0 !important;
+}
+
+.bg-gray {
+    background-color: gray !important;
+    border-color: gray !important;
+}
+
+.button-blue {
+    background-color: #012cae;
+    color: #fff;
+}
+
+.button-blue:hover {
+    color: #fff;
+}
+
+.bottom-list {
+    line-height: 12px;
+}
+
+.bottom-list-without-month {
+    line-height: 6px;
+}
+
+.spanish-mobile-video {
+    display: none !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    #video_modal .modal-content {
+        width: 98% !important;
+    }
+
+    #video_modal .modal-dialog {
+        width: 100% !important;
+    }
+
+    .text-center.btn-cstm-toggle iframe {
+        width: 100% !important;
+        height: 190px !important;
+    }
+
+    body .upload-documents-wrapper a.btn.shadow-2.mb-4.download-form {
+        width: 22%;
+        font-size: 13px;
+        padding: 10px 0;
+    }
+
+    .optional-document a.btn.btn-primary.shadow-2.mb-4 {
+        width: 100% !important;
+    }
+
+    body .upload-documents-wrapper a.doc-card-main {
+        width: 73%;
+        float: left;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    body .upload-documents-wrapper span.doc-type.d-block h4 {
+        word-break: break-word;
+        width: 74%;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.text-center.btn-cstm-toggle {
+    position: absolute;
+    top: 11px;
+    z-index: 9;
+    width: 100%;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/*TOGGLE END*/
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+#video_modal .modal-dialog {
+    height: 90%;
+    /* = 90% of the .modal-backdrop block = %90 of the screen */
+    width: 900px;
+}
+
+#video_modal .modal-content {
+    width: 900px;
+}
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    #video_modal.modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+#video_modal .modal-dialog {
+    max-width: 100%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.documents-modal .modal-dialog {
+    max-width: 630px;
+}
+
+.documents-modal .modal-body {
+    padding: 30px 25px;
+}
+
+.documents-modal .modal-footer {
+    padding: 0.4rem 1rem;
+}
+
+.subtitle-modal-head {
+    font-size: 16px;
+    padding-top: 6px;
+}
+
+#video_modal .card.popup-video .card-body {
+    padding-top: 56.14% !important;
+    position: relative;
+}
+
+#video_modal .card.popup-video .card-body iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.spanish-mobile-video {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .spanish-mobile-video {
+        display: block;
+    }
+
+    .spanish-desktop-video {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #facebox .content.productQuickView {
+        width: auto;
+    }
+}
+
+.fs-11 {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+span.text-gray {
+    right: 10px;
+}
+
+span.text-gray,
+span.text-primary {
+    position: relative;
+    bottom: 22px;
+}
+
+/* Additional styles for heading menu */
+.heading-menu {
+    padding: 4px 0px !important;
+    margin: 0px 0 !important;
+    margin-bottom: 0px !important;
+}

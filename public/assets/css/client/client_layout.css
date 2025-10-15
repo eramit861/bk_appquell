@@ -1,0 +1,61 @@
+/* Client Layout Styles */
+
+/* Document and layout styles */
+.doc_img_head.full_img {
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    padding-top: 81px;
+    opacity: .9;
+}
+
+.document_li {
+    border: 1px solid #00b0f0 !important;
+}
+
+.nav-mh-custom {
+    min-height: 220px;
+}
+
+.br-10px {
+    border-radius: 10px !important;
+}
+
+.br-b-10px {
+    border-radius: 10px !important;
+}
+
+#editRequestWarning .modal-dialog {
+    max-width: 820px !important;
+}
+
+.right-shift {
+    position: absolute;
+    right: 0px;
+}
+
+.right-shift-i {
+    position: absolute;
+    right: 20px;
+}
+
+/* Animations */
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Button styles */
+.btn-new-ui-default {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}

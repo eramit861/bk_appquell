@@ -1,0 +1,106 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-gold: #f59e0b;
+    --accent-blue: #3b82f6;
+    --border: #cbd5e1;
+    --border-danger: #e1cbcb;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+}
+
+#previewQuestionsModal .custom-radio-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    /* margin-top: 10px; */
+}
+
+#previewQuestionsModal .emergency-alert {
+    border: 2px solid var(--danger);
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+#previewQuestionsModal .emergency-alert h5 {
+    color: var(--danger);
+}
+
+#previewQuestionsModal input[type="radio"]:checked+.btn-toggle, 
+#previewQuestionsModal input[type="checkbox"]:checked+.btn-toggle, 
+#previewQuestionsModal .custom-check-group .btn-toggle.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: white;
+}
+#previewQuestionsModal input[type="radio"],
+#previewQuestionsModal .custom-check-group input[type="checkbox"] {
+    display: contents;
+    width: 0;
+    height: 0;
+}
+
+#previewQuestionsModal .btn-toggle {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 0 !important;
+}
+
+#previewQuestionsModal .btn-toggle:hover {
+    border-color: var(--accent-blue);
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--text-primary);
+}
+
+#previewQuestionsModal input[type="radio"]:checked+.btn-toggle, 
+#previewQuestionsModal input[type="checkbox"]:checked+.btn-toggle, 
+#previewQuestionsModal .custom-check-group .btn-toggle.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: white;
+}
+
+#previewQuestionsModal .red-notice {
+    background: linear-gradient(135deg, #fec7c7 0%, #fd8a8a 100%);
+    border: 2px solid #f50b0b;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 1rem 0;
+    margin-bottom: 1rem;
+    color: #920e0e;
+    font-weight: 500;
+}
+
+#previewQuestionsModal .details-banner {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 2px solid var(--accent-blue);
+    border-radius: 12px;
+    color: var(--text-primary);
+}
+
+#previewQuestionsModal .marital-info .label-div.question-area {
+    padding-bottom: 0rem;
+}
+
+#previewQuestionsModal .bottom-btn-div {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+}

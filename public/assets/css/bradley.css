@@ -1,0 +1,7 @@
+@font-face {
+  font-family:'Bradley';
+  src:url("fonts/BradleyHandITCTT-Bold.woff") format("woff"),
+  url("fonts/bhitc.ttf") format("truetype");
+  font-weight: bold;
+  font-style: bold;
+}

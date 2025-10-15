@@ -1,0 +1,222 @@
+.view_client_btn {
+    border-radius: 4px;
+    background: #00b0f0;
+    padding: 10px;
+    opacity: 0.9;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.view_client_btn:hover {
+    color: #fff;
+}
+
+.text-custom-added {
+    text-decoration: underline;
+}
+
+.paystub-accept-decline-section .view_client_btn {
+    display: none;
+}
+
+.paystub-accept-decline-section i {
+    font-size: 20px !important;
+}
+
+.select-custom-padding-paystub {
+    padding: 1px 6px !important;
+    max-width: 180px;
+}
+
+.employer-date-uploaded-doc {
+    padding: 1px 6px !important;
+    max-width: 130px;
+}
+
+.p-point75 {
+    background: #efefef;
+    padding: 10px 10px 10px 10px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-14 {
+    width: 14%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-86 {
+    width: 86%;
+}
+
+.fs-14px {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Titillium Web", sans-serif;
+}
+
+.border-bottom-light-blue {
+    border-bottom: 2px solid #00b0f0 !important;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.view_client_btn {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    background: #00b0f0;
+    padding: 10px;
+    opacity: 0.9;
+    color: #fff;
+    line-height: 130%;
+}
+
+.recent-pay-date {
+    margin-left: 0.5rem;
+}
+
+.employer-custom-pay-date {
+    float: right;
+}
+
+.employer-custom-upload-btn {
+    margin-left: 0.5rem;
+    padding: 0.38rem !important;
+}
+
+.pay-date-span {
+    text-align: left;
+}
+
+.employer-upload-btn {
+    margin-left: 0.5rem !important;
+}
+
+@media (max-width: 768px) {
+    .recent-pay-date {
+        margin-left: 0rem;
+        display: block;
+        margin-top: 0.25rem;
+    }
+
+    .employer-custom-upload-btn {
+        /* display: block !important; */
+        margin-top: 0.25rem;
+        margin-left: 0rem;
+    }
+
+    .index-span {
+        width: 15% !important;
+    }
+
+    .pay-date-span {
+        text-align: left;
+        width: 85% !important;
+    }
+
+    /* .paystub-status-span{
+        float: right;
+    }  */
+}
+
+@media (max-width: 490px) {
+    .employer-custom-upload-btn {
+        display: block !important;
+    }
+}
+
+@media (max-width: 414px) {
+    .index-span {
+        width: 20% !important;
+    }
+
+    .pay-date-span {
+        text-align: left;
+        width: 80% !important;
+    }
+
+    .employer-upload-btn {
+        margin-left: 0rem !important;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .employer-upload-btn {
+        text-align: center;
+    }
+
+    .paystub-status-span {
+        /* display: inline-grid !important; */
+        /* float: unset; */
+        /* padding-left: 1.5rem; */
+    }
+
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+label.error {
+    color: red;
+}
+
+.border-red:focus {
+    box-shadow: 0 0 0 0.25rem #ffd5d3 !important;
+}
+
+.card .card-block,
+.card .card-body {
+    padding: 30px 15px;
+}
+
+/* Hidden state */
+.hidden {
+    opacity: 0;
+    max-height: 0;
+    display: none;
+    /* Hide the element */
+}
+
+/* Visible state */
+.visible {
+    opacity: 1;
+    max-height: 500px;
+    /* Adjust according to the content height */
+    display: block;
+    /* Ensure the element is displayed */
+}
+
+.paystub-upload-section {
+    border: 1px solid #efefef;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

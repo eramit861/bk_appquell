@@ -1,0 +1,9 @@
+label.error {	
+	color: red !important;
+	font-style: italic
+}
+.skiptranslate iframe{display:none;}
+input.checkbox { border: none }
+input:focus { border: 1px dotted black !important; }
+input.error { border: 1px dotted red !important; }
+.other_income{margin-top: 5px;}

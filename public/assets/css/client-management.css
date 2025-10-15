@@ -1,0 +1,300 @@
+/* ========================================
+   CLIENT MANAGEMENT STYLES
+   Optimized for Performance & Maintainability
+   ======================================== */
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+/* Subscription Addon */
+.subscription-addon {
+    padding: 0 !important;
+}
+
+/* Requested Access States */
+.requested_access {
+    background-color: #e4cacd !important;
+    border: 1px solid #f00 !important;
+    border-radius: 5px;
+    color: #f00 !important;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.requested_access:hover {
+    color: #ff0000;
+}
+
+/* Unread Indicator */
+.unread-indicator {
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 11px;
+    position: absolute;
+    width: 11px;
+}
+
+/* Link States */
+a.green {
+    background-color: #fff;
+    border: 1px solid green;
+    color: green;
+    font-weight: bold;
+}
+
+a.text-c-white:hover {
+    color: #fff;
+}
+
+/* ========================================
+   FORM CONTROLS
+   ======================================== */
+
+.form-control-none.w-auto {
+    background-clip: unset !important;
+    background-color: unset !important;
+    border: unset;
+    border-radius: unset;
+    color: unset;
+    display: unset;
+    font-weight: 600;
+    line-height: unset;
+    padding: unset;
+    transition: unset;
+    width: 100%;
+}
+
+.form-control-custom-padding {
+    padding: .2rem .75rem !important;
+}
+
+.edit,
+.submit {
+    color: #012cae;
+    cursor: pointer;
+}
+
+.h-unset {
+    height: unset !important;
+}
+
+.border-unset {
+    border: unset !important;
+}
+
+.no-arrow {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+/* ========================================
+   TABLE STATES & HOVER EFFECTS
+   ======================================== */
+
+/* Base Table Links */
+tr td a {
+    text-decoration: underline;
+}
+
+/* Status Canceled */
+tr.status_canceled {
+    background-color: red;
+    color: #fff !important;
+}
+
+.table-hover tbody tr.status_canceled:hover {
+    background-color: red;
+    color: #fff !important;
+}
+
+/* Status Consultation */
+.statuc_Consultation,
+.statuc_Consultation td {
+    background-color: rgb(23, 232, 133) !important;
+    color: #000 !important;
+}
+
+.table-hover tbody tr.statuc_Consultation:hover,
+.table-hover tbody tr.statuc_Consultation:hover td {
+    background-color: rgb(23, 232, 133) !important;
+    color: #000 !important;
+}
+
+/* Status Final */
+.statuc_Final,
+.statuc_Final td {
+    background-color: #012cae !important;
+    color: #fff !important;
+}
+
+.table-hover tbody tr.statuc_Final:hover,
+tr.statuc_Final select,
+tr.statuc_Final i.fa-pencil-square-o,
+tr.statuc_Final .user_stats,
+tr.statuc_Final .client_id_no {
+    background-color: #012cae !important;
+    color: #fff !important;
+}
+
+/* Status Client & Questionnaire */
+tr.statuc_Client,
+tr.statuc_Client td,
+tr.statuc_Questionnaire,
+tr.statuc_Questionnaire td,
+tr.statuc_Client td span.color-ultimate {
+    background-color: royalblue;
+    color: #fff !important;
+}
+
+.table-hover tbody tr.statuc_Client:hover,
+.table-hover tbody tr.statuc_Client:hover td,
+.table-hover tbody tr.statuc_Questionnaire:hover,
+.table-hover tbody tr.statuc_Questionnaire:hover td,
+.table-hover tbody tr.statuc_Client:hover td span.color-ultimate {
+    background-color: royalblue;
+    color: #fff !important;
+}
+
+/* Extended Client Status Elements */
+tr.statuc_Client select,
+tr.statuc_Client i.fa-pencil-square-o,
+tr.statuc_Client .user_stats,
+tr.statuc_Client .client_id_no,
+tr.statuc_Questionnaire select,
+tr.statuc_Questionnaire i.fa-pencil-square-o,
+tr.statuc_Questionnaire .user_stats,
+tr.statuc_Questionnaire .client_id_no {
+    background-color: royalblue;
+    color: #fff !important;
+}
+
+/* Concierge Service Done */
+tr.statuc_concierge_service_done,
+tr.statuc_concierge_service_done td,
+tr.statuc_concierge_service_done select,
+tr.statuc_concierge_service_done i.fa-pencil-square-o,
+tr.statuc_concierge_service_done .user_stats,
+tr.statuc_concierge_service_done .client_id_no {
+    background-color: #008000 !important;
+    color: #fff !important;
+}
+
+.table-hover tbody tr.statuc_concierge_service_done:hover,
+.table-hover tbody tr.statuc_concierge_service_done:hover td {
+    background-color: #008000 !important;
+    color: #fff !important;
+}
+
+/* Link Colors for Status Rows */
+tr.statuc_Client a,
+tr.statuc_Final .text-c-green,
+tr.statuc_Final a,
+tr.statuc_concierge_service_done a,
+tr.statuc_concierge_service_done .text-c-green,
+tr.statuc_Client .text-c-green {
+    color: #fff !important;
+}
+
+/* Link Underlines */
+tr.statuc_Client a.link-unerline,
+tr.statuc_Final a.link-unerline,
+tr.statuc_concierge_service_done a.link-unerline {
+    border: 1px solid #fff;
+}
+
+tr.statuc_concierge_service_done a.link-unerline {
+    border: 1px dotted #fff;
+    padding: 2px;
+}
+
+/* Concierge Service Images */
+tr.statuc_concierge_service_done img.done_client {
+    background-color: #21de21 !important;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.blinking-text {
+    animation: blink 1s infinite;
+    color: red;
+    margin-top: 20%;
+    text-align: center;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.hover-black:hover {
+    color: #414141;
+}
+
+/* Custom List Styles */
+.custom-ul-cm {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.custom-ul-cm li {
+    padding-top: 10px;
+}
+
+/* Loader */
+.whole-page-overlay .center-loader {
+    color: white;
+    left: 52%;
+    position: absolute;
+    top: 50%;
+}
+
+/* Button Styles */
+.btn-smt {
+    border: 2px solid #012cae;
+    border-radius: 5px;
+    color: #012cae;
+    line-height: .8;
+    margin: 0;
+    padding: 2px 8px 0;
+}
+
+.statuc_Final .btn-smt {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: white;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media only screen and (max-width: 1024px) {
+    #facebox {
+        left: unset !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    #facebox .content.fbminwidth {
+        min-width: 100% !important;
+    }
+
+    #facebox .popup {
+        max-width: 100%;
+        width: 100%;
+    }
+}

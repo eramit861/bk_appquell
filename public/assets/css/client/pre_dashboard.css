@@ -1,0 +1,247 @@
+.design-selector {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.design-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin: 2px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Design 4: Minimalist Clean */
+
+.design-4 .progress-card {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+}
+
+.design-4 .section-item {
+    background: #f8f9ff;
+    /*border: 2px solid #e9ecef;*/
+    border-radius: 12px;
+}
+
+/* Common Styles */
+.completion-badge {
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.section-icon {
+    font-size: 22px;
+}
+
+.progress-bar-custom {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.btn-custom {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 14px 24px;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    gap: 16px;
+    margin: 10px 0 10px 0;
+}
+
+.section-item {
+    text-align: center;
+    padding: 16px 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.section-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.progress-section {
+    margin: 24px 0;
+}
+
+.court-seal {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 12px rgba(26, 35, 126, 0.3);
+}
+
+.floating-progress {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.progress-card.progress-red .card-body {
+    background-color: #fbe9e7;
+}
+
+.progress-card.progress-yellow .card-body {
+    background-color: #fff8e1;
+}
+
+.progress-card.progress-blue .card-body {
+    background-color: #e3f2fd;
+}
+
+.progress-card.progress-green .card-body {
+    background-color: #e4fde3;
+}
+
+
+.section-grid .sub-step.progress-red .section-item {
+    background-color: #fbe9e78c;
+}
+
+.section-grid .sub-step.progress-yellow .section-item {
+    background-color: #fff8e178;
+}
+
+.section-grid .sub-step.progress-blue .section-item {
+    background-color: #e3f2fd87;
+}
+
+.section-grid .sub-step.progress-green .section-item {
+    background-color: #e4fde387;
+    line-height: 1.1;
+}
+
+.design-4 .icon-circle::before {
+    content: none !important;
+}
+
+.design-4 .sub-step {
+    color: var(--bs-card-color);
+}
+
+.progress-section .section-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+[data-theme="dark"] {
+    .card-label {
+        color: #fff;
+    }
+
+
+    .section-grid .sub-step.progress-red .section-item small,
+    .section-grid .sub-step.progress-yellow .section-item small,
+    .section-grid .sub-step.progress-blue .section-item small,
+    .section-grid .sub-step.progress-green .section-item small,
+    .progress-card.progress-red .card-body h5,
+    .progress-card.progress-yellow .card-body h5,
+    .progress-card.progress-blue .card-body h5,
+    .progress-card.progress-green .card-body h5,
+    .progress-card.progress-red .card-body .text-primary,
+    .progress-card.progress-yellow .card-body .text-primary,
+    .progress-card.progress-blue .card-body .text-primary,
+    .progress-card.progress-green .card-body .text-primary,
+    .small-info-section {
+        color: #fff !important;
+    }
+
+    .progress-card.progress-red .card-body .text-muted,
+    .progress-card.progress-yellow .card-body .text-muted,
+    .progress-card.progress-blue .card-body .text-muted,
+    .progress-card.progress-green .card-body .text-muted {
+        color: #cacaca !important;
+    }
+
+    .progress-card.progress-red .card-body {
+        background-color: #453432;
+    }
+
+    .progress-card.progress-yellow .card-body {
+        background-color: #413e34;
+    }
+
+    .progress-card.progress-blue .card-body {
+        background-color: #33414c;
+    }
+
+    .progress-card.progress-green .card-body {
+        background-color: #294128;
+    }
+
+}
+
+.submit-for-review-btn {
+    background-color: #28a745 !important;
+}
+
+@media (max-width: 576px) {
+    .section-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .section-item {
+        padding: 6px 8px;
+    }
+
+    .icon-circle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .section-icon {
+        font-size: 18px;
+    }
+}

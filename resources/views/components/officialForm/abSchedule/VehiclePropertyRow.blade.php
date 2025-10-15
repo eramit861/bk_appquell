@@ -1,0 +1,29 @@
+<x-officialForm.abSchedule.VehicleDetails
+    :q="$q"
+    :i="$i"
+    :make="$make"
+    :model="$model"
+    :year="$year"
+    :mileage="$mileage"
+    :otherInformation="$otherInformation"
+    :partAB="$partAB"
+    :vehicle="$vehicle"
+></x-officialForm.abSchedule.VehicleDetails>
+<x-officialForm.abSchedule.interestInProperty
+    :interestInTheProperty="$interestInTheProperty"
+    :seeInstruction="$seeInstruction"
+    :debtor1Value="$debtor1Value"
+    :debtor2Value="$debtor2Value"
+    :debtor1And2Value="$debtor1And2Value"
+    :oneOfDebtorAndAnotherValue="$oneOfDebtorAndAnotherValue"
+    :partAB="$partAB"
+    :vehicle="$vehicle"
+>
+</x-officialForm.abSchedule.interestInProperty>
+<x-officialForm.abSchedule.currentValueOfProperty
+    :currentValueA="$currentValueA"
+    :currentValueB="$currentValueB"
+    :partAB="$partAB"
+    :vehicle="$vehicle"
+>
+</x-officialForm.abSchedule.currentValueOfProperty>

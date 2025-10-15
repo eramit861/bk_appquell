@@ -1,0 +1,1 @@
+@include("attorney.official_form.form_income",['BasicInfoPartA'=>$BasicInfoPartA,'BasicInfoPartB'=>$BasicInfoPartB,'income_info'=>$income_info])

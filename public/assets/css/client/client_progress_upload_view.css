@@ -1,0 +1,26 @@
+/* Client Progress Upload View Styles */
+
+.nav-linkf {
+    text-transform: capitalize;
+}
+
+.box-lapel-flex label {
+    margin-bottom: 0;
+    text-align: start;
+}
+
+.box-lapel-flex {
+    margin-bottom: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+.anchor_diable {
+    cursor: default;
+}
+
+.text-red {
+    animation: blink-border 1s infinite;
+}

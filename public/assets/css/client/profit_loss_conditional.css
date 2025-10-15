@@ -1,0 +1,29 @@
+.no-border-elements .input-group-text {
+    background: none;
+}
+
+span.profit-loss-same {
+    font-size: 16px;
+}
+
+.no-border-elements span {
+    font-size: 11px;
+}
+
+.web-small h4 {
+    font-size: 12px;
+}
+
+.d-block>h3,
+.selected-months>h4,
+.d-block>h4 {
+    font-size: 16px;
+}
+
+.profitpopup .col-md-12>h5 {
+    font-size: 16px;
+}
+
+.shadow-2.mb-4.login-link {
+    text-align: center !important;
+}

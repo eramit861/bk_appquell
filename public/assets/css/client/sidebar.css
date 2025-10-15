@@ -1,0 +1,27 @@
+/* Sidebar Styles */
+
+.child-links .child-link {
+    font-size: 10px;
+    text-decoration: none;
+    min-width: 25px;
+    max-width: 100px;
+    min-height: 25px;
+    /* allows short buttons to align better, but expands if needed */
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.1;
+    display: flex;
+    align-items: center;
+    /* vertical alignment */
+    justify-content: center;
+    /* horizontal alignment */
+    text-align: center;
+    border: 1px solid #1a3dc5;
+    border-radius: 8px;
+    padding: 4px 6px;
+}
+
+.child-links .child-link:hover {
+    background-color: #e6f0ff;
+    text-decoration: underline;
+}

@@ -1,0 +1,31 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 107" width="110" height="107">
+	<title>Group 247</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m0 0h110v107h-110z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #ffffff;stroke-width: 4 } 
+	</style>
+	<g id="Group 247">
+		<g id="Group 246" clip-path="url(#cp1)">
+			<path id="Path 968" class="s0" d="m6.9 1.9h37.8c5.7 0 10.3 4.6 10.3 10.3"/>
+			<path id="Path 969" class="s0" d="m103.1 5.4h5.2v73.5"/>
+			<path id="Line 23" class="s0" d="m8 36v-3"/>
+			<path id="Line 24" class="s0" d="m8 29v-3"/>
+			<path id="Line 25" class="s0" d="m8 23v-4"/>
+			<path id="Line 26" class="s0" d="m102 67v4"/>
+			<path id="Path 970" class="s0" d="m55 58v28.2c0-5.7-4.6-10.4-10.3-10.4h-36.1v-36.1"/>
+			<path id="Path 971" class="s0" d="m55 86.2c0-5.7 4.6-10.4 10.3-10.4h37.8"/>
+			<path id="Path 972" class="s0" d="m50.9 34.4l-4.5-2.4v22.6l22.4-10.6-10-5.1c-2.3-1.2-3.7-3.5-3.8-6.1v-20.6c0-5.7 4.6-10.3 10.3-10.3h36.1v61.9"/>
+			<path id="Line 27" class="s0" d="m48 95h42"/>
+			<path id="Line 28" class="s0" d="m93 95h3"/>
+			<path id="Line 29" class="s0" d="m99 95h4"/>
+			<path id="Line 30" class="s0" d="m66 91v7"/>
+			<path id="Line 31" class="s0" d="m41 95h3"/>
+			<path id="Rectangle 1278" class="s0" d="m36 84h73v21h-73z"/>
+			<path id="Path 973" class="s0" d="m30.9 84.4h-29.2v-79h5.2"/>
+		</g>
+	</g>
+</svg>

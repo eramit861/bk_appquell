@@ -1,0 +1,51 @@
+.simple-upload-doc-class {
+    font-weight: bold !important;
+    color: #000 !important;
+}
+
+.nav-linkf {
+    text-transform: capitalize;
+}
+.text-transform-none {
+    text-transform: none !important;
+}
+
+.box-lapel-flex label {
+    margin-bottom: 0;
+    text-align: start;
+}
+
+.box-lapel-flex {
+    margin-bottom: 10px;
+}
+
+.fs-12px {
+    font-size: 12px !important;
+}
+
+.bottom-list {
+    line-height: 12px;
+}
+
+.bottom-list-without-month {
+    line-height: 6px;
+}
+
+.webkit_fill {
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+}
+
+#facebox .content.fbminwidth.video-popup-div {
+    max-width: 350px;
+}
+
+#facebox .content.fbminwidth.documents_download_popup {
+    min-width: 650px;
+}
+
+.card .card-header {
+    border: 2px solid #000 !important;
+}

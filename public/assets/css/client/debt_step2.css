@@ -1,0 +1,593 @@
+.bg_card {
+    background: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.bg_card p,
+.address-dic p {
+    color: #444444 !important;
+    font-size: 12px;
+}
+
+.card-custom .card-header {
+    background: #efefef !important;
+    margin-bottom: 0px;
+}
+
+.revenue_service p,
+.franchise_tax_board p {
+    margin: 0;
+    color: blue;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.year-btn {
+    padding: 6px 10px;
+}
+
+.justone-label {
+    margin: 0.1rem 0px;
+    width: 100%;
+}
+
+.pdf-download img {
+    width: 90px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* <!-- css only for upload scanners --> */
+    .appstore-icon-div {
+        margin: 0 auto;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .ul-disc {
+        list-style: disc;
+    }
+
+    .spanish-mobile-video {
+        display: none !important;
+    }
+
+    .input-group {
+        background: none;
+    }
+
+    .progress {
+        margin-top: 12px;
+        max-width: 300px;
+        text-align: right;
+        position: absolute;
+        right: 0;
+        width: 300px;
+    }
+
+    /*21  10 21*/
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        #video_modal .modal-content {
+            width: 98% !important;
+        }
+
+        #video_modal .modal-dialog {
+            width: 100% !important;
+        }
+
+        .text-center.btn-cstm-toggle iframe {
+            width: 100% !important;
+            height: 190px !important;
+        }
+
+        body .upload-documents-wrapper a.btn.shadow-2.mb-4.download-form {
+            width: 22%;
+            font-size: 13px;
+            padding: 10px 0;
+        }
+
+        .optional-document a.btn.btn-primary.shadow-2.mb-4 {
+            width: 100% !important;
+        }
+
+        body .upload-documents-wrapper a.doc-card-main {
+            width: 73%;
+            float: left;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        body .upload-documents-wrapper span.doc-type.d-block h4 {
+            word-break: break-word;
+            width: 74%;
+        }
+    }
+
+    span.text-gray {
+        right: 10px;
+    }
+
+    span.text-primary {
+        left: 10px;
+    }
+
+    span.text-gray,
+    span.text-primary {
+        position: relative;
+        bottom: 22px;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .text-center.btn-cstm-toggle {
+        position: absolute;
+        top: 11px;
+        z-index: 9;
+        width: 100%;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    /*TOGGLE END*/
+    input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        margin: 0 4px;
+    }
+
+    #video_modal .modal-dialog {
+        height: 90%;
+        /* = 90% of the .modal-backdrop block = %90 of the screen */
+        width: 900px;
+    }
+
+    #video_modal .modal-content {
+        width: 900px;
+    }
+
+    .modal {
+        text-align: center;
+    }
+
+    @media screen and (min-width: 768px) {
+        #video_modal.modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+        }
+    }
+
+    #video_modal .modal-dialog {
+        max-width: 100%;
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    /* style 1 */
+    .box {
+        margin-top: 2.5rem;
+    }
+
+    .inputfile-1+label {
+        color: #f1e5e6;
+        background-color: #012cae;
+    }
+
+    .inputfile-1:focus+label,
+    .inputfile-1.has-focus+label,
+    .inputfile-1+label:hover {
+        background-color: #722040;
+    }
+
+    .js .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .inputfile+label {
+        max-width: 80%;
+        font-size: 1.25rem;
+        /* 20px */
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0.625rem 1.25rem;
+        /* 10px 20px */
+    }
+
+    .no-js .inputfile+label {
+        display: none;
+    }
+
+    .inputfile:focus+label,
+    .inputfile.has-focus+label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    .inputfile+label * {
+        /* pointer-events: none; */
+        /* in case of FastClick lib use */
+    }
+
+    .inputfile+label svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        margin-top: -0.25em;
+        /* 4px */
+        margin-right: 0.25em;
+        /* 4px */
+    }
+
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .documents-modal .modal-dialog {
+        max-width: 630px;
+    }
+
+    .documents-modal .modal-footer {
+        padding: 0.4rem 1rem;
+    }
+
+    .subtitle-modal-head {
+        font-size: 16px;
+        padding-top: 6px;
+    }
+
+    #video_modal .card.popup-video .card-body {
+        padding-top: 56.14% !important;
+        position: relative;
+    }
+
+    #video_modal .card.popup-video .card-body iframe {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .spanish-mobile-video {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .spanish-mobile-video {
+            display: block;
+        }
+
+        .spanish-desktop-video {
+            display: none;
+        }
+
+    }
+
+    @media only screen and (max-width: 767px) {
+        #facebox .content.productQuickView {
+            width: auto;
+        }
+    }
+
+    #facebox {
+        top: 0px !important;
+    }
+
+    .fs-11 {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+
+    @media only screen and (max-width: 320px) {
+
+        #facebox img,
+        #facebox .post .post_media iframe,
+        .post .post_media #facebox iframe {
+            max-width: 120px;
+        }
+
+    }
+
+    .sign {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5px;
+    }
+
+    .nav-linkf {
+        text-transform: capitalize;
+    }
+
+    .box-lapel-flex label {
+        /* display: flex;
+        align-items: center; */
+        /* gap: 10px; */
+        margin-bottom: 0;
+        text-align: start;
+    }
+
+    .box-lapel-flex {
+        margin-bottom: 10px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .anchor_diable {
+        cursor: default;
+    }
+
+    .text-red {
+        animation: blink-border 1s infinite;
+    }
+
+    @font-face {
+        font-family: 'BradleyHTC';
+        src: url("/assets/css/fonts/bhitc.ttf") format("truetype");
+    }
+
+    .bradly-heading {
+        font-family: 'BradleyHTC';
+    }
+
+    .color-red a {
+        color: #f44236;
+    }
+
+    .color-dark-gray {
+        color: #a9a9a9;
+    }
+
+    .color-dark-gray a {
+        color: #a9a9a9;
+    }
+
+    span.color-red {
+        color: #f44236;
+    }
+
+    span.color-green {
+        color: rgb(16, 138, 0);
+        border: none;
+    }
+
+    span.color-yellow {
+        color: #012cae;
+    }
+
+    .color-yellow a {
+        color: #012cae;
+    }
+
+    .color-yellow-decline a {
+        color: #FFA600;
+    }
+
+    .color-green {
+        border: 1px solid rgb(16, 138, 0);
+    }
+
+    .color-green a {
+        color: rgb(16, 138, 0);
+    }
+
+    .color-green {
+        border: 1px solid rgb(16, 138, 0);
+    }
+
+    .text-gray a,
+    .text-gray .status-message {
+        color: #00b0f0 !important;
+    }
+
+    .text-gray.unsecured_page {
+        color: #00b0f0 !important;
+    }
+
+    @keyframes blink-border {
+        0% {
+            border-color: #f44236;
+        }
+
+        50% {
+            border-color: transparent;
+        }
+
+        100% {
+            border-color: #f44236;
+        }
+    }
+
+    .text-gray {
+        border: 2px solid #f44236;
+        animation: blink-border 1s infinite;
+    }
+
+    .text-red a,
+    .text-red .status-message {
+        color: #f44236;
+    }
+
+    .text-red {
+        border: 2px solid #f44236;
+    }
+
+    .text-yellow {
+        border: 1px solid #012cae;
+    }
+
+    .text-yellow a,
+    .text-yellow .status-message {
+        color: #012cae;
+    }
+
+    .text-yellow-decline a {
+        color: #000;
+    }
+
+    .text-yellow-decline {
+        border: 1px solid #000;
+    }
+
+    .text-green {
+        border: 1px solid rgb(16, 138, 0);
+    }
+
+    .text-green a,
+    .text-green .status-message {
+        color: rgb(16, 138, 0);
+    }
+
+    .btn_border {
+        border: 2px solid #000;
+        font-weight: bold;
+    }
+
+    .doc-card {
+        align-items: center;
+    }
+
+    .card-header {
+        background-color: #fff !important;
+        border: 2px solid #000 !important;
+
+    }
+
+    ul {
+        list-style: none;
+        padding: 0px;
+    }
+
+    .debtor-docs,
+    .codebtor-docs,
+    .attorney-docs {
+        margin-bottom: 0;
+    }
+
+    .debtor-docs li,
+    .codebtor-docs li,
+    .attorney-docs li {
+        padding: 10px 15px;
+        margin: 10px 0;
+        font-size: 14px;
+        border-radius: 0.35rem;
+    }
+
+    .debtor-docs li .doc-card,
+    .codebtor-docs li .doc-card,
+    .attorney-docs li .doc-card {
+        margin-left: 0.75rem;
+        position: relative;
+        width: 100%;
+    }
+
+    .nav-linkf .doc-card .font-weight-bold {
+        font-size: 9px;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        min-width: 100%;
+        text-align: right;
+    }
+
+    /* .debtor-docs li .d-status img, .codebtor-docs li .d-status img, .attorney-docs li .d-status img{
+ 
+} */
+    .status-message {
+        padding-top: 2px;
+    }
+
+    .doc-icon {
+        width: 35px;
+        fill: blue;
+        text-align: center;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }

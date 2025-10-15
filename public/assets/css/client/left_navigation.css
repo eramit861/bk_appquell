@@ -1,0 +1,377 @@
+/* Left Navigation Styles */
+
+ul.property-tab-icon {
+    margin: 0px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+ul.property-tab-icon li {
+    list-style: none;
+    width: 16.66% !important;
+    padding-right: 2px;
+    box-shadow: unset !important;
+}
+
+ul.property-tab-icon li img {}
+
+.hideOverflow {
+    overflow: hidden;
+    width: 100%;
+    display: block;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.doc_img_head {
+    position: absolute;
+    width: 100%;
+    padding: 12px 0px 10px 2px;
+    color: red;
+    font-weight: 800;
+    margin-right: 0.5rem;
+    animation: blink 2.0s infinite;
+    background: #efefef;
+    opacity: .1;
+    top: 15px;
+    font-size: 14px;
+}
+
+.doc_img_head.success {
+    color: green;
+    background: #efefef;
+}
+
+.doc_img_foot {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    color: red;
+    font-weight: 800;
+    animation: blink 2.0s infinite;
+    padding: 12px 0px 10px 2px;
+    background: #efefef;
+    opacity: .1;
+    font-size: 14px;
+}
+
+.nav-link.blinking {
+    color: red !important;
+}
+
+.ls-none {
+    list-style: none;
+}
+
+.manual-upload-sec {
+    padding: 1rem;
+    border-radius: 16px;
+    margin: 7px 0;
+    -webkit-box-shadow: 0px 1px 2px 0px #0000000F;
+    -webkit-box-shadow: 0px 1px 3px 0px #0000001A;
+    box-shadow: 0px 1px 2px 0px #0000000F;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+}
+
+.manual-upload-sec span,
+.manual-upload-sec button {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.active-percent {
+    color: #ffffff !important;
+}
+
+.web-view-true .nav-link.active {
+    background: #012cae !important;
+    border-radius: 16px !important;
+    color: #fff !important;
+}
+
+.maxw380 {
+    width: 380px !important;
+}
+
+.uploadtext {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+a.nav-link.active i.arrow.right {
+    border-right: solid #fff;
+    border-bottom: solid #fff;
+}
+
+.uploadbtn {
+    width: 100%;
+    border-radius: 16px;
+    font-size: 16px;
+
+    background-size: 6%;
+    padding-left: 58px;
+}
+
+.drop_file_name {
+    display: block;
+    top: 130px;
+    color: #012cae;
+}
+
+.doc-card {
+    display: flex;
+}
+
+.row.list-document {
+    margin-bottom: 10px;
+    box-shadow: 0 1px 22px 0 rgb(69 93 100 / 10%);
+    padding-top: 15px;
+}
+
+.upload-area {
+    border: none;
+    padding-bottom: 40px;
+    box-shadow: none;
+}
+
+.text-c-white {
+    color: #fff !important;
+}
+
+.upload-area__drop-zoon {
+    background-color: #EDEEF0;
+    border: none;
+}
+
+.doc-card-main {
+    display: block;
+    width: 100%;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 5%);
+    padding: 17px 20px;
+    max-width: 680px;
+    margin: 0 auto 30px;
+    border-radius: 9px;
+    position: relative;
+}
+
+.uploadicon {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.c100 {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    border-radius: 50%;
+    float: right;
+    background-color: #dfe8ed;
+}
+
+.drive-upload:hover {
+    cursor: pointer;
+}
+
+ul.nav-pills {
+    padding: 0px;
+}
+
+.drive-text {
+    font-weight: bold;
+}
+
+.drive-link {
+    font-weight: bold;
+    color: #012cae;
+    text-decoration: underline;
+}
+
+.custom-ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+ul.nav-pills li {
+    width: 100%;
+}
+
+.w100.nav-link {
+    font-size: 12px;
+    min-height: 50px;
+    line-height: 40px;
+}
+
+.percentage_bar {
+    width: 90%;
+    line-height: 1.8rem;
+    font-size: 16px;
+    padding-top: 6px;
+}
+
+.nav-link.active {
+    border-radius: 12px;
+}
+
+.percentage_bar progress {
+    height: 18px;
+    margin-top: 9px !important;
+}
+
+#questionnaire-section-tab img {
+    width: 25px;
+    vertical-align: -5px;
+    margin-right: 3px;
+}
+
+.doc_page_btn:hover {
+    background-color: #012cae !important;
+    color: #fff !important;
+}
+
+#questionnaire-section-tab {
+    box-shadow: none !important;
+}
+
+#questionnaire-section-tab li {
+    border-radius: 16px;
+    /*background: aqua;*/
+    margin: 7px 0;
+    -webkit-box-shadow: 0px 1px 2px 0px #0000000F;
+    -webkit-box-shadow: 0px 1px 3px 0px #0000001A;
+    box-shadow: 0px 1px 2px 0px #0000000F;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+}
+
+.w100.nav-link {
+    border-bottom: 0;
+}
+
+.nav-pills>li>a {
+    text-transform: none;
+    font-size: 16px !important;
+}
+
+.c100.p100.blue {
+    background-color: #ffffff;
+    border-radius: 0;
+    width: 7%;
+}
+
+.c100>span {
+    background-color: #ffffff;
+    text-align: right !important;
+    line-height: 4.8rem !important;
+    right: 37px;
+    width: 3%;
+    font-weight: 800 !important;
+    background: #7fffd400;
+}
+
+.percentage_count {
+    position: absolute;
+    padding-left: 10px;
+    top: 39px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: right;
+    right: 12px;
+}
+
+span.web-view-arrow {
+    right: 16px !important;
+    top: 10px;
+}
+
+.padding-l-0 {
+    padding-right: 5px !important;
+}
+
+.arrow {
+    padding: 4px;
+}
+
+#progressContainer {
+    display: inline-block;
+    width: 100%;
+    height: 9px;
+    background: red;
+    border-radius: 5px;
+    background-color: #F3F3F3;
+}
+
+#progress {
+    display: block;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.document_li,
+.document_li a {
+    border-radius: 10px 10px 0px 0px !important;
+}
+
+.w-25px {
+    width: 25px;
+}
+
+.overview_tab {
+    color: #000;
+    border-radius: 12px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.overview_tab .nav-link {
+    padding: 10px 10px;
+}
+
+.overview_tab .active {
+    color: #000 !important;
+    border-radius: 12px;
+    background-color: #efecf6 !important;
+    border-left: 5px solid #012cae;
+    -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dialog-ovelay header h3 {
+    color: #012cae !important;
+    border-bottom: 2px solid #00b0f0 !important;
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+.dialog-msg .dialog-msg-warning {
+    color: #ec1405;
+    border-bottom: 2px solid #ec1405 !important;
+    margin: 0 20px 0 20px;
+}
+
+.dialog .button.button-danger.doAction {
+    border: 2px solid #00b0f0;
+    color: #012cae;
+    background-color: #fff;
+}
+
+#questionnaire-section-tab .property-tab-icon li span {
+    font-size: 10px;
+    display: block;
+    width: 100%;
+}

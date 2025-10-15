@@ -1,0 +1,6 @@
+table {
+    border-collapse: separate;
+    /* Required for border-spacing */
+    border-spacing: 0 10px;
+    /* Vertical spacing between rows */
+}

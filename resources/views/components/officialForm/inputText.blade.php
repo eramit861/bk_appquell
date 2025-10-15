@@ -1,0 +1,1 @@
+<input type="text" name="{{ base64_encode($name) }}" class="form-control {{ $class }}" value="{{ $value }}" {!! $extra ?? '' !!}>

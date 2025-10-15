@@ -1,0 +1,21 @@
+.guide_video{
+    max-width: 668px;
+    width: 100%;
+    height:250px;
+}
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.nav-linkf.text-left.font-color-fail {
+    color: #dc3545 !important;
+}
+.nav-linkf.text-left.font-color-sucess {
+    color: #28a745 !important;
+}
+.text-bold{
+    font-weight: bold;
+}
+.text-c-gray{
+    color: #808080;
+}

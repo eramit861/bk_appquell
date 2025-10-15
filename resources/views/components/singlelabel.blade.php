@@ -1,0 +1,1 @@
+<label id="{{$id ?? ''}}" class="{{$class ?? ''}}">{{$label}} </label>

@@ -1,0 +1,10 @@
+#facebox .content.fbminwidth {
+    max-width: 1100px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#facebox .content {
+    background-color: unset;
+}

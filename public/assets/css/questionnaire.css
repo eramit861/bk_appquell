@@ -1,0 +1,338 @@
+strong {
+    font-weight: 700;
+}
+
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    
+    background-color: transparent;
+}
+.skiptranslate iframe{display:none;}
+.attorney-nav-iiner {
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 5%);
+}
+
+.attorney-nav-iiner .attorney-nav {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(0 0 0);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 20px 0 0;
+}
+
+.attorney-nav .nav-link.active {
+    color: #012cae !important;
+}
+
+.questionnaire-wrapper {
+    padding: 0 30px;
+}
+
+.questionnaire-main-title {
+    padding: 10px 12px;
+    position: relative;
+}
+
+.questionnaire-main-title h3 {
+    font-size: 28px;
+}
+a.w-25 {
+    width: 25% !important;
+    margin: 0px !important;
+}
+.tab-content .download-form {
+    border-radius: 0;
+    position: absolute;
+    right: 0;
+}
+
+
+.section-part-title span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+}
+
+.radio-btn label {
+    position: relative;
+    top: -3px;
+    left: 2px;
+}
+
+.fixed-topbar {
+    position: sticky;
+    top: 0;
+    transition: all 0.5s;
+}
+
+.next-part-btn .btn {
+    border-radius: 3px;
+}
+
+.radio-primary.radio {
+    user-select: none;
+}
+
+.que_text{
+    color: #012cae;
+}
+
+.hidestep {
+    display: none !important;
+}
+
+.tab-content {
+    padding: 35px 13px;
+    background: #fff;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 5%);
+}
+
+.nav-link.active {
+    cursor: pointer;
+}
+
+.nav-pills .nav-link {
+    /*cursor: no-drop;*/
+}
+
+.footer-copyright {
+    padding: 14px 0px;
+    background: #f0f8ffc2;
+}
+
+.hide-data {
+    display: none;
+}
+
+.next-part-btn {
+    padding-top: 20px;
+}
+
+.font-lg-18 {
+    font-size: 18px;
+}
+
+.add-more-btn .btn {
+    padding: 4px 10px;
+}
+
+.total-amount-income-table tr td {
+    vertical-align: middle;
+    white-space: normal;
+}
+
+
+.table_list_col .table-no-padding td{padding: 0.3rem !important;}
+.table_list_col .d-inline.radio-primary label{font-size:12px;font-weight:500;}
+.table_list_col th {font-size:12px;font-weight:700;}
+.table_list_col .small-font, .table_list_col a.border-bottom-light-blue {font-size:10px;font-weight:500;}
+.table_list_col .text-c-blue.border-dotted{font-size:10px;}
+.table th {
+    border: none;
+}
+
+.table tr td .radio input[type="radio"]+.cr:after {
+    top: 15px;
+}
+
+.unique-sec .radio input[type="radio"]+.cr:after {
+    top: 15px;
+}
+
+@media (max-width: 600px) {
+    .total-amount-income-table tr td {
+        width: auto !important;
+    }
+    .questionnaire-main-title h3 {
+        font-size: 24px;
+    }
+    .nav-pills>li>a {
+        padding: 10px 6px;
+        margin: 4px 0;
+        font-size: 11px;
+        line-height: 14px;
+    }
+    .questionnaire-wrapper-content .nav-pills {
+        flex-direction: row !important;
+    }
+    .tab-content {
+        padding: 25px 13px;
+    }
+    .navbar-light .navbar-brand {
+        width: auto !important;
+    }
+ 
+    ul.navbar-nav {
+        padding-right: 0;
+    }
+    .navbar-nav li {
+        padding: 15px 0;
+    }
+    .questionnaire-wrapper {
+        padding: 0 15px;
+    }
+    .tab-content .download-form {
+        position: relative;
+        top: 0;
+    }
+}
+
+.container-1140 {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.doc-card-main {
+    display: block;
+    width: 100%;
+    box-shadow: 0 3px 10px 0 rgb(0 0 0 / 5%);
+    padding: 17px 20px;
+    max-width: 680px;
+    margin: 0 auto 30px;
+    border-radius: 9px;
+    position: relative;
+}
+
+.doc-card {
+    display: flex;
+}
+
+.doc-img img {
+    width: 60px;
+}
+
+.doc-type {
+    padding-left: 20px;
+}
+
+.doc-done img {
+    width: 25px;
+    position: absolute;
+    right: 34px;
+    top: 19px;
+}
+
+/* Remove arrow from number fiel in client expenses */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox : Remove arrow from number fiel in client expenses */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+ .dialog-ovelay .dialog {
+    width: 600px;
+    margin: 100px auto 0;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    border-radius: 3px;
+    overflow: hidden
+}
+ .dialog-ovelay .dialog header {
+    padding: 10px 8px;
+    background-color: #f6f7f9;
+    border-bottom: 1px solid #e5e5e5
+}
+ .dialog-ovelay .dialog header h3 {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+    display: inline-block
+}
+ .dialog-ovelay .dialog header .fa-close {
+    float: right;
+    color: #c4c5c7;
+    cursor: pointer;
+    transition: all .5s ease;
+    padding: 0 2px;
+    border-radius: 1px    
+}
+ .dialog-ovelay .dialog header .fa-close:hover {
+    color: #b9b9b9
+}
+ .dialog-ovelay .dialog header .fa-close:active {
+    box-shadow: 0 0 5px #673AB7;
+    color: #a2a2a2
+}
+ .dialog-ovelay .dialog .dialog-msg {
+    padding: 12px 10px
+}
+ .dialog-ovelay .dialog .dialog-msg p{
+    margin: 0;
+    font-size: 15px;
+    color: #333
+}
+ .dialog-ovelay .dialog footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 8px 10px
+}
+ .dialog-ovelay .dialog footer .controls {
+    direction: rtl
+}
+ .dialog-ovelay .dialog footer .controls .button {
+    padding: 5px 15px;
+    border-radius: 3px
+}
+ .button {
+  cursor: pointer
+}
+ .button-default {
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    color: #5D5D5D;
+}
+ .button-danger {
+    background-color: #012cae;
+    border: 1px solid #012cae;
+    color: #f5f5f5
+}
+ .link {
+  padding: 5px 10px;
+  cursor: pointer
+}
+.dialog-ovelay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 999999
+}
+.doc_upload{
+    transform: translate(-50%, -50%) !important;
+    top: 50%;
+    left: 50%;
+    position:absolute;
+}
+.border-bottom-light-blue {
+    border-bottom: 2px solid #00b0f0 !important;
+}
+.cod_opt{
+    padding: 0px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    color:#012cae;
+    border:2px solid #012cae;
+}
+.green-bg{background-color: green;}
+.w-340{width:340px;}

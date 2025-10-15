@@ -1,0 +1,293 @@
+.d-inline-box {
+    display: -webkit-inline-box
+}
+
+.ul_list {
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-secondry {
+    background-color: #000;
+}
+
+#facebox .content.small_popup {
+    margin-top: 60px;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: 450px;
+}
+
+.icon-text {
+    margin-top: 15px;
+    color: #fff;
+    margin-right: 5px;
+}
+
+
+
+@media (min-width: 1025px) {
+    section.aboutus .tittle_heading_about:before {
+        top: 128px !important;
+    }
+
+    section.aboutus .tittle_heading_about .hero-banner-bg {
+        margin-top: 128px !important;
+    }
+
+    section.aboutus .tittle_heading_about .main_tittle {
+        margin-top: 3rem !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+    section.aboutus .tittle_heading_about:before {
+        top: 98px !important;
+    }
+
+    section.aboutus .tittle_heading_about .hero-banner-bg {
+        margin-top: 98px !important;
+    }
+
+}
+
+header.bk-main-header.tos-header {
+    margin-bottom: -60px !important;
+}
+
+#clientLoginNoticePromptModal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#clientLoginNoticePromptModal.modal .modal-dialog.client-login-screen-notice {
+  max-width: 700px !important;
+}
+
+#clientLoginNoticePromptModal .modal-header {
+    background: linear-gradient(135deg, #ffe28d, #ffc983);
+    color: #333;
+    padding: 20px 25px;
+    border-bottom: none;
+    position: relative;
+}
+
+#clientLoginNoticePromptModal .modal-header .btn-close {
+    --bs-btn-close-color: #000;
+    --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+    --bs-btn-close-opacity: 0.5;
+    --bs-btn-close-hover-opacity: 0.75;
+    --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    --bs-btn-close-focus-opacity: 1;
+    --bs-btn-close-disabled-opacity: 0.25;
+    --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: .25em .25em;
+    color: var(--bs-btn-close-color);
+    background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
+    border: 0;
+    border-radius: .375rem;
+    opacity: var(--bs-btn-close-opacity);
+    filter: none;
+}
+
+#clientLoginNoticePromptModal .modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+#clientLoginNoticePromptModal .modal-header .btn-close:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+#clientLoginNoticePromptModal .modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+#clientLoginNoticePromptModal .tagline {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+#clientLoginNoticePromptModal .modal-body {
+    padding: 30px 25px;
+}
+
+#clientLoginNoticePromptModal .feature-section {
+    margin-bottom: 25px;
+}
+
+#clientLoginNoticePromptModal .feature-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#clientLoginNoticePromptModal .feature-title i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+#clientLoginNoticePromptModal .device-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+#clientLoginNoticePromptModal .device-item {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+#clientLoginNoticePromptModal .device-item:hover {
+    border-color: #ffc107;
+    transform: translateY(-2px);
+}
+
+#clientLoginNoticePromptModal .device-item i {
+    font-size: 24px;
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+
+#clientLoginNoticePromptModal .device-item span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #495057;
+}
+
+#clientLoginNoticePromptModal .sync-feature {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+}
+
+#clientLoginNoticePromptModal .sync-feature-text {
+    font-size: 14px;
+    color: #1976d2;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#clientLoginNoticePromptModal .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#clientLoginNoticePromptModal .btn-app {
+    background: linear-gradient(135deg, #4285f4, #1a73e8);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#clientLoginNoticePromptModal .btn-app:hover {
+    background: linear-gradient(135deg, #1a73e8, #1557b0);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.3);
+}
+
+#clientLoginNoticePromptModal .btn-website {
+    background: linear-gradient(135deg, #34a853, #137333);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#clientLoginNoticePromptModal .btn-website:hover {
+    background: linear-gradient(135deg, #137333, #0f5a1f);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+}
+
+#clientLoginNoticePromptModal .btn-icon {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+#clientLoginNoticePromptModal .compatibility-note {
+    text-align: center;
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+/* Demo button to trigger modal */
+#clientLoginNoticePromptModal .demo-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#clientLoginNoticePromptModal .demo-content {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    #clientLoginNoticePromptModal .modal-body {
+        padding: 20px 20px;
+    }
+
+    #clientLoginNoticePromptModal .device-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #clientLoginNoticePromptModal .feature-title {
+        font-size: 16px;
+    }
+
+    #clientLoginNoticePromptModal .modal-header {
+        padding: 15px 20px;
+    }
+
+    #clientLoginNoticePromptModal .modal-title {
+        font-size: 20px;
+    }
+}

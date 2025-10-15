@@ -1,0 +1,110 @@
+/* Add this CSS to ensure the first column's content wraps into two lines */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    width: 15% !important;
+    /* Adjust the width as needed */
+    white-space: normal !important;
+    /* Allow text to wrap */
+    word-wrap: break-word;
+    /* Break long words if necessary */
+}
+
+/* Ensure the table is scrollable on smaller screens */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Hide the default radio buttons */
+.custom_radioss input[type="radio"] {
+    display: none;
+}
+
+/* Style the custom radio boxes */
+.custom_radioss .radio-box {
+    display: inline-block;
+    padding: 0px 16px;
+    /* Adjust size as needed */
+    border: 2px solid transparent;
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s, border-color 0.3s;
+
+}
+
+/* Green box for "Yes" */
+.custom_radioss .radio-box.yes {
+    background-color: #e8f5e9;
+    /* Light green background */
+    color: #2e7d32;
+    /* Dark green text */
+    border-color: #2e7d32;
+    /* Dark green border */
+}
+
+/* Red box for "No" */
+.custom_radioss .radio-box.no {
+    background-color: #ffebee;
+    /* Light red background */
+    color: #c62828;
+    /* Dark red text */
+    border-color: #c62828;
+    /* Dark red border */
+}
+
+/* Change background when selected */
+.custom_radioss input[type="radio"]:checked+.radio-box.yes {
+    background-color: #2e7d32;
+    /* Dark green background */
+    color: white;
+    /* White text */
+}
+
+.custom_radioss input[type="radio"]:checked+.radio-box.no {
+    background-color: #c62828;
+    /* Dark red background */
+    color: white;
+    /* White text */
+}
+
+/* Reduce padding in table cells */
+.table td,
+.table th {
+    padding: 0.25rem;
+    /* Adjust this value as needed */
+}
+
+/* Reduce font size */
+.table {
+    font-size: 12px;
+    /* Adjust this value as needed */
+}
+
+/* Remove unnecessary margins and padding */
+.table-responsive {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the table takes up the full width of its container */
+.table {
+    width: 100%;
+}
+
+/* Adjust the form elements inside the table */
+.table .form-group {
+    margin-bottom: 0;
+}
+
+/* Adjust the radio buttons and labels */
+.table .radio-primary {
+    margin-right: 5px;
+    /* Adjust this value as needed */
+}
+
+/* Ensure the table headers are aligned properly */
+.table thead th {
+    vertical-align: middle;
+}

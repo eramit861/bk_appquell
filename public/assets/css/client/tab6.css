@@ -1,0 +1,51 @@
+#client_financial_affairs .form-cstm-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ccc !important;
+}
+
+.table-no-padding td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.table-no-padding .form-group {
+    padding: 0px;
+    margin: 0px;
+}
+
+.table-no-padding .input-group {
+    padding: 0px;
+    margin: 0px;
+}
+
+.table-no-padding div.d-inline label {
+    margin-bottom: 0px;
+}
+
+.mw-150px {
+    max-width: 150px;
+}
+
+.delete-icon {
+    margin: auto;
+    margin-right: 0rem;
+}
+
+.border-dotted {
+    border: 1px dotted;
+    padding: 1px;
+}
+
+.w-fit-content {
+    width: fit-content;
+}
+
+.webkit_fill {
+    width: 100%;
+    width: -moz-available;
+    /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;
+    /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}

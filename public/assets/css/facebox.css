@@ -1,0 +1,215 @@
+#facebox {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    z-index: 9000;
+    /*text-align: left;*/
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  #facebox .content.fbminwidth {
+    min-width: 350px;
+    min-height: 150px;
+    }
+  #facebox {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+  }
+  #facebox .popup {
+    padding: 30px;
+    position: relative;
+    /*  border:3px solid rgba(0,0,0,0);
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
+  -moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
+  box-shadow:0 0 18px rgba(0,0,0,0.4);*/
+  }
+  
+  #facebox .content {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  #facebox .content .pop-up-title {
+    font-weight: 300;
+    color: #212529;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    /*margin-bottom: 20px;*/
+    padding: 10px;
+    /*border-bottom: $border;*/
+  }
+  #facebox .content.productQuickView {
+    width: 900px;
+    padding: 0;
+  }
+  
+  #facebox .close {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+  }
+  
+  #facebox .close:before {
+    width: 2px;
+    height: 30px;
+    left: 50%;
+    margin: 0 0 0 -1px;
+    position: absolute;
+    top: 0;
+    content: "";
+    background: #000;
+  }
+  
+  #facebox .close:after {
+    width: 30px;
+    height: 2px;
+    left: 0px;
+    top: 50%;
+    margin: -1px 0 0 0;
+    position: absolute;
+    content: "";
+    background: #000;
+  }
+  
+  #facebox .close.close--white:before,
+  #facebox .close.close--white:after {
+    background: #ffffff;
+  }
+  
+  
+  /* #facebox .content.faceboxFixed {
+    position: fixed;
+  } */
+  
+  
+  /*
+  #facebox .close:hover{animation: spin180 0.4s;-webkit-animation: spin180 0.4s;}
+  
+  @keyframes spin180 {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(360deg);}
+  }
+  @-moz-keyframes spin180 {
+        from {-moz-transform: rotate(0deg);}
+        to {-moz-transform: rotate(360deg);}
+  }
+  @-webkit-keyframes spin180 {
+        from {-webkit-transform: rotate(0deg);}
+        to {-webkit-transform: rotate(360deg);}
+  }
+  @-o-keyframes spin180 {
+        from {-o-transform: rotate(0deg);}
+        to {-o-transform: rotate(360deg);}
+  }
+  @-ms-keyframes spin180 {
+        from {-ms-transform: rotate(0deg);}
+        to {-ms-transform: rotate(360deg);}
+  }*/
+  
+  #facebox .close img,
+  #facebox .close .post .post_media iframe,
+  .post .post_media #facebox .close iframe {
+    opacity: 0.3;
+  }
+  
+  #facebox .close:hover img,
+  #facebox .shop-nav ul li.is--active a.close img,
+  .shop-nav ul li.is--active #facebox a.close img,
+  #facebox .close:hover .post .post_media iframe,
+  .post .post_media #facebox .close:hover iframe,
+  #facebox .shop-nav ul li.is--active a.close .post .post_media iframe,
+  .post .post_media #facebox .shop-nav ul li.is--active a.close iframe,
+  .shop-nav ul li.is--active #facebox a.close .post .post_media iframe,
+  .post .post_media .shop-nav ul li.is--active #facebox a.close iframe {
+    opacity: 1.0;
+  }
+  
+  #facebox .loading {
+    text-align: center;
+  }
+  
+  #facebox .image {
+    text-align: center;
+  }
+  
+  #facebox img,
+  #facebox .post .post_media iframe,
+  .post .post_media #facebox iframe {
+    border: 0;
+    margin: 0;
+  }
+  
+  #facebox_overlay {
+    z-index: 1071 !important;
+    opacity: 0.5 !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    --bs-backdrop-zindex: 1050;
+    --bs-backdrop-bg: #000;
+    --bs-backdrop-opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+}
+
+  .video-popup + .close{top:10px !important;}
+  /*--mac book pro , and mac-book retina display screen---*/
+  
+  @media only screen and (max-width: 1025px) {
+    #facebox {
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+    }
+    #facebox .content {
+        display: block;
+        padding: 10px;
+    }
+    /* #facebox .content.faceboxWidth {
+        width: auto;
+        max-width: 750px;
+    } */
+    #facebox .content.fbminwidth {
+      min-width: 900px !important;
+      min-height: 550px !important;
+    }
+    .width_16percent{
+      width: 16%;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    #facebox .content.fbminwidth {
+        min-width: inherit;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    #facebox .content.productQuickView {
+        overflow-y: auto;
+    }
+    #facebox .popup {
+        padding: 30px 20px;
+    }
+  }
+
+
+ 

@@ -1,0 +1,33 @@
+/* Login Page Styles */
+
+.blink-image {
+    opacity: 0.1;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+}
+
+.bkq_logo_small {
+    max-width: 50%;
+    padding-top: 10px;
+    margin: auto;
+}
+
+label.error {
+    color: red;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#register_form .form-group,
+.scales_p label {
+    margin-bottom: 0px;
+}
