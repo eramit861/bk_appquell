@@ -163,7 +163,18 @@
             showGetReportPopup: @json($showGetReportPopup ?? false)
         };
     </script>
-    <script src="{{ asset('assets/js/debt_step2.js') }}"></script>
+
+    {{-- Load Tab 3 Common utilities (always loaded) --}}
+    <script src="{{ asset('assets/js/client/questionnaire/tab3/common.js') }}?v=1.01"></script>
+    
+    {{-- Load step-specific JavaScript based on active debt step --}}
+    @if(isset($debt_step) && $debt_step == 'unsecured')
+        <script src="{{ asset('assets/js/client/questionnaire/tab3/step1.js') }}?v=1.01"></script>
+    @endif
+    
+    @if(isset($debt_step) && $debt_step == 'back_tax')
+        <script src="{{ asset('assets/js/client/questionnaire/tab3/step2.js') }}?v=1.01"></script>
+    @endif
 @endpush
 
 @if (isset($web_view) && $web_view)
