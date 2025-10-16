@@ -47,7 +47,6 @@ var laws = {
             }
         }
         laws.ajaxRequestLog.push(obj);
-        console.log('Added log: ' + laws.ajaxRequestLog.length);
     },
     ajax: function (url, data, fn, options) {
         var o = $.extend(true, {fOutMode: 'html', timeout: 300000, maxRetry: 0, retryNumber: 0}, options);

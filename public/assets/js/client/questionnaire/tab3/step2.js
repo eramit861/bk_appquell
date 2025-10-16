@@ -416,6 +416,25 @@ function initializeCreditReport() {
 }
 
 // Export functions for backward compatibility
-window.initializeStep2 = initializeCreditReport;
+window.initializeStep2Validation = initializeCreditReport;
 window.initializeCreditReport = initializeCreditReport;
+window.getTaxowned = getTaxowned;
+window.getTaxowned_IRS = getTaxowned_IRS;
+window.getAnotherDebts = getAnotherDebts;
+window.unknownChecked = unknownChecked;
+window.liensUnknownChecked = liensUnknownChecked;
+window.isThreeMonthAddLiens = isThreeMonthAddLiens;
+window.removeDomesticForm = removeDomesticForm;
+window.removeAdditionalLiensForm = removeAdditionalLiensForm;
+window.getAddress = getAddress;
+window.getDomesticAddress = getDomesticAddress;
+window.getirsAddress = getirsAddress;
+window.openGraphqlComfirmPopup = openGraphqlComfirmPopup;
+window.confirmAllAIPendingToInclude = confirmAllAIPendingToInclude;
+window.confirmCreditor = confirmCreditor;
+window.opengetReportPopup = opengetReportPopup;
+window.videoPreviewFunction = videoPreviewFunction;
+window.openFreeReportGuide = openFreeReportGuide;
+window.creditReportUploadBtnClick = creditReportUploadBtnClick;
+window.creditReportUploadBtnSelect = creditReportUploadBtnSelect;
 

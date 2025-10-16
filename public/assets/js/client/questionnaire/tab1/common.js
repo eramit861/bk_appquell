@@ -8,7 +8,7 @@
 /**
  * Number key validation - allows only numbers, decimal, and negative
  */
-window.isNumberKey = function(evt) {
+function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : event.keyCode;
     if (charCode != 46 && charCode != 45 && charCode > 31 && (charCode < 48 || charCode > 57)) return false;
     return true;
@@ -17,7 +17,7 @@ window.isNumberKey = function(evt) {
 /**
  * Open information popup
  */
-window.openPopup = function(divclass) {
+function openPopup(divclass) {
     var htmldiv = $("." + divclass).html();
     var html = '<div class="sign_up_bgs"><div class="container-fluid"><div class="row py-0 page-flex"><div class="col-md-12"><div class="form_colm row px-md-5 py-4"><div class="col-md-12 mb-3"><div class="title-h mt-1 d-flex"><h4><strong>Information: </strong></h4></div></div><div class="col-md-12 main-div"><div class="row"><div class="col-md-12"><div class="align-left">' + htmldiv + '</div></div></div></div></div></div></div></div></div>';
     laws.updateFaceboxContent(html, 'productQuickView quickinfor');
@@ -30,7 +30,8 @@ window.openPopup = function(divclass) {
  * @param {string} divId - State select element ID
  * @param {string} targetdiv - County select element ID
  */
-window.statecounty = function(divId, targetdiv) {
+function statecounty(divId, targetdiv) {
+
     var statename = $("#" + divId + " option:selected").text();
     var ajaxurl = (window.__tab1Routes && window.__tab1Routes.countyByStateName) ? window.__tab1Routes.countyByStateName : '';
     
@@ -68,7 +69,7 @@ window.statecounty = function(divId, targetdiv) {
 /**
  * Toggle between SSN and ITIN for Debtor
  */
-window.chooseType = function(thisrequest) {
+function chooseType(thisrequest) {  
     if (thisrequest.value == "0") {
         $(".ssn_no").removeClass("hide-data");
         $(".itin_no").addClass("hide-data");
@@ -82,7 +83,7 @@ window.chooseType = function(thisrequest) {
 /**
  * Toggle between SSN and ITIN for Spouse/Co-Debtor
  */
-window.chooseTypeSpouse = function(thisrequest) {
+function chooseTypeSpouse(thisrequest) {
     if (thisrequest.value == "0") {
         $(".ssn_no_spouse").removeClass("hide-data");
         $(".itin_no_spouse").addClass("hide-data");
@@ -100,7 +101,7 @@ window.chooseTypeSpouse = function(thisrequest) {
  * @param {string} value - 'yes' or 'no'
  * @param {string} elementId - Element ID to toggle
  */
-window.common_toggle_fn = function(value, elementId) {
+function common_toggle_fn(value, elementId) {
     if (value === 'yes') {
         $('#' + elementId).removeClass('hide-data').addClass('show-data');
     } else {
@@ -111,13 +112,45 @@ window.common_toggle_fn = function(value, elementId) {
 /**
  * Show/hide non-publicly traded items section
  */
-window.getNonPubliclyItems = function(value) {
+function getNonPubliclyItems(value) {
     if (value === 'yes') {
         $('#non_publicly_items_data').removeClass('hide-data').addClass('show-data');
     } else {
         $('#non_publicly_items_data').removeClass('show-data').addClass('hide-data');
     }
 };
+
+// ==================== EVENT HANDLERS ====================
+
+/**
+ * Phone Number Formatting ((XXX) XXX-XXXX)
+ * Auto-formats phone number as user types
+ * Used in Step 1 and Step 2
+ */
+$(document).on("input", ".phone-field", function (evt) {
+    var self = $(this);
+    self.val(self.val().replace(/[^0-9\.]/g, ""));
+    self.val(self.val().replace(/^(\d{3})(\d{3})(\d+)$/, "($1) $2-$3"));
+    var first10 = $(this).val().substring(0, 14);
+    if (this.value.length > 14) {
+        this.value = first10;
+    }
+});
+
+/**
+ * SSN Input Formatting (XXX-XX-XXXX)
+ * Auto-formats SSN as user types
+ * Used in Step 1 (Debtor SSN) and Step 2 (Co-Debtor SSN)
+ */
+$(document).on("input", ".is_ssn", function (evt) {
+    var self = $(this);
+    self.val(self.val().replace(/[^0-9\.]/g, ""));
+    self.val(self.val().replace(/(\d{3})\-?(\d{2})\-?(\d{4})/, "$1-$2-$3"));
+    var first10 = $(this).val().substring(0, 11);
+    if (this.value.length > 11) {
+        this.value = first10;
+    }
+});
 
 // ==================== INITIALIZATION ====================
 
@@ -145,4 +178,13 @@ $(function() {
         }
     });
 });
+
+// Export all functions to window for backward compatibility
+window.isNumberKey = isNumberKey;
+window.openPopup = openPopup;
+window.statecounty = statecounty;
+window.chooseType = chooseType;
+window.chooseTypeSpouse = chooseTypeSpouse;
+window.common_toggle_fn = common_toggle_fn;
+window.getNonPubliclyItems = getNonPubliclyItems;
 

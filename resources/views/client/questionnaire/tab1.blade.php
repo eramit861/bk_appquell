@@ -144,19 +144,19 @@ $BasicInfo_PartRestD = $tab1Data['BasicInfo_PartRestD'];
     </script>
     
     {{-- Load Tab 1 Common utilities (always loaded) --}}
-    <script src="{{ asset('assets/js/client/questionnaire/tab1/common.js') }}?v=1.01"></script>
+    <script src="{{ asset('assets/js/client/questionnaire/tab1/common.js') }}?v=1.04"></script>
     
     {{-- Load step-specific JavaScript --}}
     @if($step1)
-        <script src="{{ asset('assets/js/client/questionnaire/tab1/step1.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab1/step1.js') }}?v=1.05"></script>
     @endif
     
     @if($step2)
-        <script src="{{ asset('assets/js/client/questionnaire/tab1/step2.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab1/step2.js') }}?v=1.04"></script>
     @endif
     
     @if($step3 || $step4 || $step5 || $step6)
-        <script src="{{ asset('assets/js/client/questionnaire/tab1/step3.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab1/step3.js') }}?v=1.09"></script>
     @endif
 @endpush
 

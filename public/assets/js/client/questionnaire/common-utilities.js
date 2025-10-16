@@ -395,10 +395,597 @@ window.potentialClaimTypeChanged = function(selectElement) {
     descriptionInput.value = selectedText;
 };
 
+// ==================== FORM MANAGEMENT FUNCTIONS ====================
+
+/**
+ * Reindex elements after adding/removing forms
+ */
+function reindexElements(parentClass) {
+    $(document).find("." + parentClass).each(function (newIndex) {
+
+        $(this).removeClass(function (index, className) {
+            return (className.match(new RegExp(parentClass + "_\\d+", "g")) || []).join(' ');
+        }).addClass(parentClass + "_" + newIndex);
+
+        $(this).find(".circle-number-div").html(newIndex + 1);
+
+        if(parentClass == 'all_dependents_form'){
+            $(this).find(".delete-div").attr("onclick", `remove_div_common('${parentClass}', ${newIndex});updateAveragePrice();return false;`);
+        }else{
+            $(this).find(".delete-div").attr("onclick", `remove_div_common('${parentClass}', ${newIndex})`);
+        }        
+
+        $(this).find("input, select, textarea").each(function () {
+            let nameAttr = $(this).attr("name");
+            if (nameAttr) {
+                let updatedName = nameAttr.replace(/\[\d+\]/, `[${newIndex}]`);
+                $(this).attr("name", updatedName);
+            }
+
+            let idAttr = $(this).attr("id");
+            if (idAttr) {
+                let updatedId = idAttr.replace(/_\d+$/, `_${newIndex}`);
+                $(this).attr("id", updatedId);
+            }
+
+            let onchangeAttr = $(this).attr("onchange");
+            if (onchangeAttr) {
+                let updatedOnchange = onchangeAttr.replace(/\(\d+\)/, `(${newIndex})`);
+                $(this).attr("onchange", updatedOnchange);
+            }
+        });
+    });
+}
+
+/**
+ * Reindex only circle numbers (lighter version)
+ */
+function reindexCircleNoElements(parentClass) {
+    $(document).find("." + parentClass).each(function (newIndex) {
+        $(this).find(".circle-number-div").html(newIndex + 1);
+    });
+}
+
+/**
+ * Remove form div with reindexing
+ */
+window.remove_div_common = function(div_class, index, msg = "", reindexAllElements = true) {
+    
+    var clnln = $(document).find("." + div_class).length;
+    if (clnln <= 1) {
+        if (msg == "") {
+            msg = "You cannot delete because at least 1 entry is required."; 
+        }
+        $.systemMessage(msg, 'alert--danger', true);
+        return false;
+    } else {
+        $(document)
+            .find(`.${div_class}_${index}`)
+            .remove();
+    }
+
+    if(reindexAllElements){
+        reindexElements(div_class);
+    }else{
+        reindexCircleNoElements(div_class);
+    }
+    
+};
+
+/**
+ * Remove form div with separate save (AJAX save after removal)
+ */
+window.seperate_remove_div_common = async function(div_class, index, msg = "") {
+    const $target = $(document).find(`.${div_class}_${index}`);
+    const clnln = $(document).find("." + div_class).length;
+    if (clnln <= 1) {
+        if (msg == "") {
+            msg = "You cannot delete because at least 1 entry is required."; 
+        }
+        $.systemMessage(msg, 'alert--danger', true);
+        return false;
+    } 
+
+    // Clone before removal so we can restore if needed
+    const $clone = $target.clone(true, true);
+
+    // Store the parent and index for accurate reinsertion
+    const $parent = $target.parent();
+    const targetIndex = $parent.children().index($target);
+
+    // Configuration map for different form types
+    const configMap = {
+        'life_insurance_mutisec': ['life_insurance', 'life_insurance_mutisec', 'life_insurance_data', 'parent_life_insurance'],
+        'other_financial_mutisec': ['other_financial', 'other_financial_mutisec', 'financial_asset_data', 'parent_other_financial'],
+        'other_claims_mutisec': ['other_claims', 'other_claims_mutisec', 'other_claims_data', 'parent_other_claims'],
+        'injury_claims_mutisec': ['injury_claims', 'injury_claims_mutisec', 'personal_injury_data', 'parent_injury_claims'],
+        'inheritances_mutisec': ['inheritances', 'inheritances_mutisec', 'Inheritances_benefits_data', 'parent_inheritances'],
+        'insurance_policies_mutisec': ['insurance_policies', 'insurance_policies_mutisec', 'insurance_policies_data', 'parent_insurance_policies'],
+        'unpaid_wages_mutisec': ['unpaid_wages', 'unpaid_wages_mutisec', 'unpaid_wages_data', 'parent_unpaid_wages'],
+        'alimony_child_support_mutisec': ['alimony_child_support', 'alimony_child_support_mutisec', 'alimony_child_data', 'parent_alimony_child_support'],
+        'bank_accounts': ['bank', 'bank_accounts', 'checking_account_items_data', 'parent_bank'],
+        'venmo-paypal-cash-mainsec': ['venmo_paypal_cash', 'venmo-paypal-cash-mainsec', 'account_items_data', 'parent_venmo_paypal_cash'],
+        'brokerage_account_mutisec': ['brokerage_account', 'brokerage_account_mutisec', 'brokerage_items_data', 'parent_brokerage_account'],
+        'mutual_funds_mutisec': ['mutual_funds', 'mutual_funds_mutisec', 'bonds_mutual_funds_items_data', 'parent_mutual_funds'],
+        'government_corporate_bonds_mutisec': ['government_corporate_bonds', 'government_corporate_bonds_mutisec', 'government_corporate_data', 'parent_government_corporate_bonds'],
+        'retirement_pension_mutisec': ['retirement_pension', 'retirement_pension_mutisec', 'retirement_pension_data', 'parent_retirement_pension'],
+        'annuities_mutisec': ['annuities', 'annuities_mutisec', 'annuities_data', 'parent_annuities'],
+        'education_ira_mutisec': ['education_ira', 'education_ira_mutisec', 'education_IRA_data', 'parent_education_ira'],
+        'trusts_life_estates_mutisec': ['trusts_life_estates', 'trusts_life_estates_mutisec', 'interestin_property_data', 'parent_trusts_life_estates'],
+        'patents_copyrights_mutisec': ['patents_copyrights', 'patents_copyrights_mutisec', 'intellectual_property_data', 'parent_patents_copyrights'],
+        'tax_refunds_mutisec': ['tax_refunds', 'tax_refunds_mutisec', 'tax_refunds_MainRow', 'parent_tax_refund'],
+        'list_all_financial_accounts': ['list_all_financial_accounts', 'list_all_financial_accounts', 'list_all_financial_accounts-data', 'parent_list_all_financial_accounts'],
+        // sofa step 1
+        'living_domestic_partners': ['living_domestic_partner','living_domestic_partners', 'living-domestic-partner-data', 'parent_living_domestic_partner'],
+        'payment_past_one_year': ['past_one_year_data','payment_past_one_year', 'payment-past-one-year-data', 'parent_payment_past_one_year'],
+        'transfers_property': ['transfers_property','transfers_property', 'transfers-property-data', 'parent_transfers_property'],
+        'list_lawsuits': ['list_lawsuits','list_lawsuits', 'list-lawsuits-data', 'parent_list_lawsuits'],
+        'property_repossessed_data_form': ['property_repossessed','property_repossessed_data_form', 'property-repossessed-data', 'parent_property_repossessed'],
+        'setoffs_creditor_data': ['setoffs_creditor','setoffs_creditor_data', 'setoffs_creditor-data', 'parent_setoffs_creditor'],
+        // sofa step 2
+        'list_any_gifts_data': ['list_any_gifts','list_any_gifts_data', 'list-any-gifts-data', 'parent_list_any_gifts'],
+        'gifts_charity_data': ['gifts_charity','gifts_charity_data', 'gifts-charity-data', 'parent_gifts_charity'],
+        'losses_from_fire_data': ['losses_from_fire','losses_from_fire_data', 'losses_from_fire-data', 'parent_losses_from_fire'],
+        'property_transferred_data': ['property_transferred','property_transferred_data', 'property-transferred-data', 'parent_property_transferred'],
+        'property_transferred_creditors_data': ['property_transferred_creditors','property_transferred_creditors_data', 'property-transferred-creditors-data', 'parent_property_transferred_creditors'],
+        'Property_all_data': ['Property_all','Property_all_data', 'Property_all-data', 'parent_Property_all'],
+        'all_property_transfer_10_year_data': ['all_property_transfer_10_year','all_property_transfer_10_year_data', 'list-all-property_transfer-data', 'parent_all_property_transfer_10_year'],
+        'list_safe_deposit_data': ['list_safe_deposit','list_safe_deposit_data', 'list-safe-deposit-data', 'parent_list_safe_deposit'],
+        'other_storage_unit_data': ['other_storage_unit','other_storage_unit_data', 'list-storage-unit-data', 'parent_other_storage_unit'],
+        'list_property_you_hold_data': ['list_property_you_hold','list_property_you_hold_data', 'list-property-you-hold-data', 'parent_list_property_you_hold'],
+        // sofa step 3
+        'list_noticeby_gov_data': ['list_noticeby_gov','list_noticeby_gov_data', 'list-noticeby-gov-data', 'parent_list_noticeby_gov'],
+        'list_environment_law_data': ['list_environment_law','list_environment_law_data', 'list-environment_law-data', 'parent_list_environment_law'],
+        'list_judicial_proceedings_data': ['list_judicial_proceedings','list_judicial_proceedings_data', 'list-judicial-proceedings-data', 'parent_list_judicial_proceedings'],
+        'list_financial_institutions_data': ['list_financial_institutions','list_financial_institutions_data', 'list-financial-institutions-data', 'parent_list_financial_institutions'],
+        // previous employer
+        'previous_employer_div_self': ['previous_employer_self','previous_employer_div_self', 'data-previous-employer-self', 'parent_previous_employer'],
+        'previous_employer_div_spouse': ['previous_employer_spouse','previous_employer_div_spouse', 'data-previous-employer-spouse', 'parent_previous_employer'],
+        'list_nature_business_data': ['list_nature_business','list_nature_business_data', 'list-nature-business-data', 'parent_list_nature_business'],
+    };  
+
+    if (div_class === 'bank_accounts') {
+        let transaction_enabled = $("#bank-addmore-button").attr('data-transaction-enabled');
+        if (transaction_enabled == 1) {
+            if(typeof checkBankAccInputs === 'function') {
+                checkBankAccInputs();
+            }
+        }
+    }
+
+    if (configMap.hasOwnProperty(div_class)) {
+        $target.remove();
+        const [type, divCls, dataKey, parentId] = configMap[div_class];
+        const success = await seperate_save(type, divCls, dataKey, parentId, index, true);
+        
+         
+        if (!success) {
+            // Reinsert the cloned element at its original position
+            if (targetIndex === 0) {
+                $parent.prepend($clone);
+            } else {
+                $parent.children().eq(targetIndex - 1).after($clone);
+            }
+        }
+       
+        return success;
+    }
+
+    return true;
+
+};
+
+/**
+ * Edit form div (toggle edit mode)
+ */
+window.edit_div_common = function(div_class, index, msg = "") {
+    $(document).find(`.${div_class}_${index} .summary_section, .${div_class}_${index} .client-edit-button`).addClass('hide-data');
+    $(document).find(`.${div_class}_${index} .edit_section`).removeClass('hide-data');
+    initializeDatepicker();
+};
+
+/**
+ * Separate save function (AJAX save with validation)
+ */
+async function seperate_save(type, div_class, parent_id, fileName, index, isDelete = false) {
+    const $section =  (isDelete) ? $(`#${parent_id}`) : $(`.${div_class}_${index} .edit_section`);
+
+    const $saveBtn = $section.find('.save-btn'); // find the save button within the section
+    const url = $saveBtn.data('url'); // fallback to data-url if not passed directly
+    const formData = new FormData();
+    let isValid = true;
+    let firstInvalidEl = null;
+    // Append type to FormData
+    formData.append('assetType', type);
+    formData.append('fileName', fileName);
+    formData.append('isDelete', isDelete);
+
+    $section.find('input, select, textarea').each(function () {
+        const $el = $(this);
+        const name = $el.attr('name');
+        const value = $el.val();
+        const isRequired = $el.hasClass('required') || $el.attr('required');
+        const isHiddenInput = $el.attr('type') === 'hidden';
+        if (isHiddenInput) {
+            if (name) {
+                formData.append(name, value);
+            }
+            return;
+        }
+    
+        $el.removeClass('error'); // remove previous error styles
+        $(`label[for="${$el.attr('id')}"]`).removeClass('error');
+
+        if ($el.is(':radio')) {
+            if ($(`input[name="${name}"]:checked`).length === 0 && isRequired) {
+                if ($el.closest('.hide-data').length === 0) {
+                    $el.addClass('error');
+                    $(`label[for="${$el.attr('id')}"]`).addClass('error');
+                    if (!firstInvalidEl) firstInvalidEl = $el;
+                    isValid = false;
+                }
+            } else if ($el.is(':checked') && name) {
+                formData.append(name, value);
+            }
+            return;
+        }
+
+        // Validate required fields
+        if (isRequired && (!value || value.trim() === '')) {
+            if ($el.closest('.hide-data').length === 0) {
+                $el.addClass('error');
+                if (!firstInvalidEl) {
+                    firstInvalidEl = $el;
+                }
+                isValid = false;                
+            }
+        } else if (name) {
+            if ($el.is(':checkbox')) {
+                if ($el.is(':checked')) {
+                    formData.append(name, value);
+                }else{
+                    formData.append(name, '');
+                }
+                
+            } else {
+                formData.append(name, value);
+            }
+        }
+    });
+
+    if (!isValid) {
+        if (firstInvalidEl) firstInvalidEl.focus();
+        $.systemMessage("Please fill out all required fields.", 'alert--danger', true);
+        return false;
+    }
+
+    if (type == 'list_all_financial_accounts'){
+        formData.append('editableTab', 'can_edit_property');
+    }
+
+    const returnStatus = await makeSeperateSaveCall(url, formData, parent_id);
+    console.log(url);
+    return returnStatus;
+}
+
+/**
+ * Make AJAX call for separate save
+ */
+async function makeSeperateSaveCall(url, formData, parent_id) {
+    try {
+        const response = await $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        if (response.status) {
+            $.systemMessage("Saved successfully.", 'alert--success', true);
+            $(`#${parent_id}`).html(response.html);
+            return true;
+        } else {
+            $.systemMessage(response.msg, "alert--danger");
+            return false;
+        }
+    } catch (xhr) {
+        $.systemMessage("Something went wrong. Please try again.", "alert--danger");
+        console.error(xhr.responseText);
+        return false;
+    }
+}
+
+// ==================== GLOBAL EVENT HANDLERS ====================
+
+/**
+ * Price field formatting and validation (ALL TABS)
+ */
+$(document).on("blur", ".price-field", function (evt) {
+    evt.target.value = parseFloat(evt.target.value).toFixed(2);
+});
+
+$(document).on("keydown", ".price-field", function (event) {
+    if (event.keyCode === 38 || event.keyCode === 40) {
+        event.preventDefault();
+    }
+});
+
+$(document).on("keyup", ".price-field", function (e) {
+    var charCode = e.which ? e.which : e.keyCode;
+    if (
+        charCode > 31 &&
+        charCode != 35 &&
+        charCode != 36 &&
+        charCode != 190 &&
+        charCode != 37 &&
+        charCode != 38 &&
+        charCode != 39 &&
+        charCode != 40 &&
+        (charCode < 48 || (charCode > 57 && charCode < 96 && charCode > 105))
+    )
+        e.target.value = "";
+    var self = $(this);
+    if (e.target.value < 0) {
+        e.target.value = "";
+        return;
+    }
+
+    var cursorPosition = this.selectionStart;
+    var oldLength = e.target.value.length;
+
+    var count = 2;
+    if (e.target.value.indexOf(".") == -1 && e.keyCode != 8) {
+        if (e.target.value.length >= 7) {
+            e.target.value = numberFormatField(e.target.value);
+        }
+        return;
+    }
+
+    if (
+        e.target.value.length - e.target.value.indexOf(".") > count &&
+        e.keyCode != 8
+    ) {
+        if (e.target.value.length >= 7) {
+            var firstseven = e.target.value.substring(0, 10);
+            e.target.value = numberFormatField(firstseven);
+        } else {
+            e.target.value = numberFormatField(e.target.value);
+        }
+    }
+
+    var newLength = e.target.value.length;
+    cursorPosition += newLength - oldLength;
+    this.setSelectionRange(cursorPosition, cursorPosition);
+});
+
+// Initialize existing price fields on page load
+$(".price-field").each(function () {
+    if ($(this).val()) {
+        var curval = parseFloat($(this).val()).toFixed(2);
+        $(this).val(curval);
+    }
+});
+
+/**
+ * Number formatting helper
+ */
+window.numberFormatField = function(number) {
+    number = number.replace(/[^0-9.]/g, "");
+    var parts = number.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+};
+
+/**
+ * Prevent scroll on number inputs
+ */
+$(document).on("wheel", "input[type=number]", function (e) {
+    $(this).blur();
+});
+
+/**
+ * Numeric only inputs (ALL TABS)
+ */
+$(".allow_numeric").on("input", function (evt) {
+    var self = $(this);
+    self.val(self.val().replace(/\D/g, ""));
+    if (evt.which < 48 || evt.which > 57) {
+        evt.preventDefault();
+    }
+});
+
+/**
+ * Allow 3 digits only
+ */
+$(document).on("input", ".allow-3digit", function (e) {
+    var firstThree = this.value.substring(0, 3);
+    var self = $(this);
+    self.val(self.val().replace(/\D/g, ""));
+    if (e.which < 48 || e.which > 57) {
+        e.preventDefault();
+    }
+    if (this.value.length > 3) {
+        this.value = firstThree;
+    }
+});
+
+/**
+ * Allow 4 digits only
+ */
+$(document).on("input", ".allow-4digit", function (e) {
+    var firstFour = this.value.substring(0, 4);
+    var self = $(this);
+    self.val(self.val().replace(/\D/g, ""));
+    if (e.which < 48 || e.which > 57) {
+        e.preventDefault();
+    }
+    if (this.value.length > 4) {
+        this.value = firstFour;
+    }
+});
+
+/**
+ * Allow 5 digits only
+ */
+$(document).on("input", ".allow-5digit", function (e) {
+    var firstFive = this.value.substring(0, 5);
+    var self = $(this);
+    self.val(self.val().replace(/\D/g, ""));
+    if (e.which < 48 || e.which > 57) {
+        e.preventDefault();
+    }
+    if (this.value.length > 5) {
+        this.value = firstFive;
+    }
+});
+
+/**
+ * Allow 4 alphanumeric characters (VIN last 4)
+ */
+$(document).on("input", ".allow-4digit-alpha-numeric", function () {
+    var self = $(this);
+    var sanitized = self.val().replace(/[^a-zA-Z0-9]/g, '');
+    self.val(sanitized.substring(0, 4));
+});
+
+/**
+ * Max today date formatting (MM/DD/YYYY - no future dates)
+ */
+$(document).on("input", ".max-today-date", function (e) {
+    this.type = "text";
+    var input = this.value;
+    if (/\D\/$/.test(input)) input = input.substr(0, input.length - 3);
+    var values = input.split("/").map(function (v) {
+        return v.replace(/\D/g, "");
+    });
+    if (values[0]) values[0] = checkValue(values[0], 12);
+    if (values[1]) values[1] = checkValue(values[1], 31);
+    if (values[2]) values[2] = checkYear(values[2], parseInt(CurrentYear));
+    if (
+        values[2] == CurrentYear &&
+        values[0] == CurrentMonth &&
+        values[1] > CurrentDay
+    ) {
+        values[1] = CurrentDay.toString();
+    }
+    if (values[2] == CurrentYear && values[0] > CurrentMonth) {
+        values[1] = CurrentDay.toString();
+        values[0] = CurrentMonth.toString();
+    }
+    var output = values.map(function (v, i) {
+        return v.length == 2 && i < 2 ? v + "/" : v;
+    });
+    this.value = output.join("").substr(0, 10);
+});
+
+$(document).on("blur", ".max-today-date", function (e) {
+    this.type = "text";
+    var input = this.value;
+    var values = input.split("/").map(function (v, i) {
+        return v.replace(/\D/g, "");
+    });
+    var output = "";
+
+    if (values.length == 3) {
+        var year =
+            values[2].length !== 4
+                ? parseInt(values[2]) + 2000
+                : parseInt(values[2]);
+        year = year > CurrentYear ? CurrentYear : year;
+        var month = parseInt(values[0]) - 1;
+        var day = parseInt(values[1]);
+        var d = new Date(year, month, day);
+        if (!isNaN(d)) {
+            var dates = [d.getMonth() + 1, d.getDate(), d.getFullYear()];
+            output = dates
+                .map(function (v) {
+                    v = v.toString();
+                    return v.length == 1 ? "0" + v : v;
+                })
+                .join("/");
+        }
+    }
+    this.value = output;
+});
+
+/**
+ * Helper functions for date validation
+ */
+window.checkYear = function(str, max) {
+    if (str.charAt(0) !== "0" || str == "00") {
+        var num = parseInt(str);
+        if (isNaN(num) || num <= 0 || num > max) num = 1;
+        str =
+            num > parseInt(max.toString().charAt(0)) && num.toString().length == 1
+                ? "0" + num
+                : num.toString();
+    }
+    return str;
+};
+
+window.checkValue = function(str, max) {
+    if (str.charAt(0) !== "0" || str == "00") {
+        var num = parseInt(str);
+        if (isNaN(num) || num <= 0 || num > max) num = 1;
+        str =
+            num > parseInt(max.toString().charAt(0)) && num.toString().length == 1
+                ? "0" + num
+                : num.toString();
+    }
+    return str;
+};
+
+// ==================== PERMISSION CHECK ====================
+
+/**
+ * Check if section is editable (permission check)
+ */
+window.is_editable = function(section, callback = (result) => {}) {
+    return new Promise((resolve) => {
+        const formData = new FormData();
+        formData.append('section', section);
+        
+        $.ajax({
+            headers: { 
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') 
+            },
+            url: CHECK_PERMISSION_URL,
+            contentType: false,
+            data: formData,
+            processData: false,
+            type: 'POST',
+            success: function(data) {    
+                // Default to true if status is missing/undefined
+                const isEditable = data.status !== false; 
+                
+                if (data.status === false) {
+                    $.systemMessage(data.msg || "Editing not allowed", "alert--danger");
+                }
+                
+                callback(isEditable);
+                resolve(isEditable);
+            },
+            error: function() {
+                // Default to true on error
+                callback(true);
+                resolve(true);
+            }
+        });
+    });
+};
+
 // Export functions for backward compatibility
 window.initializeDatepicker = initializeDatepicker;
 window.updateMonthYearDateFormatInput = updateMonthYearDateFormatInput;
 window.ValidateMonthYearDateInput = ValidateMonthYearDateInput;
 window.isValidMMYYYY = isValidMMYYYY;
 window.isNotFutureDate = isNotFutureDate;
+window.reindexElements = reindexElements;
+window.reindexCircleNoElements = reindexCircleNoElements;
+window.seperate_save = seperate_save;
+window.makeSeperateSaveCall = makeSeperateSaveCall;
 

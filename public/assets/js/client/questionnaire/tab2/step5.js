@@ -38,7 +38,7 @@ function initializePropertyStep5Continue() {
 /**
  * Property unknown checkbox handler
  */
-window.propertyUnkown = function(thisobj) {
+function propertyUnkown(thisobj) {
     if (thisobj.checked == true) {
         $(thisobj).parent("div").next('.input-group').find('.alimony_property_value').val('');
         $(thisobj).parent("div").next('.input-group').find('.alimony_property_value').removeClass('required');
@@ -53,7 +53,7 @@ window.propertyUnkown = function(thisobj) {
 /**
  * Check for unique account numbers
  */
-window.checkUnique = function(thisobj) {
+function checkUnique(thisobj) {
     var samecount = 0;
     $(".alimony_property_account").each(function () {
         if (thisobj.value != '' && $(this).val() != '' && $(this).val() == thisobj.value) {
@@ -68,18 +68,132 @@ window.checkUnique = function(thisobj) {
 /**
  * Store previous value for validation
  */
-window.storePreviousValue = function(thisObj) {
+function storePreviousValue(thisObj) {
     $(thisObj).attr('data-previousvalue', $(thisObj).val());
 };
 
 /**
  * Store previous alimony value
  */
-window.storePreviousAlimonyValue = function(thisObj) {
+function storePreviousAlimonyValue(thisObj) {
     $(thisObj).attr('data-previousvalue', $(thisObj).val());
 };
+
+// ==================== EVENT HANDLERS ====================
+
+/**
+ * Income/Profit-Loss Calculation
+ * Used for business profit/loss calculations
+ */
+$(document).on("keyup", ".income-price-field", function (evt) {
+    var incomesum = 0;
+    $(".income").each(function () {
+        incomesum += +$(this).val();
+    });
+
+    var expensesum = 0;
+    $(".expense").each(function () {
+        expensesum += +$(this).val();
+    });
+
+    $(".total-expense").val(parseFloat(expensesum).toFixed(2));
+    $(".total-profit-loss").val(parseFloat(incomesum - expensesum).toFixed(2));
+});
+
+// ==================== BUSINESS ASSET TOGGLE FUNCTIONS ====================
+
+function getAccountsReceivableItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("account_receivable_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("account_receivable_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getOfficeEquipmentItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("office_equipment_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("office_equipment_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getMachineryTradeItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("machinery_trade_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("machinery_trade_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getBusinessInventoryItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("business_inventory_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("business_inventory_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getInterestsPartnershipsItems(value) {
+    if (value == "yes") {
+        document.getElementById("interests_data").classList.remove("hide-data");
+    } else if (value == "no") {
+        document.getElementById("interests_data").classList.add("hide-data");
+    }
+}
+
+function getCustomerMailingItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("customer_mailing_lists_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("customer_mailing_lists_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getOtherBusimessItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("other_business_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("other_business_data")
+            .classList.add("hide-data");
+    }
+}
 
 // Export functions for backward compatibility
 window.initializePropertyStep5 = initializePropertyStep5;
 window.initializePropertyStep5Continue = initializePropertyStep5Continue;
+window.propertyUnkown = propertyUnkown;
+window.checkUnique = checkUnique;
+window.storePreviousValue = storePreviousValue;
+window.storePreviousAlimonyValue = storePreviousAlimonyValue;
+window.getAccountsReceivableItems = getAccountsReceivableItems;
+window.getOfficeEquipmentItems = getOfficeEquipmentItems;
+window.getMachineryTradeItems = getMachineryTradeItems;
+window.getBusinessInventoryItems = getBusinessInventoryItems;
+window.getInterestsPartnershipsItems = getInterestsPartnershipsItems;
+window.getCustomerMailingItems = getCustomerMailingItems;
+window.getOtherBusimessItems = getOtherBusimessItems;
 

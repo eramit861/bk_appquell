@@ -270,23 +270,23 @@ function clearFormFields(containerSelector) {
     $container.find('input[type="checkbox"]').prop("checked", false);
 }
 
-window.isMortgageThreeMonth = function(selected_value, index) {
+function isMortgageThreeMonth(selected_value, index) {
     clearFormFields(".three_months_div_" + index);
-};
+}
 
-window.isMortgageThreeMonthAdditional1 = function(selected_value, index) {
+function isMortgageThreeMonthAdditional1(selected_value, index) {
     clearFormFields(".additional_three_months_div_" + index);
-};
+}
 
-window.isMortgageThreeMonthAdditional2 = function(selected_value, index) {
+function isMortgageThreeMonthAdditional2(selected_value, index) {
     clearFormFields(".second_additional_three_months_div_" + index);
-};
+}
 
-window.isThreeMonthVehicle = function(selected_value, index) {
+function isThreeMonthVehicle(selected_value, index) {
     clearFormFields(".vehicle_three_months_div_" + index);
-};
+}
 
-window.isThreeMonthsCommon = function(selected_value, class_name) {
+function isThreeMonthsCommon(selected_value, class_name) {
     if (selected_value == 'no') {
         $("." + class_name).addClass("hide-data");
         $("." + class_name).find(".price-field").each(function () {
@@ -296,11 +296,11 @@ window.isThreeMonthsCommon = function(selected_value, class_name) {
     if (selected_value == 'yes') {
         $("." + class_name).removeClass("hide-data");
     }
-};
+}
 
 // ==================== STATE/COUNTY FUNCTIONS ====================
 
-window.statecounty = function(stateId, countyId) {
+function statecounty(stateId, countyId) {
     var statename = $("#" + stateId + " option:selected").text();
     var ajaxurl = window.tab2Routes?.countyByStateName || '';
     laws.ajax(ajaxurl, {
@@ -313,7 +313,7 @@ window.statecounty = function(stateId, countyId) {
             $("#" + countyId).append($("<option></option>").attr("value", value.id).text(value.county_name));
         });
     });
-};
+}
 
 // ==================== FIELD VALIDATION FUNCTIONS ====================
 
@@ -403,27 +403,94 @@ function checkAllFieldsFilledForMainSection(objIndex) {
     return validateFormFields('.main-property-section-' + objIndex, true);
 }
 
-// ==================== POPUP FUNCTION ====================
+// ==================== POPUP FUNCTIONS ====================
 
-window.openPopup = function(divclass) {
+function openPopup(divclass) {
     var htmldiv = $("." + divclass).html();
     var html = '<div class="sign_up_bgs"><div class="container-fluid"><div class="row py-0 page-flex"><div class="col-md-12"><div class="form_colm row px-md-5 py-4"><div class="col-md-12 mb-3"><div class="title-h mt-1 d-flex"><h4><strong>Information: </strong></h4></div></div><div class="col-md-12 main-div"><div class="row"><div class="col-md-12"><div class="align-left">' + htmldiv + '</div></div></div></div></div></div></div></div></div>';
     laws.updateFaceboxContent(html, 'productQuickView quickinfor');
-};
+}
+
+/**
+ * Open flag popup (red flag warning popups)
+ * Used across all Tab 2 steps for showing warning/info popups
+ * @param {string} divclass - Class of the div containing popup content
+ * @param {string} noText - Text for "No" radio button
+ * @param {boolean} includeradio - Whether to include Yes/No radio buttons
+ * @param {boolean} attorneyEdit - Whether editing from attorney side
+ * @param {boolean} loadnAjax - Whether to load content via AJAX
+ * @param {string} ajaxurl - AJAX URL if loadnAjax is true
+ */
+function openFlagPopup(divclass, noText = "", includeradio = true, attorneyEdit = false, loadnAjax = false, ajaxurl = '') {
+    if (divclass == "no-popup") {
+        return;
+    }
+    
+    let extraClass = "";
+    if (divclass == "venmo-statement-popup" || divclass == "paypal-statement-popup" || 
+        divclass == "cash-statement-popup" || divclass == "credit-report-popup") {
+        extraClass = "video-popup-div";
+    }
+
+    if (divclass == "no-profit-loss-popup") {
+        extraClass = "no-profit-loss-popup-div";
+    }
+    
+    if (loadnAjax == true) {
+        laws.ajax(ajaxurl, { divclass: divclass }, function (response) {
+            var res = JSON.parse(response);
+            if (res.status == 0) {
+                $.systemMessage(res.msg, 'alert--danger', true);
+            } else {
+                laws.updateFaceboxContent(res.html, `productQuickView quickinfor ${extraClass}`);  
+            }
+        });
+    } else {
+        var htmldiv = $("." + divclass).html();
+        if (noText == "") {
+            noText = "I do. I just don't know what to put for this item";
+        }
+
+        var html = '<div class="sign_up_bgs"><div class="container-fluid"><div class="row py-0 page-flex"><div class="col-md-12 pr-0 pl-0"><div class="form_colm red-flag row p-4"><div class="col-md-12 main-div"><div class="row"><div class="col-md-12"><div class="align-left">' +
+            htmldiv;
+
+        if (includeradio == true) {
+            var noFunction = "";
+            if (attorneyEdit) {
+                noFunction = "$('#secondaryModalBs').modal('hide');";
+            } else {
+                noFunction = "$.facebox.close();"
+            }
+
+            html += '<div class="d-inline radio-primary"><input type="radio" id="popup_yes" name="popup_yes_no" value="1" class="yes-radio" onclick="'+noFunction+'"> <label for="popup_yes">Yes</label></div><div class="d-inline radio-primary"><input type="radio" id="popup_no" name="popup_yes_no" value="0" class="no-radio" onclick="'+noFunction+'"><label for="popup_no">' +
+                noText +
+                "</label></div>";
+        }
+
+        html += "</div></div></div></div></div></div></div></div></div>";
+
+        if (attorneyEdit) {
+            $("#secondaryModalBs .modal-content").html(html);
+            $("#secondaryModalBs").modal("show"); 
+        } else {
+            laws.updateFaceboxContent(html, `productQuickView quickinfor ${extraClass}`);
+        }
+    }
+}
 
 // ==================== UTILITY POPUP - HOUSEHOLD ITEMS ====================
 
 /**
  * Empty selected items
  */
-window.emptySelectedItems = function() {
+function emptySelectedItems() {
     selectedItems.clear();
-};
+}
 
 /**
  * Initialize selected items from previous data
  */
-window.initializeSelectedItems = function(previousData) {
+function initializeSelectedItems(previousData) {
     if (!previousData) return;
 
     const previousItems = previousData.split(';').map(item => item.trim());
@@ -472,7 +539,7 @@ window.initializeSelectedItems = function(previousData) {
     });
 
     updateSelectedItemsList();
-};
+}
 
 /**
  * Update selected items list display
@@ -517,7 +584,7 @@ function updateItemInSelectedItems(label, quantity, price) {
 /**
  * Handle card click
  */
-window.handleCardClick = function(event) {
+function handleCardClick(event) {
     const card = $(event.target).closest('.item-card');
     const label = card.data('label');
     const quantity = card.find('.select').val() || 1;
@@ -538,12 +605,12 @@ window.handleCardClick = function(event) {
         updateItemInSelectedItems(label, currentQuantity, currentPrice);
     }
     updateSelectedItemsList();
-};
+}
 
 /**
  * Handle quantity change
  */
-window.handleQuantityChange = function(event) {
+function handleQuantityChange(event) {
     const card = $(event.target).closest('.item-card');
     const label = card.data('label');
     const currentQuantity = parseInt(event.target.value) || 0;
@@ -556,12 +623,12 @@ window.handleQuantityChange = function(event) {
     }
 
     updateItemInSelectedItems(label, currentQuantity, currentPrice);
-};
+}
 
 /**
  * Handle price change
  */
-window.handlePriceChange = function(event) {
+function handlePriceChange(event) {
     const input = $(event.target);
     const card = input.closest('.item-card');
     const label = card.data('label');
@@ -575,35 +642,35 @@ window.handlePriceChange = function(event) {
         card.find('select').val(currentQuantity);
         updateItemInSelectedItems(label, currentQuantity, price);
     }
-};
+}
 
 /**
  * Handle price on blur
  */
-window.handlePriceOnBlur = function(event) {
+function handlePriceOnBlur(event) {
     var currentVal = $(event.target).val();
     if (currentVal === "" || isNaN(parseFloat(currentVal))) {
         currentVal = 0;
     }
     $(event.target).val(parseFloat(currentVal).toFixed(2));
-};
+}
 
 /**
  * Custom item input
  */
-window.customItemInput = function() {
+function customItemInput() {
     const customItem = $('#custom-item').val().trim();
     if (customItem !== "") {
         $('#custom-item-quantity').val(1)
     } else {
         $('#custom-item-quantity').val(0)
     }
-};
+}
 
 /**
  * Handle add custom item
  */
-window.handleAddCustomItem = function() {
+function handleAddCustomItem() {
     const customItem = $('#custom-item').val().trim();
     const customQuantity = parseInt($('#custom-item-quantity').val()) || 0;
     const customPrice = parseFloat($('#custom-item-price').val()) || 0;
@@ -615,7 +682,7 @@ window.handleAddCustomItem = function() {
         $('#custom-item-quantity').val(0);
         $('#custom-item-price').val(0);
     }
-};
+}
 
 /**
  * Add custom item card
@@ -630,7 +697,7 @@ function addCustomItem(label, quantity, price) {
 						<div class="p-2 pt-0 w-100">
 							<small>Quantity:</small>
 							<select class="form-control-custom-select" onchange="handleQuantityChange(event)">
-								${Array.from({ length: 31 }, (_, i) => `<option value = "${i}" ${i == quantity ? 'selected' : ''}> ${i} </option>`).join('')}
+								${Array.from({ length: 31 }, (_, i) => `<option value="${i}" ${i == quantity ? 'selected' : ''}> ${i} </option>`).join('')}
 							</select>
 						</div>
 						<div class="p-2 pt-0" >
@@ -652,7 +719,7 @@ function addCustomItem(label, quantity, price) {
 /**
  * Handle save click for utility popup
  */
-window.handleSaveClick = async function(event, type, attorneyEdit = false) {
+async function handleSaveClick(event, type, attorneyEdit = false) {
     const canEdit = await is_editable('can_edit_property');
     if (!canEdit) {
         return false;
@@ -714,7 +781,7 @@ function updatePropertyAssetToDB(client_id, type, data) {
 /**
  * Initialize common utility popup
  */
-window.initializeCommonUtilityPopup = function() {
+function initializeCommonUtilityPopup() {
     const previous_data = (window.tab2Data && window.tab2Data.previousData) ? window.tab2Data.previousData : '';
     initializeSelectedItems(previous_data);
 };
@@ -725,7 +792,7 @@ window.initializeCommonUtilityPopup = function() {
  * Initialize all property-related functionality
  * Calls step-specific initialization functions if they exist
  */
-window.initializePropertyFunctionality = function() {
+function initializePropertyFunctionality() {
     if (typeof initializePropertyStep1 === 'function') initializePropertyStep1();
     if (typeof initializePropertyStep2 === 'function') initializePropertyStep2();
     if (typeof initializePropertyStep3 === 'function') initializePropertyStep3();
@@ -744,11 +811,20 @@ $(function() {
 });
 
 // Export functions for backward compatibility
+window.initializePropertyFunctionality = initializePropertyFunctionality;
+window.initializeCommonUtilityPopup = initializeCommonUtilityPopup;
 window.setupAutocomplete = setupAutocomplete;
 window.initializeMortgageAutocomplete = initializeMortgageAutocomplete;
 window.initializeFormValidation = initializeFormValidation;
 window.initializeEventHandlers = initializeEventHandlers;
 window.initializePaymentCalculations = initializePaymentCalculations;
+window.clearFormFields = clearFormFields;
+window.isMortgageThreeMonth = isMortgageThreeMonth;
+window.isMortgageThreeMonthAdditional1 = isMortgageThreeMonthAdditional1;
+window.isMortgageThreeMonthAdditional2 = isMortgageThreeMonthAdditional2;
+window.isThreeMonthVehicle = isThreeMonthVehicle;
+window.isThreeMonthsCommon = isThreeMonthsCommon;
+window.statecounty = statecounty;
 window.checkAllFieldsFilled = checkAllFieldsFilled;
 window.updateSubmitButtonColor = updateSubmitButtonColor;
 window.validateFormFields = validateFormFields;
@@ -756,8 +832,19 @@ window.checkAllFieldsFilledForLoanDiv = checkAllFieldsFilledForLoanDiv;
 window.checkAllFieldsFilledForLoan1Div = checkAllFieldsFilledForLoan1Div;
 window.checkAllFieldsFilledForLoan2Div = checkAllFieldsFilledForLoan2Div;
 window.checkAllFieldsFilledForMainSection = checkAllFieldsFilledForMainSection;
+window.openPopup = openPopup;
+window.openFlagPopup = openFlagPopup;
+window.emptySelectedItems = emptySelectedItems;
+window.initializeSelectedItems = initializeSelectedItems;
 window.updateSelectedItemsList = updateSelectedItemsList;
 window.updateItemInSelectedItems = updateItemInSelectedItems;
+window.handleCardClick = handleCardClick;
+window.handleQuantityChange = handleQuantityChange;
+window.handlePriceChange = handlePriceChange;
+window.handlePriceOnBlur = handlePriceOnBlur;
+window.customItemInput = customItemInput;
+window.handleAddCustomItem = handleAddCustomItem;
 window.addCustomItem = addCustomItem;
+window.handleSaveClick = handleSaveClick;
 window.updatePropertyAssetToDB = updatePropertyAssetToDB;
 

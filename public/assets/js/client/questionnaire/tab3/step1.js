@@ -77,6 +77,9 @@ window.checkAC = function(value) {
 };
 
 // Export functions for backward compatibility
-window.initializeStep1 = function() {
+window.initializeStep1Validation = function() {
     // Step 1 specific initialization if needed
 };
+window.cardCollectionChanged = cardCollectionChanged;
+window.setLawsuitTitle = setLawsuitTitle;
+window.checkAC = checkAC;

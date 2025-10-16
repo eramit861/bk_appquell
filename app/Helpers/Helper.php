@@ -449,35 +449,37 @@ class Helper
     }
     private static function formatSwitchStatement($key, $string, $returnFormat, $allowComma)
     {
+        $value = '';
         switch ($returnFormat) {
             case 'float':
-                return self::numberFormatWithComma($key, $string, $allowComma);
+                $value = self::numberFormatWithComma($key, $string, $allowComma);
                 break;
             case 'radio':
-                return (int) $string[$key];
+                $value = (int)$string[$key];
                 break;
             case 'phone':
                 $data = $string[$key];
-
-                return preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '$1-$2-$3', $data);
+                $value = preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '$1-$2-$3', $data);
                 break;
             case 'comma':
                 $data = $string[$key];
-
-                return number_format((float) $data, 2, '.', ',');
+                $value = number_format((float) $data, 2, '.', ',');
                 break;
             case 'without-comma':
                 $data = $string[$key];
-
-                return str_replace(',', '', $data);
+                $value = str_replace(',', '', $data);
                 break;
             case 'array':
-                return (!empty($string[$key])) ? $string[$key] : [];
+                $value = (!empty($string[$key])) ? $string[$key] : [];
+                break;
+            case 'int':
+                $value = (int)$string[$key];
                 break;
             default:
-                return number_format((float) $string[$key], 2, '.', '');
+                $value = number_format((float) $string[$key], 2, '.', '');
                 break;
         }
+        return $value;
     }
     private static function numberFormatWithComma($key, $string, $allowComma)
     {
@@ -494,6 +496,12 @@ class Helper
         }
         if (!empty($returnFormat) && $returnFormat == 'array') {
             return (!empty($string[$key])) ? $string[$key] : [];
+        }
+        if (!empty($returnFormat) && $returnFormat == 'radio') {
+            return (!empty($string[$key])) ? ($string[$key] == '' ? 0 : (int)$string[$key]) : 0;
+        }
+        if (!empty($returnFormat) && $returnFormat == 'int') {
+            return (!empty($string[$key])) ? (int)$string[$key] : '';
         }
 
         return (!empty($string[$key])) ? $string[$key] : "";

@@ -19,6 +19,21 @@ function initializePropertyStep7() {
     }
 }
 
+// ==================== MISCELLANEOUS TOGGLE FUNCTIONS ====================
+
+function getPreviouslylistedItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("previously_listed_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("previously_listed_data")
+            .classList.add("hide-data");
+    }
+}
+
 // Export functions for backward compatibility
 window.initializePropertyStep7 = initializePropertyStep7;
+window.getPreviouslylistedItems = getPreviouslylistedItems;
 

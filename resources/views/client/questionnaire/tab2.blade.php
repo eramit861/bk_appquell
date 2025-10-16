@@ -234,32 +234,32 @@ $BasicInfoPartAAddress = AddressHelper::getClientBasicAddress($client_id);
 </script>
 
     {{-- Load Tab 2 Common utilities (always loaded) --}}
-    <script src="{{ asset('assets/js/client/questionnaire/tab2/common.js') }}?v=1.01"></script>
+    <script src="{{ asset('assets/js/client/questionnaire/tab2/common.js') }}?v=1.03"></script>
     
     {{-- Load step-specific JavaScript based on active step --}}
     @if($step1)
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step1.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step1.js') }}?v=1.11"></script>
     @endif
     
     @if($step2)
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step2.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step2.js') }}?v=1.05"></script>
     @endif
     
     @if($step3)
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step3.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step3.js') }}?v=1.02"></script>
     @endif
     
     @if($step4 || isset($step4continue))
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step4.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step4.js') }}?v=1.04"></script>
     @endif
     
     @if($step5)
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step5.js') }}?v=1.01"></script>
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step6.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step5.js') }}?v=1.04"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step6.js') }}?v=1.02"></script>
     @endif
     
     @if($step6)
-        <script src="{{ asset('assets/js/client/questionnaire/tab2/step7.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab2/step7.js') }}?v=1.02"></script>
     @endif
 @endpush
 
