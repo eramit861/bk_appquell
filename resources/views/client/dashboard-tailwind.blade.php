@@ -253,14 +253,10 @@
                     </div>
                 @elseif ($client_subscription != \App\Models\AttorneySubscription::PAYROLL_ASSISTANT_SUBSCRIPTION && $authUserHideQuestionnaire == 0 && $tab == 'tab3')
                     <div class="tailwind-wrapper">
-                        @if ($step == 'step1')
-                            @include('client.questionnaire.tab3', $debts)
-                        @elseif ($step == 'step2')
-                            @include('client.questionnaire.debt.debt_step2', array_merge($debts, [
-                                'debtorname' => $names['debtor'] ?? "Debtor's",
-                                'spousename' => $names['spouse'] ?? "Co-Debtor's",
-                            ]))
-                        @endif
+                        @include('client.questionnaire.tab3', array_merge($debts, [
+                            'debtorname' => $names['debtor'] ?? "Debtor's",
+                            'spousename' => $names['spouse'] ?? "Co-Debtor's",
+                        ]))
                     </div>
                 @elseif ($tab == 'tab4')
                     <div class="tailwind-wrapper">

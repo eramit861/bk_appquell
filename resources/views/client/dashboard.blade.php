@@ -144,17 +144,12 @@
                         ]))
                 @endif
                 @if ($tab == 'tab3')
-                    @if ($step == 'step1')
-                        @include('client.questionnaire.tab3', $debts)
-                    @endif
-                    @if ($step == 'step2')
-                        @include(
-                            'client.questionnaire.debt.debt_step2',
-                            array_merge($debts, [
-                                'debtorname' => $names['debtor'] ?? "Debtor's",
-                                'spousename' => $names['spouse'] ?? "Co-Debtor's",
-                            ]))
-                    @endif
+                    @include(
+                        'client.questionnaire.tab3',
+                        array_merge($debts, [
+                            'debtorname' => $names['debtor'] ?? "Debtor's",
+                            'spousename' => $names['spouse'] ?? "Co-Debtor's",
+                        ]))
                 @endif
             @endif
 
