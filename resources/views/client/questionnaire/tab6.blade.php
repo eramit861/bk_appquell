@@ -253,5 +253,20 @@ $hasAnyBussinessP = \App\Models\ClientBasicInfoPartRest::hasAnyBussiness($authUs
             totalAmountIncome: '{{ $finacial_affairs['total_amount_income'] ?? 'null' }}'
         };
     </script>
-    <script src="{{ asset('assets/js/tab6.js') }}"></script>
+    
+    {{-- Load Tab 6 Common utilities (always loaded) --}}
+    <script src="{{ asset('assets/js/client/questionnaire/tab6/common.js') }}?v=1.01"></script>
+    
+    {{-- Load step-specific JavaScript based on active route --}}
+    @if(request()->routeIs('client_financial_affairs'))
+        <script src="{{ asset('assets/js/client/questionnaire/tab6/step1.js') }}?v=1.01"></script>
+    @endif
+    
+    @if(request()->routeIs('client_financial_affairs2'))
+        <script src="{{ asset('assets/js/client/questionnaire/tab6/step2.js') }}?v=1.01"></script>
+    @endif
+    
+    @if(request()->routeIs('client_financial_affairs3'))
+        <script src="{{ asset('assets/js/client/questionnaire/tab6/step3.js') }}?v=1.01"></script>
+    @endif
 @endpush

@@ -77,7 +77,18 @@ $tab5_percentage_by_steps = Helper::validate_key_value('tab5_percentage_by_steps
             averagePriceList: {!! json_encode($averagePriceList) !!}
         };
     </script>
-    <script src="{{ asset('assets/js/tab5.js') }}"></script>
+    
+    {{-- Load Tab 5 Common utilities (always loaded) --}}
+    <script src="{{ asset('assets/js/client/questionnaire/tab5/common.js') }}?v=1.01"></script>
+    
+    {{-- Load step-specific JavaScript based on active route --}}
+    @if(request()->routeIs('client_expenses'))
+        <script src="{{ asset('assets/js/client/questionnaire/tab5/step1.js') }}?v=1.01"></script>
+    @endif
+    
+    @if(request()->routeIs('client_spouse_expenses'))
+        <script src="{{ asset('assets/js/client/questionnaire/tab5/step2.js') }}?v=1.01"></script>
+    @endif
 @endpush
 
 @push('utility_scripts')
