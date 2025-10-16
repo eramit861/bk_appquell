@@ -85,7 +85,7 @@
 
 <div class="col-12 col-md-12 property-detail-div hide-data">
     <div class="mb-3 mt-1">
-        <a href="javascript:void(0)" class="profit-loss-btn px-2 py-1 get-property-details-by-graphql" onclick="getPropertyResidenceDetailsByGraphQL(<?php echo $i; ?>)">
+        <a href="javascript:void(0)" class="profit-loss-btn px-2 py-1 get-property-details-by-graphql" onclick="getPropertyResidenceDetailsByGraphQL({{ $i }})">
             <i class="bi bi-house-exclamation mr-1"></i>
             Select/Tap Here to Get Property Details
         </a>

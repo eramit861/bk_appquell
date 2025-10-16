@@ -13,12 +13,12 @@
 
         // Fallback defaults for robust rendering if any key is missing
         $session = isset($session) && is_array($session) ? $session : [];
-    
+
         $progress =
             isset($progress) && is_array($progress)
                 ? $progress
                 : ['all_percentage' => 0, 'class' => '', 'message' => '0%', 'width' => 100];
-               
+
         $documents = isset($documents) && is_array($documents) ? $documents : ['signed_sent' => false];
         $labels =
             isset($labels) && is_array($labels)
@@ -188,7 +188,7 @@
     @include('modal.client.signed_document')
 
     <x-client.welcome />
-    
+
     <!-- Modal -->
     @include('modal.common.questionnaire_confirmation_prompt')
     @include('modal.common.property_notice_prompt')
