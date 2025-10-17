@@ -97,19 +97,6 @@ function chooseTypeSpouse(thisrequest) {
 // ==================== TOGGLE FUNCTIONS ====================
 
 /**
- * Common toggle function for showing/hiding elements
- * @param {string} value - 'yes' or 'no'
- * @param {string} elementId - Element ID to toggle
- */
-function common_toggle_fn(value, elementId) {
-    if (value === 'yes') {
-        $('#' + elementId).removeClass('hide-data').addClass('show-data');
-    } else {
-        $('#' + elementId).removeClass('show-data').addClass('hide-data');
-    }
-};
-
-/**
  * Show/hide non-publicly traded items section
  */
 function getNonPubliclyItems(value) {
@@ -185,6 +172,5 @@ window.openPopup = openPopup;
 window.statecounty = statecounty;
 window.chooseType = chooseType;
 window.chooseTypeSpouse = chooseTypeSpouse;
-window.common_toggle_fn = common_toggle_fn;
 window.getNonPubliclyItems = getNonPubliclyItems;
 

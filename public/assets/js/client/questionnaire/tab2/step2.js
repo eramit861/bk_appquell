@@ -1212,4 +1212,3 @@ window.checkVehicleSelection = checkVehicleSelection;
 window.saveVehicles = saveVehicles;
 window.remove_vehicle_div = remove_vehicle_div;
 window.display_vehicle_div = display_vehicle_div;
-

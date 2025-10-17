@@ -286,17 +286,6 @@ function isThreeMonthVehicle(selected_value, index) {
     clearFormFields(".vehicle_three_months_div_" + index);
 }
 
-function isThreeMonthsCommon(selected_value, class_name) {
-    if (selected_value == 'no') {
-        $("." + class_name).addClass("hide-data");
-        $("." + class_name).find(".price-field").each(function () {
-            $(this).val("");
-        });
-    }
-    if (selected_value == 'yes') {
-        $("." + class_name).removeClass("hide-data");
-    }
-}
 
 // ==================== STATE/COUNTY FUNCTIONS ====================
 
@@ -425,9 +414,9 @@ function openFlagPopup(divclass, noText = "", includeradio = true, attorneyEdit 
     if (divclass == "no-popup") {
         return;
     }
-    
+
     let extraClass = "";
-    if (divclass == "venmo-statement-popup" || divclass == "paypal-statement-popup" || 
+    if (divclass == "venmo-statement-popup" || divclass == "paypal-statement-popup" ||
         divclass == "cash-statement-popup" || divclass == "credit-report-popup") {
         extraClass = "video-popup-div";
     }
@@ -435,14 +424,14 @@ function openFlagPopup(divclass, noText = "", includeradio = true, attorneyEdit 
     if (divclass == "no-profit-loss-popup") {
         extraClass = "no-profit-loss-popup-div";
     }
-    
+
     if (loadnAjax == true) {
         laws.ajax(ajaxurl, { divclass: divclass }, function (response) {
             var res = JSON.parse(response);
             if (res.status == 0) {
                 $.systemMessage(res.msg, 'alert--danger', true);
             } else {
-                laws.updateFaceboxContent(res.html, `productQuickView quickinfor ${extraClass}`);  
+                laws.updateFaceboxContent(res.html, `productQuickView quickinfor ${extraClass}`);
             }
         });
     } else {
@@ -462,7 +451,7 @@ function openFlagPopup(divclass, noText = "", includeradio = true, attorneyEdit 
                 noFunction = "$.facebox.close();"
             }
 
-            html += '<div class="d-inline radio-primary"><input type="radio" id="popup_yes" name="popup_yes_no" value="1" class="yes-radio" onclick="'+noFunction+'"> <label for="popup_yes">Yes</label></div><div class="d-inline radio-primary"><input type="radio" id="popup_no" name="popup_yes_no" value="0" class="no-radio" onclick="'+noFunction+'"><label for="popup_no">' +
+            html += '<div class="d-inline radio-primary"><input type="radio" id="popup_yes" name="popup_yes_no" value="1" class="yes-radio" onclick="' + noFunction + '"> <label for="popup_yes">Yes</label></div><div class="d-inline radio-primary"><input type="radio" id="popup_no" name="popup_yes_no" value="0" class="no-radio" onclick="' + noFunction + '"><label for="popup_no">' +
                 noText +
                 "</label></div>";
         }
@@ -471,7 +460,7 @@ function openFlagPopup(divclass, noText = "", includeradio = true, attorneyEdit 
 
         if (attorneyEdit) {
             $("#secondaryModalBs .modal-content").html(html);
-            $("#secondaryModalBs").modal("show"); 
+            $("#secondaryModalBs").modal("show");
         } else {
             laws.updateFaceboxContent(html, `productQuickView quickinfor ${extraClass}`);
         }
@@ -806,9 +795,489 @@ function initializePropertyFunctionality() {
 };
 
 // Call initialization when document is ready
-$(function() {
+$(function () {
     initializePropertyFunctionality();
 });
+
+/**
+ * Show/hide loan property object section
+ * @param {string} value - 'yes' or 'no'
+ * @param {HTMLElement} obj - Element that triggered the change
+ */
+function laon_property_obj(value, obj) {
+    if (value == "yes") {
+        $(obj)
+            .parents(".laon_property_obj_data")
+            .next(".loan_own_type_property_sec")
+            .removeClass("hide-data");
+        $(obj)
+            .parents(".laon_property_obj_data")
+            .next("div")
+            .next(".loan_own_type_property_sec")
+            .removeClass("hide-data");
+        $(".additional_loan1").removeAttr("checked");
+        $(".additional_loan2").removeAttr("checked");
+        $(".section_additional_loan").addClass("hide-data");
+        $(".section_additional_loan").addClass("hide-data");
+        $("#additional_loan1").attr("checked", true);
+        $("#additional_loan2_no").attr("checked", true);
+    } else if (value == "no") {
+        $(obj)
+            .parents(".laon_property_obj_data")
+            .next(".loan_own_type_property_sec")
+            .addClass("hide-data");
+        $(obj)
+            .parents(".laon_property_obj_data")
+            .next("div")
+            .next(".loan_own_type_property_sec")
+            .addClass("hide-data");
+    }
+    $(obj).closest('.vehicle-info-div').find('.vehicle-save-div').removeClass('hide-data')
+}
+
+/**
+ * Toggle own by section
+ * @param {number} value - 1, 2, 3, or 4
+ * @param {HTMLElement} obj - Element that triggered the change
+ */
+function property_common_toggle_own_by(value, obj) {
+    var parentDiv = $(obj).closest(".property_own_by");
+    var targetDiv = parentDiv.siblings(".property_codebtor_cosigner_data");
+
+    if (value == 2 || value == 4) {
+        targetDiv.removeClass("hide-data").show();
+    } else if (value == 1 || value == 3) {
+        targetDiv.addClass("hide-data").hide();
+    }
+
+    parentDiv.find("label").removeClass("active");
+    $(obj).addClass("active");
+}
+
+/**
+ * Add more financial account
+ * @param {string} element - Element name
+ * @param {string} removebuttonclass - Remove button class
+ */
+async function common_financial_addmore(element, removebuttonclass) {
+    var clnln = $(document).find("." + element + "_mutisec").length;
+    let status = false;
+    if(element == 'patents_copyrights') {
+         status = await seperate_save('patents_copyrights','patents_copyrights_mutisec', 'intellectual_property_data', 'parent_patents_copyrights', clnln, true);
+    }
+    if(element == 'trusts_life_estates') {
+         status = await seperate_save('trusts_life_estates','trusts_life_estates_mutisec', 'interestin_property_data', 'parent_trusts_life_estates', clnln, true);
+    }
+    if(element == 'government_corporate_bonds') {
+         status = await seperate_save('government_corporate_bonds','government_corporate_bonds_mutisec', 'government_corporate_data', 'parent_government_corporate_bonds', clnln, true);
+    }
+    if(element == 'mutual_funds') {
+         status = await seperate_save('mutual_funds','mutual_funds_mutisec', 'bonds_mutual_funds_items_data', 'parent_mutual_funds', clnln, true);
+    }
+    if(element == 'inheritances') {
+         status = await seperate_save('inheritances','inheritances_mutisec', 'Inheritances_benefits_data', 'parent_inheritances', clnln, true);
+    }
+    if(element == 'other_claims') {
+         status = await seperate_save('other_claims','other_claims_mutisec', 'other_claims_data', 'parent_other_claims', clnln, true);
+    }
+    if(element == 'other_financial') {
+        status = await seperate_save('other_financial','other_financial_mutisec', 'financial_asset_data', 'parent_other_financial', clnln, true);
+    }
+    
+    if(!status && ( element == 'patents_copyrights' ||
+                    element == 'trusts_life_estates' ||
+                    element == 'government_corporate_bonds' ||
+                    element == 'mutual_funds' ||
+                    element == 'inheritances' ||
+                    element == 'other_claims' ||
+                    element == 'other_financial' )){
+        return;
+    }
+
+    setTimeout(function() {
+        if (clnln > 2) {
+            $.systemMessage('You can add only 3 entries.', "alert--danger", true);
+            return false;
+        } else {
+            var itm = $(document)
+                .find("." + element + "_mutisec")
+                .last();
+            var index_val = $(itm).index() + 1;
+            var cln = $(itm).clone();
+            $rowNo = itm.attr("rowNo");
+            if (
+                $rowNo == undefined ||
+                $rowNo == null ||
+                $rowNo == NaN ||
+                $rowNo == ""
+            ) {
+                $rowNo = 1;
+            } else {
+                $rowNo = parseInt($rowNo) + 1;
+            }
+            itm.attr("rowNo", $rowNo);
+            var index_val = $(itm).index() + 1;
+            var cln = $(itm).clone();
+            cln.find("select").val("");
+            cln.removeClass(function (index, className) {
+                return (className.match(removebuttonclass + "_\\d+", "g") || []).join(' ');
+            }).addClass(removebuttonclass + "_" + index_val);
+
+            cln.find(".circle-number-div").html(index_val + 1);
+
+            cln.find(".delete-div").attr("onclick", "seperate_remove_div_common('"+removebuttonclass+"', " + index_val + ")");
+            cln.find(`.summary_section, .client-edit-button`).addClass('hide-data');
+            cln.find(`.edit_section`).removeClass('hide-data');
+
+            if(element == 'trusts_life_estates') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('trusts_life_estates','trusts_life_estates_mutisec', 'interestin_property_data', 'parent_trusts_life_estates', " + index_val + ")");
+            }
+            if(element == 'patents_copyrights') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('patents_copyrights','patents_copyrights_mutisec', 'intellectual_property_data', 'parent_patents_copyrights', " + index_val + ")");
+            }   
+            if(element == 'government_corporate_bonds') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('government_corporate_bonds','government_corporate_bonds_mutisec', 'government_corporate_data', 'parent_government_corporate_bonds', " + index_val + ")");
+            }    
+            if(element == 'mutual_funds') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('mutual_funds','mutual_funds_mutisec', 'bonds_mutual_funds_items_data', 'parent_mutual_funds', " + index_val + ")");
+            }
+            if(element == 'inheritances') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('inheritances','inheritances_mutisec', 'Inheritances_benefits_data', 'parent_inheritances', " + index_val + ")");
+            }   
+            if(element == 'other_claims') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('other_claims','other_claims_mutisec', 'other_claims_data', 'parent_other_claims', " + index_val + ")");
+            }     
+            if(element == 'other_financial') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('other_financial','other_financial_mutisec', 'financial_asset_data', 'parent_other_financial', " + index_val + ")");
+            }     
+
+            cln.find("." + element + "_type_of_account").val("");
+            cln.find("." + element + "_description").val("");
+            cln.find("." + element + "_property_value").val("");
+
+            var common_type_of_account = cln.find(
+                "." + element + "_type_of_account"
+            );
+            var common_description = cln.find("." + element + "_description");
+
+            var common_property_value = cln.find("." + element + "_property_value");
+            if (element == "mutual_funds" || element == "inheritances") {
+                var common_unknown = cln.find("." + element + "_unknown");
+                $(common_unknown).each(function () {
+                    $(this).attr(
+                        "name",
+                        element + "[data][unknown][" + index_val + "]"
+                    );
+                    $(this).attr(
+                        "onchange",
+                        "checkUnknown(this, " + index_val + ",'mutual')"
+                    );
+                    $(this).removeAttr('checked');
+                });
+                $(common_property_value).each(function () {
+                    $(this).attr(
+                        "name",
+                        element + "[data][property_value][" + index_val + "]"
+                    );
+                    var previndex = index_val - 1;
+                    $(this)
+                        .removeClass("is_mutual_unknown_" + previndex)
+                        .addClass("is_mutual_unknown_" + index_val)
+                        .addClass("required");
+                    $(this).removeAttr('disabled');
+                });
+            } else {
+                $(common_property_value).each(function () {
+                    $(this).attr(
+                        "name",
+                        element + "[data][property_value][" + index_val + "]"
+                    );
+                });
+            }
+            $(common_type_of_account).each(function () {
+                $(this).attr(
+                    "name",
+                    element + "[data][type_of_account][" + index_val + "]"
+                );
+            });
+            $(common_description).each(function () {
+                $(this).attr(
+                    "name",
+                    element + "[data][description][" + index_val + "]"
+                );
+            });
+            cln.find('input[type="text"]').val("");
+            cln.find('input[type="number"]').val("");
+           
+            cln.find("textarea").val("");
+            $(itm).after(cln);
+            $(".remove-" + removebuttonclass).show();
+        }
+    }, 200);
+}
+
+/**
+ * Add more financial account with limit
+ * @param {string} element - Element name
+ * @param {number} entries_count - Entries count
+ * @param {string} removebuttonclass - Remove button class
+ * @param {string} inputClass - Input class
+ */
+async function common_financial_addmore_with_limit(
+    element,
+    entries_count,
+    removebuttonclass,
+    inputClass = ''
+) {
+    var clnln = $(document).find("." + element + "_mutisec").length;
+
+    let status = false;
+    if (element == 'education_ira') {
+        status = await seperate_save('education_ira', 'education_ira_mutisec', 'education_IRA_data', 'parent_education_ira', clnln, true);
+    }
+    if (element == 'annuities') {
+        status = await seperate_save('annuities', 'annuities_mutisec', 'annuities_data', 'parent_annuities', clnln, true);
+    }
+    if (element == 'retirement_pension') {
+        status = await seperate_save('retirement_pension', 'retirement_pension_mutisec', 'retirement_pension_data', 'parent_retirement_pension', clnln, true);
+    }
+    if (element == 'unpaid_wages') {
+        status = await seperate_save('unpaid_wages', 'unpaid_wages_mutisec', 'unpaid_wages_data', 'parent_unpaid_wages', clnln, true);
+    }
+    if (element == 'insurance_policies') {
+        status = await seperate_save('insurance_policies', 'insurance_policies_mutisec', 'insurance_policies_data', 'parent_insurance_policies', clnln, true);
+    }
+    if (element == 'injury_claims') {
+        status = await seperate_save('injury_claims', 'injury_claims_mutisec', 'personal_injury_data', 'parent_injury_claims', clnln, true);
+    }
+    if (element == 'life_insurance') {
+        status = await seperate_save('life_insurance', 'life_insurance_mutisec', 'life_insurance_data', 'parent_life_insurance', clnln, true);
+    }
+
+    if (!status && (element == 'education_ira' ||
+        element == 'annuities' ||
+        element == 'retirement_pension' ||
+        element == 'unpaid_wages' ||
+        element == 'insurance_policies' ||
+        element == 'injury_claims' ||
+        element == 'life_insurance')) {
+        return;
+    }
+
+    setTimeout(function () {
+        if (clnln > entries_count - 1) {
+            $.systemMessage("You can add only " + entries_count + " entries.", "alert--danger", true);
+            return false;
+        } else {
+            var itm = $(document)
+                .find("." + element + "_mutisec")
+                .last();
+            var index_val = $(itm).index() + 1;
+            $rowNo = itm.attr("rowNo");
+            if (
+                $rowNo == undefined ||
+                $rowNo == null ||
+                $rowNo == NaN ||
+                $rowNo == ""
+            ) {
+                $rowNo = 1;
+            } else {
+                $rowNo = parseInt($rowNo) + 1;
+            }
+
+            itm.attr("rowNo", $rowNo);
+            var index_val = $(itm).index() + 1;
+            var cln = $(itm)
+                .clone()
+                .find("input[type=text]")
+                .val("")
+                .end()
+                .find("input[type=number]")
+                .val("")
+                .end()
+                .find("textarea")
+                .val("")
+                .end()
+                .find("select")
+                .val("")
+                .end()
+                .find("input[type=checkbox]")
+                .prop("checked", false)
+                .end();
+
+            let divclass = element + "_mutisec";
+            cln.removeClass(function (index, className) {
+                return (className.match(divclass + "_\\d+", "g") || []).join(' ');
+            }).addClass(divclass + "_" + index_val);
+
+            cln.find(".circle-number-div").html(index_val + 1);
+            cln.find("select").val("");
+            cln.find(".delete-div").attr("onclick", "seperate_remove_div_common('" + divclass + "', " + index_val + ")");
+            cln.find(`.summary_section, .client-edit-button`).addClass('hide-data');
+            cln.find(`.edit_section`).removeClass('hide-data');
+
+            if (element == 'education_ira') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('education_ira','education_ira_mutisec', 'education_IRA_data', 'parent_education_ira', " + index_val + ")");
+            }
+            if (element == 'retirement_pension') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('retirement_pension','retirement_pension_mutisec', 'retirement_pension_data', 'parent_retirement_pension', " + index_val + ")");
+            }
+            if (element == 'annuities') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('annuities','annuities_mutisec', 'annuities_data', 'parent_annuities', " + index_val + ")");
+            }
+            if (element == 'unpaid_wages') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('unpaid_wages','unpaid_wages_mutisec', 'unpaid_wages_data', 'parent_unpaid_wages', " + index_val + ")");
+            }
+            if (element == 'insurance_policies') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('insurance_policies','insurance_policies_mutisec', 'insurance_policies_data', 'parent_insurance_policies', " + index_val + ")");
+            }
+            if (element == 'injury_claims') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('injury_claims','injury_claims_mutisec', 'personal_injury_data', 'parent_injury_claims', " + index_val + ")");
+            }
+            if (element == 'life_insurance') {
+                cln.find(`.save-btn`).attr("onclick", "seperate_save('life_insurance','life_insurance_mutisec', 'life_insurance_data', 'parent_life_insurance', " + index_val + ")");
+            }
+            cln.find("." + element + "_type_of_account").val("");
+            cln.find("." + element + "_description").val("");
+            cln.find("." + element + "_property_value").val("");
+
+            var common_type_of_account = cln.find("." + element + "_type_of_account");
+            var common_description = cln.find("." + element + "_description");
+            var common_property_value = cln.find("." + element + "_property_value");
+
+            if (element == "retirement_pension") {
+                var common_unknown = cln.find("." + element + "_unknown");
+                $(common_unknown).each(function () {
+                    $(this).attr(
+                        "name",
+                        element + "[data][unknown][" + index_val + "]"
+                    );
+                    $(this).attr(
+                        "onchange",
+                        "checkUnknownRetirement(this, " + index_val + ")"
+                    );
+                    $(this).removeAttr('checked');
+                });
+                $(common_property_value).each(function () {
+                    $(this).attr(
+                        "name",
+                        element + "[data][property_value][" + index_val + "]"
+                    );
+                    var previndex = index_val - 1;
+                    $(this)
+                        .removeClass(
+                            "retirement_pension_property_value_is_unknown_" +
+                            previndex
+                        )
+                        .addClass(
+                            "retirement_pension_property_value_is_unknown_" +
+                            index_val
+                        );
+                    $(this).removeAttr('disabled');
+                });
+            } else if (element == "life_insurance") {
+                var account_type = cln.find("." + element + "_account_type");
+                var current_value = cln.find("." + element + "_current_value");
+                var common_unknown = cln.find("." + element + "_unknown");
+                $(account_type).each(function () {
+                    $(this).attr("name", element + "[data][account_type][" + index_val + "]");
+                });
+                $(current_value).each(function () {
+                    $(this).attr("name", element + "[data][current_value][" + index_val + "]");
+                });
+                $(common_unknown).each(function () {
+                    $(this).attr("name", element + "[data][unknown][" + index_val + "]");
+                    $(this).attr("onchange", "checkUnknown(this, " + index_val + ", 'life_insu')");
+                    $(this).removeAttr('checked');
+                });
+                $(common_property_value).each(function () {
+                    var previndex = index_val - 1;
+                    $(this).attr("name", element + "[data][property_value][" + index_val + "]");
+                    $(this).removeClass("is_life_insu_unknown_" + previndex).addClass("is_life_insu_unknown_" + index_val);
+                    $(this).removeAttr('disabled');
+                });
+            } else if (element == "insurance_policies") {
+                var account_type = cln.find("." + element + "_account_type");
+                var common_unknown = cln.find("." + element + "_unknown");
+                $(account_type).each(function () {
+                    $(this).attr("name", element + "[data][account_type][" + index_val + "]");
+                });
+                $(common_unknown).each(function () {
+                    $(this).attr("name", element + "[data][unknown][" + index_val + "]");
+                    $(this).attr("onchange", "checkUnknown(this, " + index_val + ", 'insu')");
+                    $(this).removeAttr('checked');
+                });
+                $(common_property_value).each(function () {
+                    var previndex = index_val - 1;
+                    $(this).attr("name", element + "[data][property_value][" + index_val + "]");
+                    $(this).removeClass("is_insu_unknown_" + previndex).addClass("is_insu_unknown_" + index_val);
+                    $(this).removeAttr('disabled');
+                });
+            } else if (element == "unpaid_wages") {
+                var owed_type = cln.find("." + element + "_owed_type");
+                var common_unknown = cln.find("." + element + "_unknown");
+                var data_for = cln.find("." + element + "_data_for");
+                var monthly_amount = cln.find("." + element + "_monthly_amount");
+                $(owed_type).each(function () {
+                    $(this).attr("name", element + "[data][owed_type][" + index_val + "]");
+                });
+                $(common_unknown).each(function () {
+                    $(this).removeAttr('checked');
+                    $(this).attr("name", element + "[data][unknown][" + index_val + "]");
+                    $(this).attr("onchange", "checkUnknown(this, " + index_val + ", 'unpaid_wages')");
+                });
+                $(data_for).each(function () {
+                    $(this).attr("name", element + "[data][data_for][" + index_val + "]");
+                });
+                $(common_property_value).each(function () {
+                    var previndex = index_val - 1;
+                    $(this).attr("name", element + "[data][property_value][" + index_val + "]");
+                    $(this).removeClass("is_unpaid_wages_unknown_" + previndex).addClass("is_unpaid_wages_unknown_" + index_val);
+                    if (!$(this).hasClass("required")) {
+                        $(this).addClass("required");
+                    }
+                    $(this).removeAttr("disabled");
+                });
+                $(monthly_amount).each(function () {
+                    $(this).attr("name", element + "[data][monthly_amount][" + index_val + "]");
+                });
+            } else {
+                $(common_property_value).each(function () {
+                    if (inputClass) {
+                        $(this).attr("name", inputClass + "[data][property_value][" + index_val + "]");
+                    } else {
+                        $(this).attr("name", element + "[data][property_value][" + index_val + "]");
+                    }
+                });
+            }
+            $(common_type_of_account).each(function () {
+                if (inputClass) {
+                    $(this).attr("name", inputClass + "[data][type_of_account][" + index_val + "]");
+                } else {
+                    $(this).attr("name", element + "[data][type_of_account][" + index_val + "]");
+                }
+            });
+            $(common_description).each(function () {
+                if (inputClass) {
+                    $(this).attr("name", inputClass + "[data][description][" + index_val + "]");
+                } else {
+                    $(this).attr("name", element + "[data][description][" + index_val + "]");
+                }
+            });
+            cln.find('input[type="text"]').val("");
+            cln.find('input[type="number"]').val("");
+
+            cln.find("textarea").val("");
+            $(itm).after(cln);
+            $(".remove-" + removebuttonclass).show();
+            $(".remove-retirement-pension-mutisec").css("display", "unset");
+            $(".remove-security-deposits-mutisec").css("display", "unset");
+            $(".remove-annuities-mutisec").css("display", "unset");
+            $(".remove-education-ira-mutisec").css("display", "unset");
+            $(".remove-alimony-child-support-mutisec").css("display", "unset");
+        }
+    }, 200);
+}
 
 // Export functions for backward compatibility
 window.initializePropertyFunctionality = initializePropertyFunctionality;
@@ -823,7 +1292,6 @@ window.isMortgageThreeMonth = isMortgageThreeMonth;
 window.isMortgageThreeMonthAdditional1 = isMortgageThreeMonthAdditional1;
 window.isMortgageThreeMonthAdditional2 = isMortgageThreeMonthAdditional2;
 window.isThreeMonthVehicle = isThreeMonthVehicle;
-window.isThreeMonthsCommon = isThreeMonthsCommon;
 window.statecounty = statecounty;
 window.checkAllFieldsFilled = checkAllFieldsFilled;
 window.updateSubmitButtonColor = updateSubmitButtonColor;
@@ -847,4 +1315,7 @@ window.handleAddCustomItem = handleAddCustomItem;
 window.addCustomItem = addCustomItem;
 window.handleSaveClick = handleSaveClick;
 window.updatePropertyAssetToDB = updatePropertyAssetToDB;
-
+window.laon_property_obj = laon_property_obj;
+window.property_common_toggle_own_by = property_common_toggle_own_by;
+window.common_financial_addmore = common_financial_addmore;
+window.common_financial_addmore_with_limit = common_financial_addmore_with_limit;

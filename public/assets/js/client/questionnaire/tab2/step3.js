@@ -131,6 +131,28 @@ function getHouseHEathAidItems(value) {
     }
 }
 
+// Detailed Tab Items Functions
+function openDetailedTabItemsForm(url, type = '', attorneyEdit=false) {
+    var previous_data = $('.detailed_tab_items_'+type).val();
+    
+    laws.ajax(url, { type: type, previous_data: previous_data }, function (response) {
+        var res = JSON.parse(response);
+        if (res.status == 0) {
+            $.systemMessage(res.msg, "alert--danger", true);
+        }
+        if (res.success == true) {
+            if(attorneyEdit){
+                $("#secondaryModalBs .modal-content").html(res.html);
+                $("#secondaryModalBs").modal("show"); 
+            } else {
+                laws.updateFaceboxContent(res.html);
+                $('.check_empty_'+type).removeClass('hide-data');
+                initializeSelectedItems(previous_data);
+            }
+        }
+    });
+};
+
 // Export functions for backward compatibility
 window.initializePropertyStep3 = initializePropertyStep3;
 window.getHouseHoldItems = getHouseHoldItems;
@@ -142,4 +164,5 @@ window.getHouseClothingItems = getHouseClothingItems;
 window.getHouseJewelryItems = getHouseJewelryItems;
 window.getHouseNonFarmAnimalsItems = getHouseNonFarmAnimalsItems;
 window.getHouseHEathAidItems = getHouseHEathAidItems;
+window.openDetailedTabItemsForm = openDetailedTabItemsForm;
 

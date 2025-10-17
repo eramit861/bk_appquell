@@ -50,34 +50,6 @@ function propertyUnkown(thisobj) {
     }
 };
 
-/**
- * Check for unique account numbers
- */
-function checkUnique(thisobj) {
-    var samecount = 0;
-    $(".alimony_property_account").each(function () {
-        if (thisobj.value != '' && $(this).val() != '' && $(this).val() == thisobj.value) {
-            samecount = samecount + 1;
-        }
-        if (samecount > 1) {
-            thisobj.value = '';
-        }
-    });
-};
-
-/**
- * Store previous value for validation
- */
-function storePreviousValue(thisObj) {
-    $(thisObj).attr('data-previousvalue', $(thisObj).val());
-};
-
-/**
- * Store previous alimony value
- */
-function storePreviousAlimonyValue(thisObj) {
-    $(thisObj).attr('data-previousvalue', $(thisObj).val());
-};
 
 // ==================== EVENT HANDLERS ====================
 
@@ -186,9 +158,6 @@ function getOtherBusimessItems(value) {
 window.initializePropertyStep5 = initializePropertyStep5;
 window.initializePropertyStep5Continue = initializePropertyStep5Continue;
 window.propertyUnkown = propertyUnkown;
-window.checkUnique = checkUnique;
-window.storePreviousValue = storePreviousValue;
-window.storePreviousAlimonyValue = storePreviousAlimonyValue;
 window.getAccountsReceivableItems = getAccountsReceivableItems;
 window.getOfficeEquipmentItems = getOfficeEquipmentItems;
 window.getMachineryTradeItems = getMachineryTradeItems;

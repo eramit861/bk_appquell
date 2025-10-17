@@ -283,7 +283,7 @@ $(document).ready(function() {
 /**
  * Show custom confirmation dialog
  */
-window.showConfirmation = function(message, callback) {
+function showConfirmation(message, callback) {
     const modalHtml = `
         <div id="customConfirm" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;display:flex;justify-content:center;align-items:center;">
             <div style="background:white;padding:20px;border-radius:5px;max-width:80%;">
@@ -314,7 +314,7 @@ window.showConfirmation = function(message, callback) {
 /**
  * Toggle "unknown" checkbox functionality
  */
-window.checkUnknown = function(thisobj, index, label = '') {
+function checkUnknown(thisobj, index, label = '') {
     if (thisobj.checked == true) {
        $('.is_' + label + '_unknown_' + index).removeClass('required');
        $('.is_' + label + '_unknown_' + index).prop('disabled', true);
@@ -329,7 +329,7 @@ window.checkUnknown = function(thisobj, index, label = '') {
 /**
  * Bulk select "No" for radio buttons in a section
  */
-window.selectNoToAbove = function(section) {
+function selectNoToAbove(section) {
     let ids = [];
 
     if(section == 'financial_assets_2') {
@@ -374,7 +374,7 @@ window.selectNoToAbove = function(section) {
 /**
  * Set border label text
  */
-window.setBorderLabel = function(element, labelText) {
+function setBorderLabel(element, labelText) {
     const container = element.closest('[class*="residence_property_main_div_"]');
     if (!container) return;
 
@@ -387,7 +387,7 @@ window.setBorderLabel = function(element, labelText) {
 /**
  * Update claim type description
  */
-window.potentialClaimTypeChanged = function(selectElement) {
+function potentialClaimTypeChanged(selectElement) {
     let row = selectElement.closest('.edit_section');
     let descriptionInput = row.querySelector('.injury_claims_description');
     let selectedText = selectElement.options[selectElement.selectedIndex].text;
@@ -449,7 +449,7 @@ function reindexCircleNoElements(parentClass) {
 /**
  * Remove form div with reindexing
  */
-window.remove_div_common = function(div_class, index, msg = "", reindexAllElements = true) {
+function remove_div_common(div_class, index, msg = "", reindexAllElements = true) {
     
     var clnln = $(document).find("." + div_class).length;
     if (clnln <= 1) {
@@ -475,7 +475,7 @@ window.remove_div_common = function(div_class, index, msg = "", reindexAllElemen
 /**
  * Remove form div with separate save (AJAX save after removal)
  */
-window.seperate_remove_div_common = async function(div_class, index, msg = "") {
+async function seperate_remove_div_common(div_class, index, msg = "") {
     const $target = $(document).find(`.${div_class}_${index}`);
     const clnln = $(document).find("." + div_class).length;
     if (clnln <= 1) {
@@ -578,7 +578,7 @@ window.seperate_remove_div_common = async function(div_class, index, msg = "") {
 /**
  * Edit form div (toggle edit mode)
  */
-window.edit_div_common = function(div_class, index, msg = "") {
+function edit_div_common(div_class, index, msg = "") {
     $(document).find(`.${div_class}_${index} .summary_section, .${div_class}_${index} .client-edit-button`).addClass('hide-data');
     $(document).find(`.${div_class}_${index} .edit_section`).removeClass('hide-data');
     initializeDatepicker();
@@ -728,19 +728,19 @@ $(document).on("keyup", ".price-field", function (e) {
         (charCode < 48 || (charCode > 57 && charCode < 96 && charCode > 105))
     )
         e.target.value = "";
-    var self = $(this);
     if (e.target.value < 0) {
         e.target.value = "";
         return;
     }
 
-    var cursorPosition = this.selectionStart;
-    var oldLength = e.target.value.length;
-
+    if (e.target.value < 0) {
+        e.target.value = "";
+        return;
+    }
     var count = 2;
     if (e.target.value.indexOf(".") == -1 && e.keyCode != 8) {
         if (e.target.value.length >= 7) {
-            e.target.value = numberFormatField(e.target.value);
+            e.target.value = parseFloat(e.target.value).toFixed(count);
         }
         return;
     }
@@ -751,15 +751,11 @@ $(document).on("keyup", ".price-field", function (e) {
     ) {
         if (e.target.value.length >= 7) {
             var firstseven = e.target.value.substring(0, 10);
-            e.target.value = numberFormatField(firstseven);
+            e.target.value = parseFloat(firstseven).toFixed(count);
         } else {
-            e.target.value = numberFormatField(e.target.value);
+            e.target.value = parseFloat(e.target.value).toFixed(count);
         }
     }
-
-    var newLength = e.target.value.length;
-    cursorPosition += newLength - oldLength;
-    this.setSelectionRange(cursorPosition, cursorPosition);
 });
 
 // Initialize existing price fields on page load
@@ -773,7 +769,7 @@ $(".price-field").each(function () {
 /**
  * Number formatting helper
  */
-window.numberFormatField = function(number) {
+function numberFormatField(number) {
     number = number.replace(/[^0-9.]/g, "");
     var parts = number.split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -915,7 +911,7 @@ $(document).on("blur", ".max-today-date", function (e) {
 /**
  * Helper functions for date validation
  */
-window.checkYear = function(str, max) {
+function checkYear(str, max) {
     if (str.charAt(0) !== "0" || str == "00") {
         var num = parseInt(str);
         if (isNaN(num) || num <= 0 || num > max) num = 1;
@@ -927,7 +923,7 @@ window.checkYear = function(str, max) {
     return str;
 };
 
-window.checkValue = function(str, max) {
+function checkValue(str, max) {
     if (str.charAt(0) !== "0" || str == "00") {
         var num = parseInt(str);
         if (isNaN(num) || num <= 0 || num > max) num = 1;
@@ -944,7 +940,7 @@ window.checkValue = function(str, max) {
 /**
  * Check if section is editable (permission check)
  */
-window.is_editable = function(section, callback = (result) => {}) {
+async function is_editable(section, callback = (result) => {}) {
     return new Promise((resolve) => {
         const formData = new FormData();
         formData.append('section', section);
@@ -978,14 +974,446 @@ window.is_editable = function(section, callback = (result) => {}) {
     });
 };
 
+// ==================== FORM VALIDATION FUNCTIONS ====================
+
+/**
+ * Revalidate form with month year
+ */
+function revalidateFormWithMonthYear(formId,displaymsg=true,saveFromAttorney=false,reloadPage=false) {
+    var hasError = false;
+    validateFormIds(formId);
+    $("#"+ formId).validate().form();
+   
+    if (!$("#"+ formId).valid()) {
+        $('html, body').animate({
+            scrollTop: ($('.error:visible').offset().top - 60)
+        }, 200);
+        hasError = true;
+    } else {
+        var formElement = document.getElementById(formId);
+        var formData = new FormData(formElement);
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+            url: $("#" + formId).attr('action'),
+            contentType: false,
+            data: formData,
+            processData: false,
+            type: 'POST',
+            async: false,
+            success: function ( data ) {
+                if(displaymsg == true){
+                    if(data.status==1){
+                        if(data.display_id == 'irs-texes-views'){
+                            $('#irs-texes-views').removeClass('hide-data');
+                        }
+                        $(document).find("#"+data.display_id).html(data.html);
+                        $.systemMessage(data.msg,"alert--success");
+                        if(reloadPage && saveFromAttorney ){
+                            setTimeout(function() {
+                                window.location.href = data.url;
+                            }, 2000);
+                        }
+                    }else{
+                        hasError = true;
+                        $.systemMessage(data.msg, "alert--danger");
+                        return hasError;
+                    }
+                }
+                    
+            }
+        }); 
+    }
+    return hasError;
+}
+
+/**
+ * Validate form ids
+ */
+function validateFormIds(formId){
+    if(formId=='client_property_step2'){
+        $(".vd-section").each(function() {
+            if($(this).hasClass('d-none')){
+                $(this).parent('div').parent('div').find('.vin_number').removeClass('required');
+                $(this).removeClass('d-none');
+            }
+        });
+    }
+    if(formId == 'date_month_year_custom'){
+        let commonRules = {
+            required: true,
+            dateMMYYYY: true
+        };
+        $(".date_month_year_custom").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                dateMMYYYY: "Please enter a valid date in the format MM/YYYY."
+            };
+        });
+    }
+    if(formId == 'client_debts_step2_unsecured'){
+        let commonRules = {
+            required: true,
+            dateMMYYYY: true
+        };
+        // Apply rules to all inputs with the class 'dateMMYYYY'
+        $(".date_month_year").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                dateMMYYYY: "Please enter a valid date in the format MM/YYYY."
+            };
+        });
+        commonRules = {
+            required: true,
+            fourDigits: true
+        };
+        $(".allow-4digit").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                fourDigits: "Please enter last 4 digits."
+            };
+        });
+    }
+
+    if(formId == 'client_debts_step2_back_taxes'){
+        commonRules = {
+            required: true,
+            multipleYears: true
+        };
+        $(".tax_whats_year").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                fourDigits: "Please enter valid years separated by spaces, not greater than the current year."
+            };
+        });
+    }
+
+    if(formId == 'client_debts_step2_irs'){
+        commonRules = {
+            required: true,
+            multipleYears: true
+        };
+        $(".tax_irs_whats_year").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                fourDigits: "Please enter valid years separated by spaces, not greater than the current year."
+            };
+        });
+    }
+
+    if(formId == 'client_debts_step2_al'){
+        let commonRules = {
+            required: true,
+            dateMMYYYY: true
+        };
+        // Apply rules to all inputs with the class 'dateMMYYYY'
+        $(".additional_liens_date").each(function() {
+            const inputName = $(this).attr('name');
+            $("#" + formId).validate().settings.rules[inputName] = commonRules;
+            $("#" + formId).validate().settings.messages[inputName] = {
+                required: "This field is required.",
+                dateMMYYYY: "Please enter a valid date in the format MM/YYYY."
+            };
+        });
+    }
+
+    if(formId=='client_property_step2'){
+
+       
+        const form = document.getElementById(formId);
+
+        // Track validity
+        let isValid = true;
+
+        // Group radios by name
+        const radioGroups = {};
+        const radios = form.querySelectorAll('input[type="radio"]');
+
+        radios.forEach(radio => {
+            const name = radio.name;
+            if (!radioGroups[name]) {
+                radioGroups[name] = [];
+            }
+            radioGroups[name].push(radio);
+        });
+
+        // Validate each group
+        Object.keys(radioGroups).forEach(groupName => {
+            const group = radioGroups[groupName];
+            const isGroupChecked = group.some(radio => radio.checked);
+
+            group.forEach(radio => {
+                const label = form.querySelector(`label[for="${radio.id}"]`);
+                if (label) {
+                    label.classList.toggle('isRadioError', !isGroupChecked);
+                }
+            });
+
+            if (!isGroupChecked) {
+                isValid = false;
+
+                // Add error label only if not already added
+                const firstRadio = group[0];
+                const container = firstRadio.closest('.custom-radio-group');
+                const errorId = `${firstRadio.name}-error`;
+
+                if (container && !form.querySelector(`#${CSS.escape(errorId)}`)) {
+                    const errorLabel = document.createElement('label');
+                    errorLabel.className = 'error';
+                    errorLabel.id = errorId;
+                    errorLabel.htmlFor = firstRadio.name;
+                    errorLabel.textContent = 'This field is required.';
+
+                    container.after(errorLabel); // Place error after the group
+                }
+            } else {
+                // Remove existing error label if group is now valid
+                const errorLabel = form.querySelector(`label.error[for="${CSS.escape(groupName)}"]`);
+                if (errorLabel) errorLabel.remove();
+            }
+        });
+
+    } else {
+         const form = document.getElementById(formId);
+
+        // Get all groups of radio buttons within the form
+        const radioGroups = {};
+        const radios = form.querySelectorAll('input[type="radio"]');
+
+        radios.forEach(radio => {
+            const name = radio.name;
+            if (!radioGroups[name]) {
+            radioGroups[name] = [];
+            }
+            radioGroups[name].push(radio);
+        });
+
+
+        // Check if each group has one checked radio
+        Object.keys(radioGroups).forEach(groupName => {
+            const group = radioGroups[groupName];
+            const isGroupChecked = group.some(radio => radio.checked);
+
+            group.forEach(radio => {
+            const label = form.querySelector(`label[for="${radio.id}"]`);
+            if (label) {
+                label.classList.toggle('isRadioError', !isGroupChecked);
+            }
+            });
+
+            if (!isGroupChecked) {
+            isValid = false;
+            }
+        });
+    }
+
+}
+
+// Codebtor Functions
+/**
+ * Already saved codebtor
+ */
+function alreadySavedCodebtor(thisObj) {
+    var selectedOption      = $(thisObj).find('option:selected');
+    var codebtor_name       = selectedOption.data('cname');
+    var codebtor_address    = selectedOption.data('address');
+    var codebtor_city       = selectedOption.data('city');
+    var codebtor_state      = selectedOption.data('state');
+    var codebtor_zip        = selectedOption.data('zip');
+
+    var container           = $(thisObj).closest('.codebtor-tab');
+
+    container.find('.cod_name').val(codebtor_name);
+    container.find('.cod_address').val(codebtor_address);
+    container.find('.cod_city').val(codebtor_city);
+    container.find('.cod_state').val(codebtor_state);
+    container.find('.cod_zip').val(codebtor_zip);
+};
+
+// Bank Account Functions
+/**
+ * Check bank account inputs
+ */
+function checkBankAccInputs() {
+
+    // const elements = document.querySelectorAll('.bank-acc-input:not(.hide-data .bank-acc-input)');
+    const elements = Array.from(document.querySelectorAll('.bank-acc-input')).filter(el => {
+        return !el.closest('.hide-data');
+    });
+    
+    let allFilled = true;
+    let bankButton = document.querySelector('.bank-add-more-btn');
+    let firstEmptyElement = null;  
+    let transaction_enabled = $("#bank-addmore-button").attr('data-transaction-enabled');
+
+    elements.forEach(element => {
+        let isEmpty = false;
+        if (element.type === 'radio') {
+            const radioGroup = document.getElementsByName(element.name);
+            const groupChecked = Array.from(radioGroup).some(radio => radio.checked);
+            
+            radioGroup.forEach(radio => {
+                const label = document.querySelector(`label[for="${radio.id}"]`);
+                if (!groupChecked) {
+                    isEmpty = true;
+                    radio.classList.add("error");
+                    if (label) label.classList.add("error");
+                } else {
+                    radio.classList.remove("error");
+                    if (label) label.classList.remove("error");
+                }
+            });
+        } else if (element.tagName.toLowerCase() === 'select') {
+            if (element.value.trim() === '') {
+                isEmpty = true;
+            }
+        } else {
+            if (element.value.trim() === '') {
+                isEmpty = true;
+            }
+        }
+
+        if (isEmpty) {
+            allFilled = false;
+            element.classList.add("error");
+            if (!firstEmptyElement) {
+                firstEmptyElement = element;
+            }
+        } else {
+            element.classList.remove("error");
+        }
+    });
+
+    if (firstEmptyElement) {
+        firstEmptyElement.focus();
+    }
+
+    if (allFilled) {
+        bankButton.classList.remove("bg-gray-imp");
+        bankButton.setAttribute("onclick", "bank_addmore("+transaction_enabled+"); return false;");
+    } else {
+        bankButton.classList.add("bg-gray-imp");
+        bankButton.setAttribute("onclick", "handleBankButtonClick(this);");
+    }
+}
+
+/**
+ * Store previous value for validation
+ */
+/**
+ * Store previous value
+ */
+function storePreviousValue(thisObj) {
+    $(thisObj).attr('data-previousvalue', $(thisObj).val());
+};
+
+/**
+ * Check if three months common
+ */
+function isThreeMonthsCommon(selected_value, class_name) {
+    if (selected_value == 'no') {
+        $("." + class_name).addClass("hide-data");
+        $("." + class_name).find(".price-field").each(function () {
+            $(this).val("");
+        });
+    }
+    if (selected_value == 'yes') {
+        $("." + class_name).removeClass("hide-data");
+    }
+}
+
+/**
+ * Common toggle own by
+ */
+function common_toggle_own_by(value, obj) {
+    var parentDiv = $(obj).closest(".debt_tax_own_by");
+    var targetDiv = parentDiv.siblings(".debt_tax_codebtor_cosigner_data");
+    if (value == 2 || value == 4) {
+        targetDiv.removeClass("hide-data").show();
+    } else if (value == 1 || value == 3) {
+        targetDiv.addClass("hide-data").hide();
+    }
+
+    parentDiv.find("label").removeClass("active");
+    $(obj).addClass("active");
+}
+
+/**
+ * Toggle name to law suit
+ */
+function toggleNameToLawSuit(checkbox) {
+    const formGroup = checkbox.closest('.form-group');
+    const input = formGroup.querySelector('.case_title');
+    if (!input) return;
+
+    // Get all checked names in this form group
+    const checkedNames = Array.from(
+        formGroup.querySelectorAll('.form-check-input:checked')
+    ).map(cb => cb.getAttribute('data-name').trim());
+
+    // Extract the base case title (everything before " V.")
+    let baseTitle = input.value.split(" V.")[0].trim();
+
+    // Rebuild the title
+    if (checkedNames.length > 0) {
+        input.value = `${baseTitle} V. ${checkedNames.join(', ')}`;
+    } else {
+        input.value = baseTitle; // reset to base if no boxes checked
+    }
+}
+
+/**
+ * Common toggle function for showing/hiding elements
+ * @param {string} value - 'yes' or 'no'
+ * @param {string} elementId - Element ID to toggle
+ */
+function common_toggle_fn(value, elementId) {
+    if (value === 'yes') {
+        $('#' + elementId).removeClass('hide-data').addClass('show-data');
+    } else {
+        $('#' + elementId).removeClass('show-data').addClass('hide-data');
+    }
+};
+
 // Export functions for backward compatibility
-window.initializeDatepicker = initializeDatepicker;
 window.updateMonthYearDateFormatInput = updateMonthYearDateFormatInput;
 window.ValidateMonthYearDateInput = ValidateMonthYearDateInput;
 window.isValidMMYYYY = isValidMMYYYY;
 window.isNotFutureDate = isNotFutureDate;
+window.initializeDatepicker = initializeDatepicker;
+window.showConfirmation = showConfirmation;
+window.checkUnknown = checkUnknown;
+window.selectNoToAbove = selectNoToAbove;
+window.setBorderLabel = setBorderLabel;
+window.potentialClaimTypeChanged = potentialClaimTypeChanged;
 window.reindexElements = reindexElements;
 window.reindexCircleNoElements = reindexCircleNoElements;
+window.remove_div_common = remove_div_common;
+window.seperate_remove_div_common = seperate_remove_div_common;
+window.edit_div_common = edit_div_common;
 window.seperate_save = seperate_save;
 window.makeSeperateSaveCall = makeSeperateSaveCall;
-
+window.numberFormatField = numberFormatField;
+window.checkYear = checkYear;
+window.checkValue = checkValue;
+window.is_editable = is_editable;
+window.revalidateFormWithMonthYear = revalidateFormWithMonthYear;
+window.validateFormIds = validateFormIds;
+window.alreadySavedCodebtor = alreadySavedCodebtor;
+window.checkBankAccInputs = checkBankAccInputs;
+window.storePreviousValue = storePreviousValue;
+window.isThreeMonthsCommon = isThreeMonthsCommon;
+window.common_toggle_own_by = common_toggle_own_by;
+window.toggleNameToLawSuit = toggleNameToLawSuit;
+window.common_toggle_fn = common_toggle_fn;

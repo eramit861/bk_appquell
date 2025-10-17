@@ -33,7 +33,67 @@ function getPreviouslylistedItems(value) {
     }
 }
 
+// ==================== FARM & COMMERCIAL TOGGLE FUNCTIONS ====================
+
+function getFarmAnimalsItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("farm_animals_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document.getElementById("farm_animals_data").classList.add("hide-data");
+    }
+}
+
+function getCropsItems(value) {
+    if (value == "yes") {
+        document.getElementById("crops_data").classList.remove("hide-data");
+    } else if (value == "no") {
+        document.getElementById("crops_data").classList.add("hide-data");
+    }
+}
+
+function getCommercialFishingEquipmentItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("commercial_fishing_equipment_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("commercial_fishing_equipment_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getCommercialFishingItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("commercial_fishing_supplies_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("commercial_fishing_supplies_data")
+            .classList.add("hide-data");
+    }
+}
+
+function getCommercialFishingPropertyItems(value) {
+    if (value == "yes") {
+        document
+            .getElementById("commercial_fishing_property_data")
+            .classList.remove("hide-data");
+    } else if (value == "no") {
+        document
+            .getElementById("commercial_fishing_property_data")
+            .classList.add("hide-data");
+    }
+}
+
 // Export functions for backward compatibility
 window.initializePropertyStep7 = initializePropertyStep7;
 window.getPreviouslylistedItems = getPreviouslylistedItems;
-
+window.getFarmAnimalsItems = getFarmAnimalsItems;
+window.getCropsItems = getCropsItems;
+window.getCommercialFishingEquipmentItems = getCommercialFishingEquipmentItems;
+window.getCommercialFishingItems = getCommercialFishingItems;
+window.getCommercialFishingPropertyItems = getCommercialFishingPropertyItems;

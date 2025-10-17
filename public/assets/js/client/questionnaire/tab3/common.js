@@ -43,7 +43,7 @@ function initializeFormValidation() {
 /**
  * Submit multiple debt forms with validation
  */
-window.submitdebtForms = function(formName, formName2 = '', formName3 = '', formName4 = '') {
+function submitdebtForms(formName, formName2 = '', formName3 = '', formName4 = '') {
     var debtFormName = [formName]
     if (formName2 != '') {
         debtFormName.push(formName2)
@@ -433,7 +433,7 @@ function initializeEventHandlers() {
 
 // ==================== CHECKBOX SELECTION FUNCTIONS ====================
 
-window.setSelectAll = function(thisObj) {
+function setSelectAll(thisObj) {
     var inputName = $(thisObj).data('inputname');
     var inputFor = $(thisObj).data('inputfor');
     if ($(thisObj).is(':checked')) {
@@ -446,7 +446,7 @@ window.setSelectAll = function(thisObj) {
     setSpaceSeperatedString(inputName, inputFor);
 };
 
-window.setJustOne = function(thisObj) {
+function setJustOne(thisObj) {
     var inputName = $(thisObj).data('inputname');
     var inputFor = $(thisObj).data('inputfor');
 
@@ -462,7 +462,7 @@ window.setJustOne = function(thisObj) {
     setSpaceSeperatedString(inputName, inputFor);
 };
 
-window.setSpaceSeperatedString = function(inputName, inputFor) {
+function setSpaceSeperatedString(inputName, inputFor) {
     var checkedYears = [];
     $("input[type='checkbox'].justone." + inputFor + ":checked").each(function() {
         checkedYears.push($(this).val());
@@ -474,11 +474,11 @@ window.setSpaceSeperatedString = function(inputName, inputFor) {
 
 // ==================== UTILITY FUNCTIONS ====================
 
-window.replaceAll = function(str, term, replacement) {
+function replaceAll(str, term, replacement) {
     return str.replace(new RegExp(escapeRegExp(term), 'g'), replacement);
 };
 
-window.escapeRegExp = function(string) {
+function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
 
@@ -492,6 +492,47 @@ $(function() {
     initializeEventHandlers();
 });
 
+
+/**
+ * Set lawsuit title based on creditor selection
+ */
+function setLawsuitTitle(debtType = '', debtIndex, label = '') {
+    if (debtType == '') {
+        debtType = $(`[name="debt_tax[cards_collections][${debtIndex}]"]`).val();
+    }
+
+    if (debtType == 6) {
+        let originalCreditorVal = $(`[name="debt_tax[original_creditor][${debtIndex}]"]:checked`).val();
+        let creditorNameVal = $(`[name="debt_tax[creditor_name][${debtIndex}]"]`).val();
+        let secondCreditorNameVal = $(`[name="debt_tax[second_creditor_name][${debtIndex}]"]`).val();
+        let $caseTitleInput = $(`[name="debt_tax[list_lawsuits_data][case_title][${debtIndex}]"]`);
+
+        if (label != '') {
+            creditorNameVal = label;
+            secondCreditorNameVal = label;
+        }
+
+        let baseTitle = "";
+        if (originalCreditorVal == "1") {
+            baseTitle = creditorNameVal;
+        } else if (originalCreditorVal == "0") {
+            baseTitle = secondCreditorNameVal;
+        }
+
+        let currentValue = $caseTitleInput.val();
+        let existingNames = "";
+        if (currentValue.includes(" V.")) {
+            existingNames = currentValue.split(" V.")[1].trim();
+        }
+
+        if (existingNames) {
+            $caseTitleInput.val(`${baseTitle} V. ${existingNames}`);
+        } else {
+            $caseTitleInput.val(baseTitle);
+        }
+    }
+};
+
 // Export functions for backward compatibility
 window.initializeFormValidation = initializeFormValidation;
 window.initializeAutocomplete = initializeAutocomplete;
@@ -501,29 +542,7 @@ window.submitdebtForms = submitdebtForms;
 window.setSelectAll = setSelectAll;
 window.setJustOne = setJustOne;
 window.setSpaceSeperatedString = setSpaceSeperatedString;
-window.unknownChecked = unknownChecked;
-window.liensUnknownChecked = liensUnknownChecked;
-window.getTaxowned = getTaxowned;
-window.checkAC = checkAC;
-window.getTaxowned_IRS = getTaxowned_IRS;
-window.getAnotherDebts = getAnotherDebts;
-window.removeDomesticForm = removeDomesticForm;
-window.removeAdditionalLiensForm = removeAdditionalLiensForm;
-window.getAddress = getAddress;
-window.getDomesticAddress = getDomesticAddress;
-window.getirsAddress = getirsAddress;
-window.isThreeMonthsCommon = isThreeMonthsCommon;
-window.isThreeMonthAddLiens = isThreeMonthAddLiens;
-window.cardCollectionChanged = cardCollectionChanged;
 window.setLawsuitTitle = setLawsuitTitle;
-window.openGraphqlComfirmPopup = openGraphqlComfirmPopup;
-window.confirmAllAIPendingToInclude = confirmAllAIPendingToInclude;
-window.confirmCreditor = confirmCreditor;
-window.opengetReportPopup = opengetReportPopup;
-window.videoPreviewFunction = videoPreviewFunction;
 window.replaceAll = replaceAll;
 window.escapeRegExp = escapeRegExp;
-window.openFreeReportGuide = openFreeReportGuide;
-window.creditReportUploadBtnClick = creditReportUploadBtnClick;
-window.creditReportUploadBtnSelect = creditReportUploadBtnSelect;
 

@@ -683,7 +683,7 @@
     @stack('utility_scripts')
 
     {{-- Common Questionnaire Utilities (loaded before questionarrie.js) --}}
-    <script src="{{ asset('assets/js/client/questionnaire/common-utilities.js') }}?v=1.04"></script>
+    <script src="{{ asset('assets/js/client/questionnaire/common-utilities.js') }}?v=1.06"></script>
 
     {{-- <script src="{{ asset('assets/js/questionarrie.js') }}?v=20.08"></script> --}}
     

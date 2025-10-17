@@ -2214,42 +2214,6 @@ function showHidePropertyLoan(value, obj) {
 }
 
 /**
- * Show/hide loan property object section
- * @param {string} value - 'yes' or 'no'
- * @param {HTMLElement} obj - Element that triggered the change
- */
-function laon_property_obj(value, obj) {
-    if (value == "yes") {
-        $(obj)
-            .parents(".laon_property_obj_data")
-            .next(".loan_own_type_property_sec")
-            .removeClass("hide-data");
-        $(obj)
-            .parents(".laon_property_obj_data")
-            .next("div")
-            .next(".loan_own_type_property_sec")
-            .removeClass("hide-data");
-        $(".additional_loan1").removeAttr("checked");
-        $(".additional_loan2").removeAttr("checked");
-        $(".section_additional_loan").addClass("hide-data");
-        $(".section_additional_loan").addClass("hide-data");
-        $("#additional_loan1").attr("checked", true);
-        $("#additional_loan2_no").attr("checked", true);
-    } else if (value == "no") {
-        $(obj)
-            .parents(".laon_property_obj_data")
-            .next(".loan_own_type_property_sec")
-            .addClass("hide-data");
-        $(obj)
-            .parents(".laon_property_obj_data")
-            .next("div")
-            .next(".loan_own_type_property_sec")
-            .addClass("hide-data");
-    }
-    $(obj).closest('.vehicle-info-div').find('.vehicle-save-div').removeClass('hide-data')
-}
-
-/**
  * Show/hide vehicle page listing based on ownership
  * @param {string} value - 'yes' or 'no'
  * @param {HTMLElement} obj - Element that triggered the change
@@ -2331,7 +2295,6 @@ window.saveResident = saveResident;
 window.getOwnTypeProperty = getOwnTypeProperty;
 window.showHidePropertySizeDiv = showHidePropertySizeDiv;
 window.showHidePropertyLoan = showHidePropertyLoan;
-window.laon_property_obj = laon_property_obj;
 window.getOwnTypeProperty_obj = getOwnTypeProperty_obj;
 window.checkResidentSelection = checkResidentSelection;
 

@@ -8,46 +8,40 @@
 /**
  * Toggle back taxes section
  */
-window.getTaxowned = function(value) {
+function getTaxowned(value) {
+    const taxOwnedState = document.getElementById('tax-owned-state');
+    const taxOwnedStateAddMore = document.getElementById('tax-owned-state-add-more');
+
     if (value == 'yes') {
-        document.getElementById('tax-owned-state').classList.remove("hide-data");
-        document.getElementById('tax-owned-state-add-more').classList.remove("hide-data");
+        if (taxOwnedState) taxOwnedState.classList.remove("hide-data");
+        if (taxOwnedStateAddMore) taxOwnedStateAddMore.classList.remove("hide-data");
         $('.back_tax_note').removeClass('hide-data');
-    } else if (value == 'no') {
-        document.getElementById('tax-owned-state').classList.add("hide-data");
-        document.getElementById('tax-owned-state-add-more').classList.add("hide-data");
+    } else if (value == 'no') {        
+        if (taxOwnedState) taxOwnedState.classList.add("hide-data");
+        if (taxOwnedStateAddMore) taxOwnedStateAddMore.classList.add("hide-data");
         $('.back_tax_note').addClass('hide-data');
     }
-};
-
-/**
- * Toggle IRS taxes section
- */
-window.getTaxowned_IRS = function(value) {
-    if (value == 'yes') {
-        // IRS section show logic
-    } else if (value == 'no') {
-        // IRS section hide logic
-    }
-};
+}
 
 /**
  * Toggle domestic support debts section
  */
-window.getAnotherDebts = function(value) {
+function getAnotherDebts(value) {
+    const allDependents = document.getElementById('all_dependents');
+    
     if (value == 'yes') {
-        document.getElementById('all_dependents').classList.remove("hide-data");
+        if (allDependents) allDependents.classList.remove("hide-data");
     } else if (value == 'no') {
-        document.getElementById('all_dependents').classList.add("hide-data");
+        if (allDependents) allDependents.classList.add("hide-data");
     }
-};
+}
 
 // ==================== UNKNOWN CHECKBOX FUNCTIONS ====================
 
 /**
  * Toggle unknown date for back taxes
  */
-window.unknownChecked = function(index) {
+function unknownChecked(index) {
     if ($("#debt_date_unknown_" + index).is(':checked')) {
         $("input[name='debt_tax[debt_date][" + index + "]']").val('');
         $("input[name='debt_tax[debt_date][" + index + "]']").attr('readonly', 'readonly');
@@ -57,12 +51,12 @@ window.unknownChecked = function(index) {
         $("input[name='debt_tax[debt_date][" + index + "]']").removeAttr('readonly');
         $("input[name='debt_tax[debt_date][" + index + "]']").addClass('required');
     }
-};
+}
 
 /**
  * Toggle unknown date for additional liens
  */
-window.liensUnknownChecked = function(index) {
+function liensUnknownChecked(index) {
     if ($("#additional_liens_date_unknown_" + index).is(':checked')) {
         $("input[name='additional_liens_data[additional_liens_date][" + index + "]']").val('');
         $("input[name='additional_liens_data[additional_liens_date][" + index + "]']").attr('readonly', 'readonly');
@@ -72,14 +66,14 @@ window.liensUnknownChecked = function(index) {
         $("input[name='additional_liens_data[additional_liens_date][" + index + "]']").removeAttr('readonly');
         $("input[name='additional_liens_data[additional_liens_date][" + index + "]']").addClass('required');
     }
-};
+}
 
 // ==================== THREE MONTHS PAYMENT TOGGLE ====================
 
 /**
  * Toggle three months payment section for additional liens
  */
-window.isThreeMonthAddLiens = function(selected_value, index) {
+function isThreeMonthAddLiens(selected_value, index) {
     if (selected_value == 'no') {
         $(".add_liens_three_months_div_" + index).addClass("hide-data");
         $(".add_liens_three_months_div_" + index).find(".price-field").each(function() {
@@ -89,36 +83,36 @@ window.isThreeMonthAddLiens = function(selected_value, index) {
     if (selected_value == 'yes') {
         $(".add_liens_three_months_div_" + index).removeClass("hide-data");
     }
-};
+}
 
 // ==================== FORM REMOVAL FUNCTIONS ====================
 
 /**
  * Remove domestic support form
  */
-window.removeDomesticForm = function(obj) {
+function removeDomesticForm(obj) {
     if (obj.parentNode.className == 'row') {
         obj.parentNode.parentNode.removeChild(obj.parentNode);
         counter--;
     }
-};
+}
 
 /**
  * Remove additional liens form
  */
-window.removeAdditionalLiensForm = function(obj) {
+function removeAdditionalLiensForm(obj) {
     if (obj.parentNode.className == 'row') {
         obj.parentNode.parentNode.removeChild(obj.parentNode);
         counter--;
     }
-};
+}
 
 // ==================== ADDRESS LOOKUP FUNCTIONS ====================
 
 /**
  * Get address for back taxes by state
  */
-window.getAddress = function(selectObject, sr) {
+function getAddress(selectObject, sr) {
     var scode = selectObject.value;
     var ids = selectObject.id;
     var rrs = ids.split('_');
@@ -139,12 +133,12 @@ window.getAddress = function(selectObject, sr) {
             $("#address_" + rrs[1]).html('<p>' + value.add1 + '<br>' + addline2 + addline3 + value.city + ', ' + value.code + ', ' + value.zip + '</p>');
         }
     });
-};
+}
 
 /**
  * Get address for domestic support by state
  */
-window.getDomesticAddress = function(selectObject, sr) {
+function getDomesticAddress(selectObject, sr) {
     var scode = selectObject.value;
     var ids = selectObject.id;
     var rrs = ids.split('_');
@@ -165,12 +159,12 @@ window.getDomesticAddress = function(selectObject, sr) {
             }
         }
     });
-};
+}
 
 /**
  * Get IRS address by state
  */
-window.getirsAddress = function(selectObject) {
+function getirsAddress(selectObject) {
     var scode = selectObject.value;
     var addresslist = window.__debtStep2Data?.addressList || [];
     
@@ -180,28 +174,14 @@ window.getirsAddress = function(selectObject) {
             $("#irs_state_desc").html('<p>' + value.add1 + '<br>' + value.add2 + '</p>');
         }
     });
-};
+}
 
 // ==================== CREDIT REPORT FUNCTIONS ====================
 
 /**
- * Initialize credit report functionality
- */
-function initializeCreditReport() {
-    // Auto-trigger credit report popups based on server-side conditions
-    if (window.__debtStep2Data?.showGraphqlComfirmPopup === true) {
-        openGraphqlComfirmPopup();
-    }
-    
-    if (window.__debtStep2Data?.showGetReportPopup === true) {
-        opengetReportPopup();
-    }
-}
-
-/**
  * Open GraphQL confirm popup
  */
-window.openGraphqlComfirmPopup = function() {
+function openGraphqlComfirmPopup() {
     var url = window.__debtStep2Routes?.confirmCreditPopup || '';
     laws.ajax(url, { client_id: 'null' }, function(response) {
         var res = JSON.parse(response);
@@ -221,12 +201,12 @@ window.openGraphqlComfirmPopup = function() {
             }
         }
     });
-};
+}
 
 /**
  * Confirm all AI pending to include
  */
-window.confirmAllAIPendingToInclude = function(confirm_type='') {
+function confirmAllAIPendingToInclude(confirm_type='') {
     var url = window.__debtStep2Routes?.confirmCreditReport || '';
     laws.ajax(url, {
         report_id: null,
@@ -243,12 +223,12 @@ window.confirmAllAIPendingToInclude = function(confirm_type='') {
             }
         }
     });
-};
+}
 
 /**
  * Confirm individual creditor
  */
-window.confirmCreditor = function(report_id, status) {
+function confirmCreditor(report_id, status) {
     var url = window.__debtStep2Routes?.confirmCreditReport || '';
     laws.ajax(url, {
         report_id: report_id,
@@ -270,12 +250,12 @@ window.confirmCreditor = function(report_id, status) {
             }
         }
     });
-};
+}
 
 /**
  * Open get report popup
  */
-window.opengetReportPopup = function() {
+function opengetReportPopup() {
     var url = window.__debtStep2Routes?.openGetReportPopup || '';
     laws.ajax(url, {
         client_id: 'null'
@@ -297,12 +277,12 @@ window.opengetReportPopup = function() {
             }
         }
     });
-};
+}
 
 /**
  * Video preview function for credit report guide
  */
-window.videoPreviewFunction = function(element) {
+function videoPreviewFunction(element) {
     const language = window.__debtStep2Data?.language || 'en';
     const videoEn = $(element).data('video');
     const videoSp = $(element).data('video2');
@@ -322,19 +302,19 @@ window.videoPreviewFunction = function(element) {
         $('.copy_cc_r').addClass('blink');
         $('.copy_cc_r').addClass('text-c-red');
     }, 40000);
-};
+}
 
 /**
  * Open free report guide
  */
-window.openFreeReportGuide = function(){
+function openFreeReportGuide(){
     laws.updateFaceboxContent($('#report_guide_img').html(), 'fbminwidth productQuickView quickinfor');
-};
+}
 
 /**
  * Credit report upload button click
  */
-window.creditReportUploadBtnClick = function(anchorElement, input_id) {
+function creditReportUploadBtnClick(anchorElement, input_id) {
     if (!$(anchorElement).hasClass('upload-active')) {
         $(anchorElement).addClass('upload-active');
     }
@@ -347,12 +327,12 @@ window.creditReportUploadBtnClick = function(anchorElement, input_id) {
             $(anchorElement).removeClass('upload-active');
         }
     }, 3000);
-};
+}
 
 /**
  * Credit report upload file selected
  */
-window.creditReportUploadBtnSelect = function(event, document_type, dataFor) {
+function creditReportUploadBtnSelect(event, document_type, dataFor) {
     var formData = new FormData();
     formData.append('document_type', document_type);
     
@@ -390,7 +370,7 @@ window.creditReportUploadBtnSelect = function(event, document_type, dataFor) {
             console.log("error", response.status, response.msg);
         }
     });
-};
+}
 
 // ==================== INITIALIZATION ====================
 
@@ -416,10 +396,7 @@ function initializeCreditReport() {
 }
 
 // Export functions for backward compatibility
-window.initializeStep2Validation = initializeCreditReport;
-window.initializeCreditReport = initializeCreditReport;
 window.getTaxowned = getTaxowned;
-window.getTaxowned_IRS = getTaxowned_IRS;
 window.getAnotherDebts = getAnotherDebts;
 window.unknownChecked = unknownChecked;
 window.liensUnknownChecked = liensUnknownChecked;
@@ -429,6 +406,7 @@ window.removeAdditionalLiensForm = removeAdditionalLiensForm;
 window.getAddress = getAddress;
 window.getDomesticAddress = getDomesticAddress;
 window.getirsAddress = getirsAddress;
+window.initializeCreditReport = initializeCreditReport;
 window.openGraphqlComfirmPopup = openGraphqlComfirmPopup;
 window.confirmAllAIPendingToInclude = confirmAllAIPendingToInclude;
 window.confirmCreditor = confirmCreditor;

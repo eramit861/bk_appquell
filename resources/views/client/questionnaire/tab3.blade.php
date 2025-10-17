@@ -173,7 +173,7 @@
     @endif
     
     @if(isset($debt_step) && $debt_step == 'back_tax')
-        <script src="{{ asset('assets/js/client/questionnaire/tab3/step2.js') }}?v=1.01"></script>
+        <script src="{{ asset('assets/js/client/questionnaire/tab3/step2.js') }}?v=1.02"></script>
     @endif
 @endpush
 
